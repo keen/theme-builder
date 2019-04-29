@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Builder /> Builder component renders correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Builder component renders correctly 1`] = `ShallowWrapper {}`;
