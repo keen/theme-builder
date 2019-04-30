@@ -39,8 +39,8 @@ describe('<Builder />', () => {
   })
 
   it('should render color palette item once click on Add button', () => {
-    wrapper.find('.color-palette__wrapper button').simulate('click');
-    expect(wrapper.find('.color-palette-item').length).toBe(1);
+    wrapper.find('.color-palette__list .btn-add').simulate('click');
+    expect(wrapper.find('.color-palette__item').length).toBe(1);
   });
 
   it('should render default color value for title color input', () => {
@@ -55,7 +55,7 @@ describe('<Builder />', () => {
     });
 
     it('should set chosen color palette if provided in props', () => {
-      expect(wrapper.find('.color-palette-item').length).toBe(chartColorPalette['modern'].length);
+      expect(wrapper.find('.color-palette__item').length).toBe(chartColorPalette['modern'].length);
     });
 
     it('should update state with chosen color palette', () => {
@@ -63,13 +63,13 @@ describe('<Builder />', () => {
     });
 
     it('should add additional color to chosen palette once click on Add button', () => {
-      wrapper.find('.color-palette__wrapper button').last().simulate('click');
-      expect(wrapper.find('.color-palette-item').length).toBe(chartColorPalette['modern'].length + 1);
+      wrapper.find('.color-palette__list button').last().simulate('click');
+      expect(wrapper.find('.color-palette__item').length).toBe(chartColorPalette['modern'].length + 1);
     });
 
     it('should remove color from custom color palette once click on Remove button', () => {
-      wrapper.find('.color-palette__wrapper .color-palette-button').last().simulate('click');
-      expect(wrapper.find('.color-palette-item').length).toBe(chartColorPalette['modern'].length - 1);
+      wrapper.find('.color-palette__list .btn-remove').last().simulate('click');
+      expect(wrapper.find('.color-palette__item').length).toBe(chartColorPalette['modern'].length - 1);
     });
   })
 });
