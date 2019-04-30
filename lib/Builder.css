@@ -9,9 +9,13 @@ html {
   padding: 1rem;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(2, calc(50% - 0.5rem));
+  grid-template-columns: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #F3F4F7;
+
+  @media (min-width: 800px) {
+    grid-template-columns: repeat(2, calc(50% - 0.5rem));
+  }
 
   .builder {
 
@@ -93,22 +97,50 @@ html {
 
   .color-palette {
 
-    &__wrapper {
+    &__list {
+      margin: 0;
+      padding: 0;
+      min-height: 40px;
+      list-style: none;
       display: inline-flex;
       flex-wrap: wrap;
+      align-items: center;
+
+      .placeholder {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        padding: 2px;
+        border: 2px solid lightgray;
+        background: gray;
+        border-radius: 50%;
+        font-size: 10px;
+      }
     }
 
-    &-item {
+    &__item {
       position: relative;
 
       &:hover {
-        .color-palette-button {
+        .btn-remove {
           display: block;
         }
       }
     }
 
-    &-button {
+    &__button {
+      cursor: pointer;
+      border-radius: 0;
+      border: 1px solid currentColor;
+
+      &:hover {
+        background-color: #d6d6d6;
+      }
+    }
+
+    .btn-remove {
       display: none;
       position: absolute;
       z-index: 100;
@@ -118,9 +150,14 @@ html {
       cursor: pointer;
     }
 
+    .btn-add {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+
     &__trigger {
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       padding: 2px;
       border: 2px solid lightgray;
       border-radius: 50%;
@@ -170,4 +207,20 @@ html {
       }
     }
   }
+
+  .dragging {
+    .color-palette__item {
+      .color-palette__button {
+        display: none;
+      }
+    }
+  }
+}
+
+.drag-image {
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  background: gray;
+  color: #fff;
+  transform: translateX(-100vw)
 }
