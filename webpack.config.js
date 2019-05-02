@@ -1,10 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const extendedPath = path.resolve(__dirname, 'dist');
 
 const fileName = 'main';
-const entry = ( process.env.NODE_ENV === 'development' ) ? './test/demo/example/index.js' : './lib/Builder.js' ;
+// const entry = ( process.env.NODE_ENV === 'development' ) ? './test/demo/example/index.js' : './lib/Builder.js' ;
+const entry = './test/demo/example/index.js';
 
 module.exports = {
   entry,
@@ -54,6 +56,14 @@ module.exports = {
     ],
 
   },
+
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './test/demo/index.html',
+      filename: './index.html',
+      title: 'Theme Builder'
+    })
+  ],
 
   resolve: {
     modules: [
