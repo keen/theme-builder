@@ -14,7 +14,7 @@
     "postversion": "git push && git push --tags",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build:gh-pages",
     "deploy": "gh-pages -d dist"
   },
   "bugs": "https://github.com/keen/keen-react-charts/issues",
