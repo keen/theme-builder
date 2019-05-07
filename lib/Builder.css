@@ -40,8 +40,12 @@ html {
     &__default-charts {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 1fr;
+      grid-auto-rows: auto;
       grid-gap: 1rem;
+
+      .keen-dataviz {
+        height: 350px;
+      }
     }
   }
 
