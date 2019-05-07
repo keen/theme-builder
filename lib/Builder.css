@@ -45,6 +45,7 @@ html {
 
       .keen-dataviz {
         height: 350px;
+        min-width: 0;
       }
     }
   }
