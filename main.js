@@ -209,7 +209,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 react_lowlight__WEBPACK_IMPORTED_MODULE_3___default.a.registerLanguage('css', highlight_js_lib_languages_css__WEBPACK_IMPORTED_MODULE_4___default.a);
 react_lowlight__WEBPACK_IMPORTED_MODULE_3___default.a.registerLanguage('js', highlight_js_lib_languages_javascript__WEBPACK_IMPORTED_MODULE_5___default.a);
 var placeholder = document.createElement('li');
-placeholder.className = 'placeholder';
+placeholder.className = 'placeholder'; // drag n drop containers
+
+var dragFrom;
+var dragTo;
 
 var Builder =
 /*#__PURE__*/
@@ -251,37 +254,31 @@ function (_Component) {
       event.preventDefault();
       var currentTarget = event.currentTarget;
       currentTarget.parentNode.insertBefore(placeholder, currentTarget);
-
-      _this.setState({
-        dragTo: Number(currentTarget.id)
-      });
+      dragTo = Number(currentTarget.id);
     };
 
     _this.handleDragEnd = function () {
       document.querySelector('.drag-image').remove();
       placeholder.remove();
-      var _this$state = _this.state,
-          colors = _this$state.colors,
-          to = _this$state.dragTo;
-      var from = _this.state.dragFrom;
-      if (from < to) to--;
-      colors.splice.apply(colors, [to, 0].concat(_toConsumableArray(colors.splice(from, 1))));
+
+      _this.colorList.current.classList.remove('dragging');
+
+      var colors = _this.state.colors;
+      if (dragFrom < dragTo) dragTo--;
+      colors.splice.apply(colors, [dragTo, 0].concat(_toConsumableArray(colors.splice(dragFrom, 1))));
 
       _this.setState({
-        colors: colors,
-        isDragging: false
+        colors: colors
       });
     };
 
+    _this.colorList = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     _this.state = {
       activePickerId: '',
       picker: props.picker,
       colors: _config__WEBPACK_IMPORTED_MODULE_9__["chartColorPalette"][props.chartPalette] || props.colors,
       chartType: props.chartType,
-      chartPalette: props.chartPalette,
-      isDragging: false,
-      dragFrom: '',
-      dragTo: ''
+      chartPalette: props.chartPalette
     };
     return _this;
   }
@@ -354,23 +351,21 @@ function (_Component) {
       event.dataTransfer.effectAllowed = 'move';
       event.dataTransfer.setData('text/html', event.currentTarget);
       event.dataTransfer.setDragImage(dragImage, 20, 20);
-      this.setState({
-        isDragging: true,
-        dragFrom: Number(event.currentTarget.id)
-      });
+      dragFrom = Number(event.currentTarget.id);
+      this.colorList.current.classList.add('dragging');
     }
   }, {
     key: "renderList",
     value: function renderList(colors) {
       var _this3 = this;
 
-      var ulClassName = this.state.isDragging ? 'color-palette__list dragging' : 'color-palette__list';
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "color-palette"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "builder__subheader"
       }, "Build custom chart palette"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: ulClassName
+        className: "color-palette__list",
+        ref: this.colorList
       }, colors.map(function (color, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           id: index,
@@ -3064,7 +3059,7 @@ exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/li
 
 
 // module
-exports.push([module.i, "html {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n*, *:before, *:after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n\n.keen-theme-builder {\n  padding: 1rem;\n  display: grid;\n  grid-gap: 1rem;\n  grid-template-columns: 100%;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  background-color: #F3F4F7;\n}\n\n@media (min-width: 800px) {\n  .keen-theme-builder {\n    grid-template-columns: auto 66%;\n  }\n}\n\n.keen-theme-builder .builder__config,\n    .keen-theme-builder .builder__mockup {\n      padding: 1rem;\n      background-color: #fff;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n    }\n\n.keen-theme-builder .builder__select {\n      display: block;\n      margin: 0.5rem 0;\n    }\n\n.keen-theme-builder .builder__editor {\n      padding: 10px;\n      border: 1px solid #d6d6d6;\n      background-color: #fff;\n    }\n\n.keen-theme-builder .builder__default-charts {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      grid-auto-rows: auto;\n      grid-gap: 1rem;\n    }\n\n.keen-theme-builder .builder__default-charts .keen-dataviz {\n        height: 350px;\n      }\n\n.keen-theme-builder .color-picker {\n    position: relative;\n    margin-bottom: 1rem;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n\n.keen-theme-builder .color-picker__label {\n      margin-bottom: 0.5rem;\n      font-weight: bold;\n    }\n\n.keen-theme-builder .color-picker__wrapper {\n      padding: 0.25rem 0.5rem;\n      display: -ms-inline-flexbox;\n      display: inline-flex;\n      -ms-flex-align: center;\n          align-items: center;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n      border-radius: 3px;\n      border: 1px solid lightgray;\n    }\n\n.keen-theme-builder .color-picker__input {\n      border: none;\n      outline: none;\n      background: transparent;\n    }\n\n.keen-theme-builder .color-picker__trigger {\n      width: 15px;\n      height: 15px;\n      padding: 2px;\n      border: 1px solid lightgray;\n      border-radius: 50%;\n      cursor: pointer;\n      -webkit-transition: all 300ms ease;\n      -o-transition: all 300ms ease;\n      transition: all 300ms ease\n    }\n\n.keen-theme-builder .color-picker__trigger:hover {\n  -webkit-transform: scale(1.15);\n      -ms-transform: scale(1.15);\n          transform: scale(1.15);\n}\n\n.keen-theme-builder .color-picker__popover {\n      position: absolute;\n      top: 0;\n      left: 100%;\n      z-index: 2;\n    }\n\n.keen-theme-builder .color-picker__cover {\n      position: fixed;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      z-index: -1;\n    }\n\n.keen-theme-builder .color-palette__list {\n      margin: 0;\n      padding: 0;\n      min-height: 40px;\n      list-style: none;\n      display: -ms-inline-flexbox;\n      display: inline-flex;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n      -ms-flex-align: center;\n          align-items: center;\n    }\n\n.keen-theme-builder .color-palette__list .placeholder {\n        display: -ms-inline-flexbox;\n        display: inline-flex;\n        -ms-flex-align: center;\n            align-items: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n        width: 40px;\n        height: 40px;\n        padding: 2px;\n        border: 2px solid lightgray;\n        background: gray;\n        border-radius: 50%;\n        font-size: 10px;\n      }\n\n.keen-theme-builder .color-palette__item {\n      position: relative\n    }\n\n.keen-theme-builder .color-palette__item:hover .btn-remove {\n          display: block;\n}\n\n.keen-theme-builder .color-palette__button {\n      cursor: pointer;\n      border-radius: 0;\n      border: 1px solid currentColor\n    }\n\n.keen-theme-builder .color-palette__button:hover {\n  background-color: #d6d6d6;\n}\n\n.keen-theme-builder .color-palette .btn-remove {\n      display: none;\n      position: absolute;\n      z-index: 100;\n      bottom: 100%;\n      left: 50%;\n      -webkit-transform: translateX(-50%);\n          -ms-transform: translateX(-50%);\n              transform: translateX(-50%);\n      cursor: pointer;\n    }\n\n.keen-theme-builder .color-palette .btn-add {\n      margin-left: 0.5rem;\n      margin-right: 0.5rem;\n    }\n\n.keen-theme-builder .color-palette__trigger {\n      width: 30px;\n      height: 30px;\n      padding: 2px;\n      border: 2px solid lightgray;\n      border-radius: 50%;\n      cursor: pointer;\n      -webkit-transition: all 300ms ease;\n      -o-transition: all 300ms ease;\n      transition: all 300ms ease\n    }\n\n.keen-theme-builder .color-palette__trigger:hover {\n  -webkit-transform: scale(1.15);\n      -ms-transform: scale(1.15);\n          transform: scale(1.15);\n}\n\n.keen-theme-builder .keen-dataviz {\n    height: 50vh;\n    padding: 1rem;\n    background-color: #fff;\n    border: 1px solid #d6d6d6;\n}\n\n.keen-theme-builder .react-tabs__tab:focus {\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.keen-theme-builder .react-tabs__tab:focus:after {\n  content: none;\n}\n\n.keen-theme-builder .react-tabs__tab-list {\n        margin: 0;\n        border-color: #d6d6d6;\n}\n\n.keen-theme-builder .react-tabs__tab-panel {\n        padding: 1rem;\n        background-color: #F3F4F7;\n        border-color: #d6d6d6;\n        border-style: solid;\n        border-width: 0 1px 1px 1px;\n}\n\n.keen-theme-builder .react-tabs__tab--selected {\n        border-color: #d6d6d6;\n        background-color: #F3F4F7;\n}\n\n.keen-theme-builder .dragging .color-palette__item .color-palette__button {\n        display: none;\n      }\n\n.drag-image {\n  padding: 0.25rem 0.5rem;\n  display: inline-block;\n  background: gray;\n  color: #fff;\n  -webkit-transform: translateX(-100vw);\n      -ms-transform: translateX(-100vw);\n          transform: translateX(-100vw)\n}", ""]);
+exports.push([module.i, "html {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n}\n*, *:before, *:after {\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n}\n\n.keen-theme-builder {\n  padding: 1rem;\n  display: grid;\n  grid-gap: 1rem;\n  grid-template-columns: 100%;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  background-color: #F3F4F7;\n}\n\n@media (min-width: 800px) {\n  .keen-theme-builder {\n    grid-template-columns: auto 66%;\n  }\n}\n\n.keen-theme-builder .builder__config,\n    .keen-theme-builder .builder__mockup {\n      padding: 1rem;\n      background-color: #fff;\n      -webkit-box-sizing: border-box;\n              box-sizing: border-box;\n    }\n\n.keen-theme-builder .builder__select {\n      display: block;\n      margin: 0.5rem 0;\n    }\n\n.keen-theme-builder .builder__editor {\n      padding: 10px;\n      border: 1px solid #d6d6d6;\n      background-color: #fff;\n    }\n\n.keen-theme-builder .builder__default-charts {\n      display: grid;\n      grid-template-columns: repeat(2, 1fr);\n      grid-auto-rows: auto;\n      grid-gap: 1rem;\n    }\n\n.keen-theme-builder .builder__default-charts .keen-dataviz {\n        height: 350px;\n      }\n\n.keen-theme-builder .color-picker {\n    position: relative;\n    margin-bottom: 1rem;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-direction: column;\n        flex-direction: column;\n}\n\n.keen-theme-builder .color-picker__label {\n      margin-bottom: 0.5rem;\n      font-weight: bold;\n    }\n\n.keen-theme-builder .color-picker__wrapper {\n      padding: 0.25rem 0.5rem;\n      display: -ms-inline-flexbox;\n      display: inline-flex;\n      -ms-flex-align: center;\n          align-items: center;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n      border-radius: 3px;\n      border: 1px solid lightgray;\n    }\n\n.keen-theme-builder .color-picker__input {\n      border: none;\n      outline: none;\n      background: transparent;\n    }\n\n.keen-theme-builder .color-picker__trigger {\n      width: 15px;\n      height: 15px;\n      padding: 2px;\n      border: 1px solid lightgray;\n      border-radius: 50%;\n      cursor: pointer;\n      -webkit-transition: all 300ms ease;\n      -o-transition: all 300ms ease;\n      transition: all 300ms ease\n    }\n\n.keen-theme-builder .color-picker__trigger:hover {\n  -webkit-transform: scale(1.15);\n      -ms-transform: scale(1.15);\n          transform: scale(1.15);\n}\n\n.keen-theme-builder .color-picker__popover {\n      position: absolute;\n      bottom: 100%;\n      left: 0;\n      z-index: 2;\n    }\n\n.keen-theme-builder .color-picker__cover {\n      position: fixed;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      z-index: -1;\n    }\n\n.keen-theme-builder .color-palette__list {\n      margin: 0;\n      padding: 0;\n      min-height: 40px;\n      list-style: none;\n      display: -ms-inline-flexbox;\n      display: inline-flex;\n      -ms-flex-wrap: wrap;\n          flex-wrap: wrap;\n      -ms-flex-align: center;\n          align-items: center;\n    }\n\n.keen-theme-builder .color-palette__list .placeholder {\n        display: -ms-inline-flexbox;\n        display: inline-flex;\n        -ms-flex-align: center;\n            align-items: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n        width: 40px;\n        height: 40px;\n        padding: 2px;\n        border: 2px solid lightgray;\n        background: gray;\n        border-radius: 50%;\n        font-size: 10px;\n      }\n\n.keen-theme-builder .color-palette__item {\n      position: relative\n    }\n\n.keen-theme-builder .color-palette__item:hover .btn-remove {\n          display: block;\n}\n\n.keen-theme-builder .color-palette__button {\n      cursor: pointer;\n      border-radius: 0;\n      border: 1px solid currentColor\n    }\n\n.keen-theme-builder .color-palette__button:hover {\n  background-color: #d6d6d6;\n}\n\n.keen-theme-builder .color-palette .btn-remove {\n      display: none;\n      position: absolute;\n      z-index: 100;\n      top: 100%;\n      left: 50%;\n      -webkit-transform: translateX(-50%);\n          -ms-transform: translateX(-50%);\n              transform: translateX(-50%);\n      cursor: pointer;\n    }\n\n.keen-theme-builder .color-palette .btn-add {\n      margin-left: 0.5rem;\n      margin-right: 0.5rem;\n    }\n\n.keen-theme-builder .color-palette__trigger {\n      width: 30px;\n      height: 30px;\n      padding: 2px;\n      border: 2px solid lightgray;\n      border-radius: 50%;\n      cursor: pointer;\n      -webkit-transition: all 300ms ease;\n      -o-transition: all 300ms ease;\n      transition: all 300ms ease\n    }\n\n.keen-theme-builder .color-palette__trigger:hover {\n  -webkit-transform: scale(1.15);\n      -ms-transform: scale(1.15);\n          transform: scale(1.15);\n}\n\n.keen-theme-builder .keen-dataviz {\n    height: 50vh;\n    padding: 1rem;\n    background-color: #fff;\n    border: 1px solid #d6d6d6;\n}\n\n.keen-theme-builder .react-tabs__tab:focus {\n  -webkit-box-shadow: none;\n          box-shadow: none;\n}\n\n.keen-theme-builder .react-tabs__tab:focus:after {\n  content: none;\n}\n\n.keen-theme-builder .react-tabs__tab-list {\n        margin: 0;\n        border-color: #d6d6d6;\n}\n\n.keen-theme-builder .react-tabs__tab-panel {\n        padding: 1rem;\n        background-color: #F3F4F7;\n        border-color: #d6d6d6;\n        border-style: solid;\n        border-width: 0 1px 1px 1px;\n}\n\n.keen-theme-builder .react-tabs__tab--selected {\n        border-color: #d6d6d6;\n        background-color: #F3F4F7;\n}\n\n.keen-theme-builder .dragging .color-palette__item .color-palette__button {\n        display: none;\n      }\n\n.drag-image {\n  padding: 0.25rem 0.5rem;\n  display: inline-block;\n  background: gray;\n  color: #fff;\n  -webkit-transform: translateX(-100vw);\n      -ms-transform: translateX(-100vw);\n          transform: translateX(-100vw)\n}", ""]);
 
 // exports
 
