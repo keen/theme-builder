@@ -91,8 +91,8 @@ html {
 
     &__popover {
       position: absolute;
-      top: 0;
-      left: 100%;
+      bottom: 100%;
+      left: 0;
       z-index: 2;
     }
 
@@ -155,7 +155,7 @@ html {
       display: none;
       position: absolute;
       z-index: 100;
-      bottom: 100%;
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
       cursor: pointer;
