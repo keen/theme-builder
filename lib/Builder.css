@@ -14,7 +14,7 @@ html {
   background-color: #F3F4F7;
 
   @media (min-width: 800px) {
-    grid-template-columns: repeat(2, calc(50% - 0.5rem));
+    grid-template-columns: auto 66%;
   }
 
   .builder {
@@ -35,6 +35,13 @@ html {
       padding: 10px;
       border: 1px solid #d6d6d6;
       background-color: #fff;
+    }
+
+    &__default-charts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 1fr;
+      grid-gap: 1rem;
     }
   }
 
