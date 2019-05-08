@@ -92,8 +92,8 @@ html {
 
     &__popover {
       position: absolute;
-      bottom: 100%;
-      left: 0;
+      top: 0;
+      left: 100%;
       z-index: 2;
     }
 
@@ -117,6 +117,13 @@ html {
       display: inline-flex;
       flex-wrap: wrap;
       align-items: center;
+
+      .color-picker__popover {
+        top: auto;
+        bottom: 100%;
+        left: 0;
+        z-index: 2;
+      }
 
       .placeholder {
         display: inline-flex;
