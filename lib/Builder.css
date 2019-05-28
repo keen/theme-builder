@@ -17,6 +17,14 @@ html {
     grid-template-columns: auto 66%;
   }
 
+  &.no-mockup {
+    grid-template-columns: 100%;
+
+    @media (min-width: 800px) {
+      grid-template-columns: 100%;
+    }
+  }
+
   .builder {
 
     &__config,
@@ -93,7 +101,7 @@ html {
     &__popover {
       position: absolute;
       top: 0;
-      left: 100%;
+      right: 36px;
       z-index: 2;
     }
 
