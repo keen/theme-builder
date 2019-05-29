@@ -73,6 +73,9 @@ module.exports = {
 
   optimization: {
     minimize: !!process.env.OPTIMIZE_MINIMIZE,
+    splitChunks: {
+      chunks: 'all'
+    }
   },
 
   devtool: 'source-map',
