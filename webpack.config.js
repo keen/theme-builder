@@ -93,4 +93,18 @@ module.exports = {
     watchContentBase: true,
   },
 
+  externals: process.env.TARGET === 'node' ? {
+    'common-tags' : true,
+    'highlight.js' : true,
+    'keen-dataviz' : true,
+    'keen-react-charts' : true,
+    'prop-types' : true,
+    'react' : true,
+    'react-color' : true,
+    'react-dom' : true,
+    'react-lowlight' : true,
+    'react-tabs' : true,
+    'styled-jsx' : true,
+    } : {
+  },
 };
