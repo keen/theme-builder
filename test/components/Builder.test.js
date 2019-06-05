@@ -45,7 +45,14 @@ describe('<Builder />', () => {
 
   it('should render default color value for title color input', () => {
     expect(wrapper.find('.color-picker__input').first().props().value).toEqual(defaultColor);
-  })
+  });
+
+  it('should call copy to clipboard method when click on the button', () => {
+    const copyToClipboard = jest.fn();
+    wrapper.instance().handleClickToCopy = copyToClipboard;
+    wrapper.find('.builder__btn-copy').first().simulate('click');
+    expect(copyToClipboard).toBeCalled();
+  });
 
   describe('props given', () => {
     let wrapper;
