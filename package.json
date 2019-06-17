@@ -11,11 +11,11 @@
     "build-module": "BUILD_MODE=module webpack -p",
     "build-gh-pages": "BUILD_MODE=standalone webpack -p",
     "preversion": "npm run test",
-    "version": "npm run build && git add .",
+    "version": "npm run build-module && git add .",
     "postversion": "git push && git push --tags && npm publish",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
-    "predeploy": "npm run build:gh-pages",
+    "predeploy": "npm run build-gh-pages",
     "deploy": "gh-pages -d dist"
   },
   "bugs": "https://github.com/keen/keen-react-charts/issues",
