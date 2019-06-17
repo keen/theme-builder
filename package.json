@@ -7,6 +7,7 @@
   "scripts": {
     "start": "concurrently --kill-others \"NODE_ENV=development webpack-dev-server\"",
     "postcss-watch": "node_modules/postcss-cli/bin/postcss lib/Builder.css -o dist/Builder.css --watch --config postcss.config.js",
+    "build": "npm run build-module && npm run build-standalone",
     "build-standalone": "BUILD_MODE=standalone webpack -p",
     "build-module": "BUILD_MODE=module webpack -p",
     "build-gh-pages": "BUILD_MODE=standalone webpack -p",
@@ -15,7 +16,7 @@
     "postversion": "git push && git push --tags && npm publish",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --watch",
-    "predeploy": "npm run build:gh-pages",
+    "predeploy": "npm run build-gh-pages",
     "deploy": "gh-pages -d dist"
   },
   "bugs": "https://github.com/keen/keen-react-charts/issues",
