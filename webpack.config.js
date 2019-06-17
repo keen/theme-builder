@@ -3,9 +3,8 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const extendedPath = path.resolve(__dirname, 'dist');
-
-const fileName = 'main';
-const entry = ( process.env.NODE_ENV === 'development' ) ? './test/demo/example/index.js' : './lib/Builder.js' ;
+const fileName = process.env.BUILD_MODE;
+const entry = ( process.env.BUILD_MODE === 'standalone' ) ? './test/demo/example/index.js' : './lib/Builder.js';
 
 module.exports = {
   entry,
@@ -56,13 +55,14 @@ module.exports = {
 
   },
 
-  plugins: [
-    new HtmlWebPackPlugin({
-      template: './test/demo/index.html',
-      filename: './index.html',
-      title: 'Theme Builder'
-    })
-  ],
+  plugins: ( process.env.BUILD_MODE === 'standalone' ) ? 
+    [
+      new HtmlWebPackPlugin({
+        template: './test/demo/index.html',
+        filename: './index.html',
+        title: 'Theme Builder'
+      })
+    ] : [],
 
   resolve: {
     modules: [
@@ -71,12 +71,7 @@ module.exports = {
     extensions: ['.js', '.json', '.jsx'],
   },
 
-  optimization: {
-    minimize: !!process.env.OPTIMIZE_MINIMIZE,
-    splitChunks: {
-      chunks: 'all'
-    }
-  },
+  optimization: {},
 
   devtool: 'source-map',
 
@@ -93,10 +88,9 @@ module.exports = {
     watchContentBase: true,
   },
 
-  externals: process.env.TARGET === 'node' ? {
+  externals: process.env.BUILD_MODE !== 'standalone' ? {
     'common-tags' : true,
     'highlight.js' : true,
-    'keen-dataviz' : true,
     'keen-react-charts' : true,
     'prop-types' : true,
     'react' : true,
