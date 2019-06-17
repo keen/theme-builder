@@ -1,0 +1,110 @@
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+const extendedPath = path.resolve(__dirname, 'dist');
+
+const fileName = 'main';
+const entry = ( process.env.NODE_ENV === 'development' ) ? './test/demo/example/index.js' : './lib/Builder.js' ;
+
+module.exports = {
+  entry,
+
+  target: 'web',
+
+  output: {
+    path: extendedPath,
+    filename: `${
+      fileName
+    }.js`,
+    library: `${!process.env.LIBRARY ? '' : process.env.LIBRARY}`,
+    libraryTarget: 'umd',
+  },
+
+  module: {
+
+    rules: [
+      {
+        test: /\.js?$/,
+        include: [
+          path.resolve(__dirname, ''),
+        ],
+        exclude: [
+          path.resolve(__dirname, 'node_modules'),
+        ],
+        loader: 'babel-loader',
+      },
+
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: __dirname + '/postcss.config.js'
+              }
+            },
+          },
+        ],
+      },
+    ],
+
+  },
+
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './test/demo/index.html',
+      filename: './index.html',
+      title: 'Theme Builder'
+    })
+  ],
+
+  resolve: {
+    modules: [
+      'node_modules',
+    ],
+    extensions: ['.js', '.json', '.jsx'],
+  },
+
+  optimization: {
+    minimize: !!process.env.OPTIMIZE_MINIMIZE,
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
+
+  devtool: 'source-map',
+
+  context: __dirname,
+
+  // stats: 'verbose',
+
+  mode: process.env.NODE_ENV,
+
+  devServer: {
+    contentBase: path.join(__dirname, 'test/demo'),
+    publicPath: '/',
+    open: true,
+    watchContentBase: true,
+  },
+
+  externals: process.env.TARGET === 'node' ? {
+    'common-tags' : true,
+    'highlight.js' : true,
+    'keen-dataviz' : true,
+    'keen-react-charts' : true,
+    'prop-types' : true,
+    'react' : true,
+    'react-color' : true,
+    'react-dom' : true,
+    'react-lowlight' : true,
+    'react-tabs' : true,
+    'styled-jsx' : true,
+    } : {
+  },
+};
