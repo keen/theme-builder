@@ -3,7 +3,7 @@
 ## Install with NPM
 
 ```ssh
-npm install theme-builder --save
+npm install keen-theme-builder --save
 ```
 
 ## Live Demo
