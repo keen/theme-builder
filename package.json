@@ -9,7 +9,7 @@
     "postcss-watch": "node_modules/postcss-cli/bin/postcss lib/Builder.css -o dist/Builder.css --watch --config postcss.config.js",
     "build-standalone": "BUILD_MODE=standalone webpack -p",
     "build-module": "BUILD_MODE=module webpack -p",
-    "build-gh-pages": "BUILD_MODE=standalone webpack --mode development",
+    "build-gh-pages": "BUILD_MODE=standalone webpack -p",
     "preversion": "npm run test",
     "version": "npm run build && git add .",
     "postversion": "git push && git push --tags",
