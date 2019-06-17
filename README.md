@@ -6,6 +6,10 @@
 npm install theme-builder --save
 ```
 
+## Live Demo
+
+https://keen.github.io/theme-builder/
+
 ## Usage
 
 Use this component to create custom theme for your charts and generate JS/CSS files
