@@ -56,9 +56,10 @@ describe('<Builder />', () => {
 
   describe('props given', () => {
     let wrapper;
+    const onChange = jest.fn();
 
     beforeEach(() => {
-      wrapper = shallow(<Builder chartPalette='modern' />);
+      wrapper = shallow(<Builder chartPalette='modern' onChange={onChange} />);
     });
 
     it('should set chosen color palette if provided in props', () => {
@@ -78,5 +79,10 @@ describe('<Builder />', () => {
       wrapper.find('.color-palette__list .btn-remove').last().simulate('click');
       expect(wrapper.find('.color-palette__item').length).toBe(chartColorPalette['modern'].length - 1);
     });
+
+    it('should call onChange callback once state is updated', () => {
+      wrapper.find('.color-palette__list .btn-remove').last().simulate('click');
+      expect(onChange).toBeCalled();
+    })
   })
 });
