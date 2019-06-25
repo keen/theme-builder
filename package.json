@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "dist/module.js",
   "scripts": {
-    "start": "concurrently --kill-others \"NODE_ENV=development webpack-dev-server\"",
+    "start": "concurrently --kill-others \"NODE_ENV=development BUILD_MODE=standalone webpack-dev-server\"",
     "postcss-watch": "node_modules/postcss-cli/bin/postcss lib/Builder.css -o dist/Builder.css --watch --config postcss.config.js",
     "build": "npm run build-module && npm run build-standalone",
     "build-standalone": "BUILD_MODE=standalone webpack -p",

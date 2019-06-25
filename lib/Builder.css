@@ -47,12 +47,12 @@ html {
 
     &__default-charts {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       grid-auto-rows: auto;
       grid-gap: 1rem;
 
       .keen-dataviz {
-        height: 350px;
+        min-height: 350px;
         min-width: 0;
       }
     }
@@ -207,6 +207,8 @@ html {
   .react-tabs {
 
     &__tab {
+      margin: 0;
+
       &:focus {
         box-shadow: none;
 
@@ -243,7 +245,7 @@ html {
     }
   }
 
-  .hidden {
+  .copy-to-clipboard {
     clip: rect(0 0 0 0); 
     clip-path: inset(100%);
     height: 1px;
