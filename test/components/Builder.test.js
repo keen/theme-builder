@@ -84,5 +84,10 @@ describe('<Builder />', () => {
       wrapper.find('.color-palette__list .btn-remove').last().simulate('click');
       expect(onChange).toBeCalled();
     })
+
+    it('should not render chart types once Dashboard Builder is active', () => {
+      wrapper.setProps({ isDashboardBuilderActive: true });
+      expect(wrapper.find('.chart-types').length).toBe(0);
+    })
   })
 });
