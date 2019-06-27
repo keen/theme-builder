@@ -24,6 +24,7 @@ Builder.propTypes = {
   chartType: PropTypes.string, // specifies which chart is rendered in mock-up section by default, possible values ['default', 'bar', 'line', 'spline', 'step', 'area', 'pie', 'donut', 'gauge', 'funnel', 'funnel-3d']
   chartPalette: PropTypes.string, // predefined color schemas, possible values ['autocollector', 'dracula', 'modern']. By default it's set to 'None' 
   shouldRenderMockUp: PropTypes.bool, // defines if mockup section is rendered. By default it's true
+  onChange: PropTypes.func, // defines function that gets current state as an input
 };
 
 const defaultColor = '#000000';
@@ -37,12 +38,17 @@ const initialPicker = {
   'grid': defaultColor
 };
 
+const onChange = (data) => {
+  console.log(data);
+}
+
 <Builder
-  picker = initialPicker
-  colors = ['red', '#fff', 'rgb(0,0,0)']
+  picker = {initialPicker}
+  colors = {['red', '#fff', 'rgb(0,0,0)']}
   chartType = 'funnel'
   chartPalette = 'modern'
-  shouldRenderMockUp = false
+  shouldRenderMockUp = {false}
+  onChange={onChange}
 />
 
 ```
