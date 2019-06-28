@@ -15,13 +15,13 @@ describe('<Builder />', () => {
     expect(wrapper).toMatchSnapshot();
   });
   
-  it('should generate list of available chart types', () => {
-    expect(wrapper.find('.chart-types option').length).toBe(Object.keys(availableChartTypes).length);
-  });
+  it('should render list of available chart types', () => {
+    expect(wrapper.find('.chart-types').length).toBe(1);
+  })
   
-  it('should generate list of available color palettes', () => {
-    expect(wrapper.find('.color-palette option').length).toBe(Object.keys(chartColorPalette).length + 1); // 'None' option
-  });
+  it('should render list of predefined color palettes', () => {
+    expect(wrapper.find('.predefined-palette').length).toBe(1);
+  })
   
   it('should open color picker on trigger click', () => {
     wrapper.find('.color-picker__trigger').first().simulate('click');
@@ -57,9 +57,10 @@ describe('<Builder />', () => {
   describe('props given', () => {
     let wrapper;
     const onChange = jest.fn();
+    const palette = { value: 'modern', label: 'Modern' };
 
     beforeEach(() => {
-      wrapper = shallow(<Builder chartPalette='modern' onChange={onChange} />);
+      wrapper = shallow(<Builder chartPalette={palette} onChange={onChange} />);
     });
 
     it('should set chosen color palette if provided in props', () => {
