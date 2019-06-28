@@ -57,6 +57,7 @@
     "react-color": "^2.17.0",
     "react-dom": "^16.4.2",
     "react-lowlight": "^2.0.0",
+    "react-select": "^3.0.4",
     "react-tabs": "^3.0.0",
     "styled-jsx": "^3.2.1"
   },

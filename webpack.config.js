@@ -97,6 +97,7 @@ module.exports = {
     'react-color' : true,
     'react-dom' : true,
     'react-lowlight' : true,
+    'react-select': true,
     'react-tabs' : true,
     'styled-jsx' : true,
     } : {
