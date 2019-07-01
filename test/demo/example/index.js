@@ -7,9 +7,13 @@ class App extends React.Component {
       super(props);
     }
 
+    onChange = (data) => {
+      console.log(data);
+    }
+
     render() {
       return (
-        <Builder />
+        <Builder onChange={this.onChange}/>
       );
     }
 }
