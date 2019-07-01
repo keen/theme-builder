@@ -23,8 +23,8 @@ Builder.propTypes = {
   colors: PropTypes.array, // you can provide custom color pallette, valid CSS color properties are supported
   chartType: PropTypes.string, // specifies which chart is rendered in mock-up section by default, possible values ['default', 'bar', 'line', 'spline', 'step', 'area', 'pie', 'donut', 'gauge', 'funnel', 'funnel-3d']
   chartPalette: PropTypes.string, // predefined color schemas, possible values ['autocollector', 'dracula', 'modern']. By default it's set to 'None' 
-  shouldRenderMockUp: PropTypes.bool, // defines if mockup section is rendered. By default it's true
   onChange: PropTypes.func, // defines function that gets current state as an input
+  isDashboardBuilderActive: PropTypes.bool, // defines which fields are hidden. For dashboard builder we hide tabs and chart types select. By default it's false
 };
 
 const defaultColor = '#000000';
@@ -47,8 +47,8 @@ const onChange = (data) => {
   colors = {['red', '#fff', 'rgb(0,0,0)']}
   chartType = 'funnel'
   chartPalette = 'modern'
-  shouldRenderMockUp = {false}
   onChange={onChange}
+  isDashboardBuilderActive = {false}
 />
 
 ```

@@ -90,5 +90,10 @@ describe('<Builder />', () => {
       wrapper.setProps({ isDashboardBuilderActive: true });
       expect(wrapper.find('.chart-types').length).toBe(0);
     })
+
+    it('should not render tabs once Dashboard Builder is active', () => {
+      wrapper.setProps({ isDashboardBuilderActive: true });
+      expect(wrapper.find('.react-tabs__tab').length).toBe(0);
+    });
   })
 });
