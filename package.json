@@ -49,15 +49,18 @@
     "Theme"
   ],
   "dependencies": {
+    "array-move": "^2.1.0",
     "common-tags": "^1.8.0",
     "highlight.js": "^9.15.6",
     "keen-react-charts": "^1.0.3",
+    "lodash.isequal": "^4.5.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-color": "^2.17.0",
     "react-dom": "^16.4.2",
     "react-lowlight": "^2.0.0",
     "react-select": "^3.0.4",
+    "react-sortable-hoc": "^1.9.1",
     "react-tabs": "^3.0.0",
     "styled-jsx": "^3.2.1"
   },
