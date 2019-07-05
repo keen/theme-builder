@@ -1,8 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme';
 import Builder from '../../lib/Builder';
-import { availableChartTypes, chartColorPalette, defaultColor } from '../../lib/config';
-
+import { chartColorPalette, defaultColor } from '../../lib/config';
 
 describe('<Builder />', () => {
   let wrapper;
@@ -12,7 +11,7 @@ describe('<Builder />', () => {
   });
 
   it('Builder component renders correctly', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.html()).toMatchSnapshot();
   });
   
   it('should render list of available chart types', () => {
@@ -38,11 +37,6 @@ describe('<Builder />', () => {
     expect(wrapper.find('.react-tabs__tab').length).toBe(3);
   })
 
-  it('should render color palette item once click on Add button', () => {
-    wrapper.find('.color-palette__list .btn-add').simulate('click');
-    expect(wrapper.find('.color-palette__item').length).toBe(1);
-  });
-
   it('should render default color value for title color input', () => {
     expect(wrapper.find('.color-picker__input').first().props().value).toEqual(defaultColor);
   });
@@ -63,28 +57,9 @@ describe('<Builder />', () => {
       wrapper = shallow(<Builder chartPalette={palette} onChange={onChange} />);
     });
 
-    it('should set chosen color palette if provided in props', () => {
-      expect(wrapper.find('.color-palette__item').length).toBe(chartColorPalette['modern'].length);
-    });
-
     it('should update state with chosen color palette', () => {
-      expect(wrapper.state().colors).toEqual(chartColorPalette['modern']);
+      expect(wrapper.state().colors).toEqual(chartColorPalette['modern'].colors);
     });
-
-    it('should add additional color to chosen palette once click on Add button', () => {
-      wrapper.find('.color-palette__list button').last().simulate('click');
-      expect(wrapper.find('.color-palette__item').length).toBe(chartColorPalette['modern'].length + 1);
-    });
-
-    it('should remove color from custom color palette once click on Remove button', () => {
-      wrapper.find('.color-palette__list .btn-remove').last().simulate('click');
-      expect(wrapper.find('.color-palette__item').length).toBe(chartColorPalette['modern'].length - 1);
-    });
-
-    it('should call onChange callback once state is updated', () => {
-      wrapper.find('.color-palette__list .btn-remove').last().simulate('click');
-      expect(onChange).toBeCalled();
-    })
 
     it('should not render chart types once Dashboard Builder is active', () => {
       wrapper.setProps({ isDashboardBuilderActive: true });
