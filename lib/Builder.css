@@ -97,6 +97,7 @@ html {
       outline: none;
       background: transparent;
       font-size: 1rem;
+      line-height: 1;
       color: #aaa;
       cursor: not-allowed;
     }
