@@ -22,13 +22,13 @@ describe('<Builder />', () => {
     expect(wrapper.find('.predefined-palette').length).toBe(1);
   })
   
-  it('should open color picker on trigger click', () => {
-    wrapper.find('.color-picker__trigger').first().simulate('click');
+  it('should open color picker on wrapper click', () => {
+    wrapper.find('.color-picker__wrapper').first().simulate('click');
     expect(wrapper.find('.color-picker__picker').length).toBe(1);
   });
   
   it('should close color picker once click outside the picker', () => {
-    wrapper.find('.color-picker__trigger').first().simulate('click');
+    wrapper.find('.color-picker__wrapper').first().simulate('click');
     wrapper.find('.color-picker__cover').simulate('click');
     expect(wrapper.find('.color-picker__picker').length).toBe(0);
   });
