@@ -1,12 +1,15 @@
 import React from 'react'
 import { shallow } from 'enzyme';
 import Builder from '../../lib/Builder';
-import { chartColorPalette, defaultColor } from '../../lib/config';
+import { chartColorPalette } from '../../lib/config';
 
 describe('<Builder />', () => {
   let wrapper;
+  const dummyResponse = { result: 123 };
 
   beforeEach(() => {
+    fetch.resetMocks();
+    fetch.mockResponse(JSON.stringify(dummyResponse));
     wrapper = shallow(<Builder />);
   });
 
@@ -22,24 +25,9 @@ describe('<Builder />', () => {
     expect(wrapper.find('.predefined-palette').length).toBe(1);
   })
   
-  it('should open color picker on wrapper click', () => {
-    wrapper.find('.color-picker__wrapper').first().simulate('click');
-    expect(wrapper.find('.color-picker__picker').length).toBe(1);
-  });
-  
-  it('should close color picker once click outside the picker', () => {
-    wrapper.find('.color-picker__wrapper').first().simulate('click');
-    wrapper.find('.color-picker__cover').simulate('click');
-    expect(wrapper.find('.color-picker__picker').length).toBe(0);
-  });
-
   it('should render tabs', () => {
     expect(wrapper.find('.react-tabs__tab').length).toBe(3);
   })
-
-  it('should render default color value for title color input', () => {
-    expect(wrapper.find('.color-picker__input').first().props().value).toEqual(defaultColor);
-  });
 
   it('should call copy to clipboard method when click on the button', () => {
     const copyToClipboard = jest.fn();
@@ -54,7 +42,7 @@ describe('<Builder />', () => {
     const palette = { value: 'modern', label: 'Modern' };
 
     beforeEach(() => {
-      wrapper = shallow(<Builder chartPalette={palette} onChange={onChange} />);
+      wrapper = shallow(<Builder options={{ chartPalette: palette }} onChange={onChange} />);
     });
 
     it('should update state with chosen color palette', () => {
@@ -62,12 +50,12 @@ describe('<Builder />', () => {
     });
 
     it('should not render chart types once Dashboard Builder is active', () => {
-      wrapper.setProps({ isDashboardBuilderActive: true });
+      wrapper.setProps({ options: { isDashboardBuilderActive: true }});
       expect(wrapper.find('.chart-types').length).toBe(0);
     })
 
     it('should not render tabs once Dashboard Builder is active', () => {
-      wrapper.setProps({ isDashboardBuilderActive: true });
+      wrapper.setProps({ options: { isDashboardBuilderActive: true }});
       expect(wrapper.find('.react-tabs__tab').length).toBe(0);
     });
   })

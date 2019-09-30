@@ -13,7 +13,7 @@ class App extends React.Component {
 
     render() {
       return (
-        <Builder onChange={this.onChange}/>
+        <Builder onChange={this.onChange} />
       );
     }
 }

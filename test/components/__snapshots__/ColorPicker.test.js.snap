@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ColorPicker /> ColorPicker component renders correctly 1`] = `"<div class=\\"custom-color-picker\\"><div class=\\"custom-color-picker__wrapper\\"><div class=\\"custom-color-picker__swatch\\"><div class=\\"custom-color-picker__color\\" style=\\"background: rgb(0, 0, 0);\\"></div></div><div style=\\"position: relative;\\"><input style=\\"outline: none; font-size: 14px;\\" spellcheck=\\"false\\" value=\\"#000000\\"><span style=\\"display: none;\\">hex</span></div></div></div>"`;
