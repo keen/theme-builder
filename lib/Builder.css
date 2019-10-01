@@ -138,6 +138,50 @@ html {
     }
   }
 
+  .custom-color-picker {
+    position: relative;
+    margin-bottom: 1rem;
+
+    &__title {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    &__wrapper {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+
+      input {
+        padding: 0 1rem;
+      }
+    }
+    &__popover {
+      position: absolute;
+      top: 0;
+      left: 50px;
+      z-index: 2;
+    }
+
+    &__cover {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &__color {
+      height: 38px;
+      width: 38px;
+      border-radius: 3px 0 0 3px;
+    }
+
+    &__swatch {
+      cursor: pointer;
+    }
+  }
+
   .color-palette {
 
     &__list {
