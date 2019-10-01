@@ -138,6 +138,50 @@ html {
     }
   }
 
+  .custom-color-picker {
+    position: relative;
+    margin-bottom: 1rem;
+
+    &__title {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    &__wrapper {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+
+      input {
+        padding: 0 1rem;
+      }
+    }
+    &__popover {
+      position: absolute;
+      top: 0;
+      left: 50px;
+      z-index: 2;
+    }
+
+    &__cover {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &__color {
+      height: 38px;
+      width: 38px;
+      border-radius: 3px 0 0 3px;
+    }
+
+    &__swatch {
+      cursor: pointer;
+    }
+  }
+
   .color-palette {
 
     &__list {
@@ -244,6 +288,43 @@ html {
         border-color: #d6d6d6;
         background-color: #F3F4F7;
       }
+    }
+  }
+
+  .button-group {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    &__label {
+      padding: 0.5rem 0.75rem;
+      min-width: 2.375rem;
+      position: relative;
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      border: 1px solid #ccc;
+      border-left-width: 0;
+      border-radius: 0;
+      cursor: pointer;
+      overflow: hidden;
+
+      &.active {
+        background-color: #ccc;
+      }
+
+      &:first-child {
+        border-left-width: 1px;
+        border-radius: 3px 0 0 3px;
+      }
+
+      &:last-child {
+        border-radius: 0 3px 3px 0;
+      }
+    }
+
+    &__input {
+      position: absolute;
+      left: -999px;
     }
   }
 
