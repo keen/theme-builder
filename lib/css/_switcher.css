@@ -1,0 +1,79 @@
+.keen-theme-builder {
+    .switcher {
+    margin-bottom: var(--base-margin);
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    &__input {
+      &:checked ~ .switcher__toggle {
+        border-color: #3ED08E;
+        background-color: #DCF9EB;
+      }
+      &:checked ~ .switcher__toggle .switcher__switch {
+        right: 2px;
+        background-color: #3ED08E;
+      }
+      &:checked ~ .switcher__value .on {
+        display: block;
+      }
+      &:checked ~ .switcher__value .off {
+        display: none;
+      }
+    }
+
+    &__toggle {
+      position: relative;
+      width: 34px;
+      height: 18px;
+      margin-right: 0.1875rem;
+      margin-left: 0.625rem;
+      border: 1px solid var(--color-light-gray);
+      background-color: #f5f5f5;
+      border-radius: 9px;
+      display: inline-block;
+    }
+
+    &__switch {
+      position: absolute;
+      top: 1px;
+      bottom: 0;
+      right: 17px;
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      background: var(--color-light-gray);
+      border-radius: 50%;
+      flex-shrink: 0;
+      transition: right 0.15s ease-in-out, background-color 0.15s ease-in-out;
+    }
+
+    &__title {
+      font-weight: 800;
+    }
+
+    &__label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &__input {
+      position: absolute;
+      left: -999px;
+    }
+
+    &__value {
+      font-size: 0.75rem;
+      color: #B3B5B6;
+
+      .on {
+        display: none;
+      }
+
+      .off {
+        display: block;
+      }
+    }
+  }
+}

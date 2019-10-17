@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 58 (101010) - https://sketch.com -->
+    <title>6529088D-D42D-4D38-9C70-8FDFD04EDC66</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M6.83765634,2.18531258 L9.83812513,5.18578136 L3.32273442,11.701172 L0.647578133,11.9964846 C0.289453128,12.0360939 -0.0131250011,11.7332814 0.0267187494,11.3751564 L0.324375003,8.69812514 L6.83765634,2.18531258 Z M11.6939063,1.73859378 L10.2850781,0.32976563 C9.84562502,-0.109687502 9.13289063,-0.109687502 8.6934375,0.32976563 L7.36804685,1.65515628 L10.3685157,4.65562508 L11.6939063,3.33023443 C12.1333594,2.89054692 12.1333594,2.17804691 11.6939063,1.73859378 Z" id="path-1"></path>
+    </defs>
+    <g id="theme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bar-chart-style-appearance-2" transform="translate(-1150.000000, -662.000000)">
+            <g id="appearance-colors" transform="translate(1124.000000, 223.000000)">
+                <g id="border-color-copy" transform="translate(15.000000, 328.000000)">
+                    <g id="hover" transform="translate(5.000000, 105.000000)">
+                        <g id="Group-16">
+                            <g id="icon/edit" transform="translate(6.000000, 6.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                <g id="color/black-color/gray-white" mask="url(#mask-2)" fill="#FDFDFD">
+                                    <g transform="translate(-64.000000, -14.436363)" id="Rectangle">
+                                        <rect x="0" y="0" width="136" height="40"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

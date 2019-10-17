@@ -12,8 +12,14 @@ class App extends React.Component {
     }
 
     render() {
+      const options = {
+        'title.show': true,
+        'title.text': 'Test',
+        'title.textAlign': 'center',
+        'title.color': 'blue',
+      };
       return (
-        <Builder onChange={this.onChange} />
+        <Builder onChange={this.onChange} options={options} />
       );
     }
 }

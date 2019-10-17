@@ -1,0 +1,72 @@
+.keen-theme-builder {
+  .accordion {
+    &__item {
+      &__heading {
+        padding: 10px 15px;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        font-size: var(--base-font-size);
+        font-weight: 400;
+        line-height: var(--base-line-height);
+        background-color: var(--color-white);
+        cursor: pointer;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+        transition: background-color 250ms ease-in;
+
+        &:hover {
+          background-color: var(--color-light-blue);
+        }
+
+        .heading__icon {
+          width: 0.75rem;
+          margin-right: 0.875rem;
+          transition: transform 0.15s ease-in-out;
+        }
+      }
+
+      &__content {
+        padding: 20px 15px;
+        animation: fadein 0.35s ease-in;
+      }
+
+      &.open {
+        .accordion__item__heading {
+          background-color: var(--color-light-blue);
+          font-weight: 700;
+
+          .heading__icon {
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      &__row {
+        margin-bottom: 15px;
+        align-items: end;
+        justify-content: center;
+        grid-column-gap: 10px;
+        
+        &.three-elements {
+          display: grid;
+          grid-template-columns: 4fr 1fr 1fr;
+        }
+        
+        &.two-elements {
+          display: grid;
+          grid-template-columns: 5fr 1fr;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}

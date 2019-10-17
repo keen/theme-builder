@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 58 (101010) - https://sketch.com -->
+    <title>775AE133-8647-4673-84DC-9A1F3CF2C0BC</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M0.208109951,0.286168496 L0.245876597,0.245876597 C0.56059864,-0.0688454471 1.06304216,-0.0814343288 1.39278193,0.208109951 L1.43307383,0.245876597 L4.49986696,3.31284901 L7.56692617,0.245876597 C7.88164822,-0.0688454471 8.38409174,-0.0814343288 8.7138315,0.208109951 L8.7541234,0.245876597 C9.06884545,0.56059864 9.08143433,1.06304216 8.79189005,1.39278193 L8.7541234,1.43307383 L5.68716473,4.50014678 L8.7541234,7.56692617 C9.06884545,7.88164822 9.08143433,8.38409174 8.79189005,8.7138315 L8.7541234,8.7541234 C8.43940136,9.06884545 7.93695784,9.08143433 7.60721807,8.79189005 L7.56692617,8.7541234 L4.49986696,5.68744456 L1.43307383,8.7541234 C1.11835178,9.06884545 0.615908258,9.08143433 0.286168496,8.79189005 L0.245876597,8.7541234 C-0.0688454471,8.43940136 -0.0814343288,7.93695784 0.208109951,7.60721807 L0.245876597,7.56692617 L3.31256918,4.50014678 L0.245876597,1.43307383 C-0.0688454471,1.11835178 -0.0814343288,0.615908258 0.208109951,0.286168496 L0.245876597,0.245876597 L0.208109951,0.286168496 Z" id="path-1"></path>
+    </defs>
+    <g id="theme" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bar-chart-style-appearance-2" transform="translate(-1251.000000, -663.000000)">
+            <g id="appearance-colors" transform="translate(1124.000000, 223.000000)">
+                <g id="border-color-copy" transform="translate(15.000000, 328.000000)">
+                    <g id="hover" transform="translate(5.000000, 105.000000)">
+                        <g id="Group-17" transform="translate(100.000000, 0.000000)">
+                            <g id="icon/remove-icon/remove-x-6" transform="translate(7.500000, 7.500000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="Combined-Shape" fill="#979797" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                <g id="color/black-color/white" mask="url(#mask-2)" fill="#FFFFFF">
+                                    <g transform="translate(-48.000000, -10.827272)" id="Rectangle">
+                                        <rect x="0" y="0" width="102" height="30"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

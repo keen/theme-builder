@@ -1,0 +1,41 @@
+.keen-theme-builder {
+  .react-tabs {
+
+    &__tab {
+      margin: 0;
+      padding: 0.75rem;
+      font-size: var(--base-font-size);
+      line-height: var(--base-line-height);
+      text-align: center;
+      flex: 1;
+      border: none;
+      border-radius: 0;
+      background-color: var(--color-white);
+      box-shadow: inset 0 -1px 0 var(--color-light-gray);
+
+      &:focus {
+        box-shadow: none;
+
+        &:after {
+          content: none;
+        }
+      }
+
+      &-list {
+        margin: 0;
+        display: flex;
+        border-color: #d6d6d6;
+      }
+  
+      &-panel {
+        padding: var(--base-margin);
+        border: none;
+      }
+  
+      &--selected {
+        font-weight: 700;
+        box-shadow: inset 0 -3px 0 var(--color-blue);
+      }
+    }
+  }
+}
