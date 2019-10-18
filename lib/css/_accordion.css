@@ -46,12 +46,12 @@
         align-items: end;
         justify-content: center;
         grid-column-gap: 10px;
-        
+
         &.three-elements {
           display: grid;
           grid-template-columns: 4fr 1fr 1fr;
         }
-        
+
         &.two-elements {
           display: grid;
           grid-template-columns: 5fr 1fr;
@@ -63,10 +63,10 @@
 
 @keyframes fadein {
   0% {
-      opacity: 0;
+    opacity: 0;
   }
 
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }

@@ -1,23 +1,26 @@
 .keen-theme-builder {
-    .switcher {
+  .switcher {
     margin-bottom: var(--base-margin);
     display: block;
     position: relative;
     overflow: hidden;
 
     &__input {
-      &:checked ~ .switcher__toggle {
+      &:checked~.switcher__toggle {
         border-color: #3ED08E;
         background-color: #DCF9EB;
       }
-      &:checked ~ .switcher__toggle .switcher__switch {
+
+      &:checked~.switcher__toggle .switcher__switch {
         right: 2px;
         background-color: #3ED08E;
       }
-      &:checked ~ .switcher__value .on {
+
+      &:checked~.switcher__value .on {
         display: block;
       }
-      &:checked ~ .switcher__value .off {
+
+      &:checked~.switcher__value .off {
         display: none;
       }
     }
