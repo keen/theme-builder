@@ -168,6 +168,11 @@ html {
       stroke-opacity: 1;
     }
   }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
 }
 
 .copy-to-clipboard {
