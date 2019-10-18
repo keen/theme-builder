@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Builder from '../../../lib/Builder';
+import Builder from '../../../lib/components/Builder';
 
 class App extends React.Component {
     constructor(props) {

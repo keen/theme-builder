@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme';
-import Builder from '../../lib/Builder';
-import { chartColorPalette } from '../../lib/config';
+import Builder from '../../lib/components/Builder';
+import { chartColorPalette } from '../../lib/utils/consts';
 
 describe('<Builder />', () => {
   let wrapper;

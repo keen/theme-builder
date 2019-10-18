@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme';
-import ColorPicker from '../../lib/ColorPicker';
+import ColorPicker from '../../lib/components/ColorPicker';
 
 describe('<ColorPicker />', () => {
   let wrapper;

@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const extendedPath = path.resolve(__dirname, 'dist');
 const fileName = process.env.BUILD_MODE;
-const entry = ( process.env.BUILD_MODE === 'standalone' ) ? './test/demo/example/index.js' : './lib/Builder.js';
+const entry = ( process.env.BUILD_MODE === 'standalone' ) ? './test/demo/example/index.js' : './lib/components/Builder.js';
 
 module.exports = {
   entry,
