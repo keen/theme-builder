@@ -20,6 +20,7 @@
     &__menu {
       font-size: var(--base-font-size);
       line-height: var(--base-line-height);
+      z-index: 100;
     }
 
     &__option {
