@@ -59,6 +59,10 @@
       display: inline-flex;
       align-items: center;
       cursor: pointer;
+
+      .section-title {
+        line-height: 1;
+      }
     }
 
     &__input {

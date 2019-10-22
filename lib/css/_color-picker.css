@@ -1,5 +1,6 @@
 .keen-theme-builder {
   .custom-color-picker {
+    min-width: 0;
     position: relative;
 
     &__title {
@@ -14,6 +15,7 @@
       border-radius: var(--base-border-radius);
       display: flex;
       align-items: center;
+      height: var(--base-control-height);
 
       &:hover {
         border-color: var(--color-blue);
