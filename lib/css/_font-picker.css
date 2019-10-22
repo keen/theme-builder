@@ -1,0 +1,9 @@
+.keen-theme-builder {
+  .font-picker {
+    &__title {
+      margin-bottom: var(--base-label-margin);
+      font-size: var(--base-font-size);
+      line-height: var(--base-line-height);
+    }
+  }
+}

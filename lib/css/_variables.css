@@ -1,0 +1,20 @@
+:root {
+  --color-white: #fff;
+  --color-white-shaded: #fdfdfd;
+  --color-black: #000;
+  --color-green: #3ECF8E;
+  --color-blue: #44B7DC;
+  --color-light-blue: #D9EFFA;
+  --color-gray: #333;
+  --color-light-gray: #ccc;
+  --color-lightest-gray: #F3F7F9;
+
+  --font-primary: 'Montserrat', sans-serif;
+  --base-font-size: 0.875rem;
+  --base-line-height: 1.285;
+
+  --base-margin: 15px;
+  --base-label-margin: 10px;
+  --base-border-radius: 4px;
+  --base-control-height: 34px;
+}

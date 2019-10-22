@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Builder from '../../../lib/Builder';
+import Builder from '../../../lib/components/Builder';
 
 class App extends React.Component {
     constructor(props) {
@@ -12,8 +12,14 @@ class App extends React.Component {
     }
 
     render() {
+      const options = {
+        'title.show': true,
+        'title.text': 'Test',
+        'title.textAlign': 'center',
+        'title.color': 'blue',
+      };
       return (
-        <Builder onChange={this.onChange} />
+        <Builder onChange={this.onChange} options={options} />
       );
     }
 }

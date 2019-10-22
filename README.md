@@ -21,7 +21,7 @@ Use this component to create custom theme for your charts and generate JS/CSS fi
 const options = {
   picker: {'Title': 'red', 'Chart text': 'yellow'}, // you can provide default values for color pickers, by default all of them are set to black
   font: {
-    family: 'Acme', // provide Google font family, for getting current list of Google fonts please provide your Google Fonts API key in config.js
+    family: 'Acme', // provide Google font family, for getting current list of Google fonts please provide your Google Fonts API key in utils/consts.js
     bold: false, // by default it's false
     italic: true, // by default it's false
     textAlign: 'center', // possible values ['left', 'right', 'center']. By default it's 'left

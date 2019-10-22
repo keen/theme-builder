@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme';
-import { List } from '../../lib/PaletteList';
+import List from '../../lib/components/PaletteList';
 
 describe('<List />', () => {
   let wrapper;

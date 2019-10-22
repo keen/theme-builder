@@ -1,0 +1,192 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.keen-theme-builder {
+  padding: var(--base-margin);
+  display: grid;
+  grid-gap: calc(2 * var(--base-margin));
+  grid-template-columns: 100%;
+  background-color: var(--color-lightest-gray);
+  font-family: var(--font-primary);
+  color: var(--color-black);
+
+  @media (min-width: 960px) {
+    grid-template-columns: auto 55%;
+  }
+
+  &.no-mockup {
+    grid-template-columns: 100%;
+
+    @media (min-width: 800px) {
+      grid-template-columns: 100%;
+    }
+  }
+
+  .builder {
+    &__config {
+      background-color: var(--color-lightest-gray);
+    }
+
+    &__editor {
+      padding: var(--base-margin);
+      border: 1px solid var(--color-light-gray);
+      background-color: var(--color-white);
+    }
+
+    &__default-charts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      grid-auto-rows: auto;
+      grid-gap: 1rem;
+
+      .keen-dataviz {
+        min-height: 350px;
+        min-width: 0;
+      }
+    }
+  }
+
+  .section-title,
+  .control-title {
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-weight: 700;
+  }
+
+  .control-label {
+    display: block;
+    margin-bottom: var(--base-label-margin);
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+  }
+
+  .color-picker {
+    position: relative;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+      margin-bottom: 0.5rem;
+    }
+
+    &__wrapper {
+      padding: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    &__input {
+      min-width: 0;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 1rem;
+      line-height: 1;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    &__trigger {
+      width: 20px;
+      height: 20px;
+      margin-right: 1em;
+      padding: 2px;
+      border: 1px solid #ccc;
+      flex-shrink: 0;
+      transition: all 300ms ease;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+
+    &__popover {
+      position: absolute;
+      top: 0;
+      left: 36px;
+      z-index: 10;
+    }
+
+    &__cover {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+    }
+  }
+
+  .btn {
+    padding: 0.5rem 0.75rem;
+    display: inline-flex;
+    font-size: var(--base-font-size);
+    line-height: var(--base-line-height);
+    color: var(--color-blue);
+    background-color: var(--color-white);
+    border-radius: var(--base-border-radius);
+    border: 1px solid var(--color-light-gray);
+    cursor: pointer;
+    transition: background-color 250ms ease-in;
+
+    &:hover {
+      background-color: var(--color-lightest-gray);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .keen-dataviz {
+    height: 50vh;
+    padding: var(--base-margin);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-light-gray);
+
+    .c3-ygrid {
+      stroke-opacity: 1;
+    }
+
+    .c3-chart-lines {
+      .c3-circles {
+        fill: currentColor;
+      }
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+.copy-to-clipboard {
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

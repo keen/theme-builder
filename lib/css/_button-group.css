@@ -1,0 +1,62 @@
+.keen-theme-builder {
+  .button-group {
+    min-height: var(--base-control-height);
+
+    &__title {
+      margin-bottom: var(--base-label-margin);
+      font-size: var(--base-font-size);
+      line-height: var(--base-line-height);
+    }
+
+    &__wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__label {
+      padding: 0.5rem 0.75rem;
+      min-width: 2.375rem;
+      min-height: var(--base-control-height);
+      flex: 1;
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: var(--base-font-size);
+      line-height: var(--base-line-height);
+      background-color: var(--color-white-shaded);
+      color: var(--color-black);
+      border-radius: 0;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px var(--color-light-gray);
+
+      &:hover {
+        box-shadow: 0 0 0 1px var(--color-blue);
+        z-index: 2;
+      }
+
+      &.active {
+        background-color: var(--color-light-blue);
+        color: var(--color-blue);
+        box-shadow: 0 0 0 1px var(--color-blue);
+        z-index: 2;
+      }
+
+      &:first-child {
+        border-radius: var(--base-border-radius) 0 0 var(--base-border-radius);
+      }
+
+      &:last-child {
+        border-radius: 0 var(--base-border-radius) var(--base-border-radius) 0;
+      }
+    }
+
+    &__input {
+      position: absolute;
+      left: -999px;
+    }
+  }
+}
