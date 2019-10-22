@@ -14,7 +14,7 @@
         top: auto;
         bottom: 100%;
         left: 0;
-        z-index: 2;
+        z-index: 10;
       }
     }
 

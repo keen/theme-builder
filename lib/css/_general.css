@@ -124,7 +124,7 @@ html {
       position: absolute;
       top: 0;
       left: 36px;
-      z-index: 2;
+      z-index: 10;
     }
 
     &__cover {
@@ -166,6 +166,12 @@ html {
 
     .c3-ygrid {
       stroke-opacity: 1;
+    }
+
+    .c3-chart-lines {
+      .c3-circles {
+        fill: currentColor;
+      }
     }
   }
 
