@@ -26,7 +26,7 @@
       }
 
       &__content {
-        padding: 20px 15px;
+        padding: 15px 15px 20px 15px;
         animation: fadein 0.35s ease-in;
       }
 

@@ -23,18 +23,18 @@ html {
   color: var(--color-black);
 
   @media (min-width: 960px) {
-    grid-template-columns: auto 55%;
+    grid-template-columns: 350px auto;
   }
 
   &.no-mockup {
     grid-template-columns: 100%;
-
-    @media (min-width: 800px) {
-      grid-template-columns: 100%;
-    }
   }
 
   .builder {
+    &__mockup {
+      min-width: 0;
+    }
+    
     &__config {
       background-color: var(--color-lightest-gray);
     }
