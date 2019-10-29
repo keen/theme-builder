@@ -50,12 +50,12 @@ describe('<Builder />', () => {
     // });
 
     it('should not render chart types once Dashboard Builder is active', () => {
-      wrapper.setProps({ options: { isDashboardBuilderActive: true }});
+      wrapper.setProps({ isDashboardBuilderActive: true });
       expect(wrapper.find('.chart-types').length).toBe(0);
     })
 
     it('should not render tabs once Dashboard Builder is active', () => {
-      wrapper.setProps({ options: { isDashboardBuilderActive: true }});
+      wrapper.setProps({ isDashboardBuilderActive: true });
       expect(wrapper.find('.react-tabs__tab').length).toBe(0);
     });
   })
