@@ -17,7 +17,6 @@ class App extends React.Component {
         'title.text': 'Test',
         'title.textAlign': 'center',
         'title.color': 'blue',
-        isDashboardBuilderActive: false,
       };
       return (
         <Builder onChange={this.onChange} options={options} />
