@@ -8,7 +8,7 @@
         align-items: center;
         font-size: var(--base-font-size);
         font-weight: 400;
-        line-height: var(--base-line-height);
+        line-height: 1;
         background-color: var(--color-white);
         cursor: pointer;
         box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
@@ -19,8 +19,9 @@
         }
 
         .heading__icon {
-          width: 0.75rem;
+          width: 1.125rem;
           margin-right: 0.875rem;
+          fill-opacity: 0.35;
           transition: transform 0.15s ease-in-out;
         }
       }
