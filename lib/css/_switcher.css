@@ -63,6 +63,10 @@
       .section-title {
         line-height: 1;
       }
+
+      .control-label {
+        margin-bottom: 0;
+      }
     }
 
     &__input {

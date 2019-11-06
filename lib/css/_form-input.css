@@ -1,6 +1,7 @@
 .keen-theme-builder {
   .form-input {
     &__label {
+      display: inline-block;
       margin-bottom: var(--base-label-margin);
       font-size: var(--base-font-size);
       line-height: var(--base-line-height);

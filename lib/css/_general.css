@@ -30,6 +30,18 @@ html {
     grid-template-columns: 100%;
   }
 
+  &__row {
+    margin-bottom: var(--base-label-margin);
+    align-items: end;
+    justify-content: center;
+    grid-column-gap: 10px;
+
+    &.two-elements {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
   .builder {
     &__mockup {
       min-width: 0;
@@ -164,7 +176,7 @@ html {
   }
 
   .keen-dataviz {
-    height: 50vh;
+    min-height: 50vh;
     padding: var(--base-margin);
     background-color: var(--color-white);
     border: 1px solid var(--color-light-gray);
@@ -177,6 +189,18 @@ html {
       .c3-circles {
         fill: currentColor;
       }
+    }
+
+    .keen-dataviz-metric {
+      min-height: 50vh;
+    }
+
+    & > .keen-dataviz {
+      background: transparent;
+      border: none;
+      padding: 0;
+      height: 100%;
+      font-size: 4.25rem;
     }
   }
 
