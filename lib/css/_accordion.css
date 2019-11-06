@@ -43,7 +43,7 @@
       }
 
       &__row {
-        margin-bottom: 15px;
+        margin-bottom: var(--base-margin);
         align-items: end;
         justify-content: center;
         grid-column-gap: 10px;
