@@ -40,15 +40,15 @@ const options = {
   // By default it's set to 'None'. Choose colors or chartPalette as chartPalette injects predifined color scheme into colors array.
   isDashboardBuilderActive: false, // defines which fields are hidden. For dashboard builder we hide tabs and chart types select. By default it's false
   colors: ['red', '#fff', 'rgb(0,0,0)'], // you can provide custom color pallette, valid CSS color properties are supported.
-  'appearance.background': '#000', // string, valid CSS color properties are supported
-  'appearance.border': '#000', // string, valid CSS color properties are supported
-  'appearance.font.family': 'Acme', // general font, for getting current list of Google fonts please provide your Google Fonts API key in utils/consts.js
-  'title.show': false, // by default it's false
-  'title.text': '',
-  'title.textAlign': 'left',
-  'title.color': '#000', // string, valid CSS color properties are supported
-  'title.font.family': 'Acme',
-  'title.font.size': '16' // string, font size in pixels
+  'appearance_background': '#000', // string, valid CSS color properties are supported
+  'appearance_border': '#000', // string, valid CSS color properties are supported
+  'appearance_font_family': 'Acme', // general font, for getting current list of Google fonts please provide your Google Fonts API key in utils/consts.js
+  'title_show': false, // by default it's false
+  'title_text': '',
+  'title_textAlign': 'left',
+  'title_color': '#000', // string, valid CSS color properties are supported
+  'title_font_family': 'Acme',
+  'title_font_size': '16' // string, font size in pixels
     // possible values
     // [
     //   { label: "Auto", value: 'auto'},
@@ -62,69 +62,69 @@ const options = {
     //   { label: "30", value: 30 },
     //   { label: "36", value: 36 },
     // ];
-  'title.font.bold': false, // by default it's false
-  'title.font.italic': false, // by default it's false
-  'subtitle.show': false, // by default it's false
-  'subtitle.text': '',
-  'subtitle.textAlign': 'center', // possible values ['left', 'right', 'center']. By default it's 'left
-  'subtitle.color': '#000', // string, valid CSS color properties are supported
-  'subtitle.font.family': 'Acme',
-  'subtitle.font.size': '16',
-  'subtitle.font.bold': false, // by default it's false
-  'subtitle.font.italic': false, // by default it's false
-  'axis.vertical.title.show': false, // by default it's false
-  'axis.vertical.title.text': '',
-  'axis.vertical.title.textAlign': 'center', // possible values ['left', 'right', 'center']. By default it's 'left
-  'axis.vertical.title.color': '#000', // string, valid CSS color properties are supported
-  'axis.vertical.title.font.family': 'Acme',
-  'axis.vertical.title.font.size': '16',
-  'axis.vertical.title.font.bold': false, // by default it's false
-  'axis.vertical.title.font.italic': false, // by default it's false
-  'axis.vertical.label.show': false, // by default it's false
-  'axis.vertical.label.color': '#000', // string, valid CSS color properties are supported
-  'axis.vertical.label.font.family': 'Acme',
-  'axis.vertical.label.font.size': '16',
-  'axis.vertical.label.font.bold': false, // by default it's false
-  'axis.vertical.label.font.italic': false, // by default it's false
-  'axis.horizontal.title.show': false, // by default it's false
-  'axis.horizontal.title.text': '',
-  'axis.horizontal.title.textAlign': 'center', // possible values ['left', 'right', 'center']. By default it's 'left
-  'axis.horizontal.title.color': '#000', // string, valid CSS color properties are supported
-  'axis.horizontal.title.font.family': 'Acme',
-  'axis.horizontal.title.font.size': '16',
-  'axis.horizontal.title.font.bold': false, // by default it's false
-  'axis.horizontal.title.font.italic': false, // by default it's false
-  'axis.horizontal.label.show': false, // by default it's false
-  'axis.horizontal.label.color': '#000', // string, valid CSS color properties are supported
-  'axis.horizontal.label.font.family': 'Acme',
-  'axis.horizontal.label.font.size': '16',
-  'axis.horizontal.label.font.bold': false, // by default it's false
-  'axis.horizontal.label.font.italic': false, // by default it's false
-  'legend.show': false, // by default it's false
-  'legend.color': '#000', // string, valid CSS color properties are supported
-  'legend.font.family': 'Acme',
-  'legend.font.size': '16',
-  'legend.font.bold': false, // by default it's false
-  'legend.font.italic': false, // by default it's false
-  'legend.layout': 'left', // defines position of legend
+  'title_font_bold': false, // by default it's false
+  'title_font_italic': false, // by default it's false
+  'subtitle_show': false, // by default it's false
+  'subtitle_text': '',
+  'subtitle_textAlign': 'center', // possible values ['left', 'right', 'center']. By default it's 'left
+  'subtitle_color': '#000', // string, valid CSS color properties are supported
+  'subtitle_font_family': 'Acme',
+  'subtitle_font_size': '16',
+  'subtitle_font_bold': false, // by default it's false
+  'subtitle_font_italic': false, // by default it's false
+  'axis_vertical_title_show': false, // by default it's false
+  'axis_vertical_title_text': '',
+  'axis_vertical_title_textAlign': 'center', // possible values ['left', 'right', 'center']. By default it's 'left
+  'axis_vertical_title_color': '#000', // string, valid CSS color properties are supported
+  'axis_vertical_title_font_family': 'Acme',
+  'axis_vertical_title_font_size': '16',
+  'axis_vertical_title_font_bold': false, // by default it's false
+  'axis_vertical_title_font_italic': false, // by default it's false
+  'axis_vertical_label_show': false, // by default it's false
+  'axis_vertical_label_color': '#000', // string, valid CSS color properties are supported
+  'axis_vertical_label_font_family': 'Acme',
+  'axis_vertical_label_font_size': '16',
+  'axis_vertical_label_font_bold': false, // by default it's false
+  'axis_vertical_label_font_italic': false, // by default it's false
+  'axis_horizontal_title_show': false, // by default it's false
+  'axis_horizontal_title_text': '',
+  'axis_horizontal_title_textAlign': 'center', // possible values ['left', 'right', 'center']. By default it's 'left
+  'axis_horizontal_title_color': '#000', // string, valid CSS color properties are supported
+  'axis_horizontal_title_font_family': 'Acme',
+  'axis_horizontal_title_font_size': '16',
+  'axis_horizontal_title_font_bold': false, // by default it's false
+  'axis_horizontal_title_font_italic': false, // by default it's false
+  'axis_horizontal_label_show': false, // by default it's false
+  'axis_horizontal_label_color': '#000', // string, valid CSS color properties are supported
+  'axis_horizontal_label_font_family': 'Acme',
+  'axis_horizontal_label_font_size': '16',
+  'axis_horizontal_label_font_bold': false, // by default it's false
+  'axis_horizontal_label_font_italic': false, // by default it's false
+  'legend_show': false, // by default it's false
+  'legend_color': '#000', // string, valid CSS color properties are supported
+  'legend_font_family': 'Acme',
+  'legend_font_size': '16',
+  'legend_font_bold': false, // by default it's false
+  'legend_font_italic': false, // by default it's false
+  'legend_layout': 'left', // defines position of legend
   // possible values
   // { label: 'Top', value: 'top' },
   // { label: 'Right', value: 'right' },
   // { label: 'Bottom', value: 'bottom' },
   // { label: 'Left', value: 'left' }
-  'legend.position.horizontal': '', // applies to the chart once legend.layout is set to `top` or `bottom`
+  'legend_position_horizontal': '', // applies to the chart once legend_layout is set to `top` or `bottom`
   // possible values
   // { label: 'Left', value: 'left' },
   // { label: 'Center', value: 'center' },
   // { label: 'Right', value: 'right'}
-  'legend.position.vertical': '', // applies to the chart once legend.layout is set to `left` or `right`
+  'legend_position_vertical': '', // applies to the chart once legend_layout is set to `left` or `right`
   // possible values
   // { label: 'Top', value: 'top' },
   // { label: 'Middle', value: 'middle' },
   // { label: 'Bottom', value: 'bottom' }
-  'grid.show': false, // by default it's false
-  'grid.lines.color': '#000', // string, valid CSS color properties are supported
-  'grid.lines.count': '',
+  'grid_show': false, // by default it's false
+  'grid_lines_color': '#000', // string, valid CSS color properties are supported
+  'grid_lines_count': '',
   // possible values
   // { label: 'Auto', value: '' },
   // { label: '1', value: 1 },
@@ -137,9 +137,9 @@ const options = {
   // { label: '8', value: 8 },
   // { label: '9', value: 9 },
   // { label: '10', value: 10 },
-  'subgrid.show': false, // by default it's false
-  'subgrid.lines.color': '#000', // string, valid CSS color properties are supported
-  'subgrid.lines.count': '',
+  'subgrid_show': false, // by default it's false
+  'subgrid_lines_color': '#000', // string, valid CSS color properties are supported
+  'subgrid_lines_count': '',
 }
 
 const onChange = (data) => {
