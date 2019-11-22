@@ -64,7 +64,7 @@ html {
       grid-gap: 1rem;
 
       .keen-dataviz {
-        min-height: 350px;
+        height: 350px;
         min-width: 0;
       }
     }
