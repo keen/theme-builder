@@ -211,11 +211,11 @@
           var r = e[t];
           (z.call(e, t) && Y(r, n) && (void 0 !== n || t in e)) || (e[t] = n);
         }
-        function D(e, t) {
+        function L(e, t) {
           for (var n = e.length; n--; ) if (Y(e[n][0], t)) return n;
           return -1;
         }
-        function L(e) {
+        function D(e) {
           return (
             !(!$(e) || ((t = e), S && S in t)) &&
             ((function(e) {
@@ -305,7 +305,7 @@
           var n = (function(e, t) {
             return null == e ? void 0 : e[t];
           })(e, t);
-          return L(n) ? n : void 0;
+          return D(n) ? n : void 0;
         }
         function Z(e, t) {
           return (
@@ -342,22 +342,22 @@
           }),
           (B.prototype.delete = function(e) {
             var t = this.__data__,
-              n = D(t, e);
+              n = L(t, e);
             return (
               !(n < 0) && (n == t.length - 1 ? t.pop() : F.call(t, n, 1), !0)
             );
           }),
           (B.prototype.get = function(e) {
             var t = this.__data__,
-              n = D(t, e);
+              n = L(t, e);
             return n < 0 ? void 0 : t[n][1];
           }),
           (B.prototype.has = function(e) {
-            return D(this.__data__, e) > -1;
+            return L(this.__data__, e) > -1;
           }),
           (B.prototype.set = function(e, t) {
             var n = this.__data__,
-              r = D(n, e);
+              r = L(n, e);
             return r < 0 ? n.push([e, t]) : (n[r][1] = t), this;
           }),
           (I.prototype.clear = function() {
@@ -557,8 +557,8 @@
               return I && I.binding && I.binding('util');
             } catch (e) {}
           })(),
-          D = R && R.isTypedArray;
-        function L(e, t) {
+          L = R && R.isTypedArray;
+        function D(e, t) {
           for (var n = -1, r = null == e ? 0 : e.length; ++n < r; )
             if (t(e[n], n, e)) return !0;
           return !1;
@@ -728,8 +728,8 @@
               : (function(e, t, n, r, o, l) {
                   var u = qe(e),
                     h = qe(t),
-                    b = u ? c : Le(e),
-                    v = h ? c : Le(t),
+                    b = u ? c : De(e),
+                    v = h ? c : De(t),
                     y = (b = b == s ? _ : b) == _,
                     E = (v = v == s ? _ : v) == _,
                     C = b == v;
@@ -889,7 +889,7 @@
             }
             if (h) {
               if (
-                !L(t, function(e, t) {
+                !D(t, function(e, t) {
                   if (((a = t), !h.has(a) && (b === e || o(b, e, n, r, l))))
                     return h.push(t);
                   var a;
@@ -915,7 +915,7 @@
                     e[o + n] = t[n];
                   return e;
                 })(r, n(e));
-          })(e, Je, De);
+          })(e, Je, Le);
         }
         function Ie(e, t) {
           var n = e.__data__;
@@ -1041,7 +1041,7 @@
             }
             return n.set(e, t), (this.size = n.size), this;
           });
-        var De = le
+        var Le = le
             ? function(e) {
                 return null == e
                   ? []
@@ -1063,7 +1063,7 @@
             : function() {
                 return [];
               },
-          Le = Fe;
+          De = Fe;
         function He(e, t) {
           return (
             !!(t = null == t ? l : t) &&
@@ -1087,12 +1087,12 @@
         function We(e, t) {
           return e === t || (e != e && t != t);
         }
-        ((ue && Le(new ue(new ArrayBuffer(1))) != O) ||
-          (fe && Le(new fe()) != g) ||
-          (de && '[object Promise]' != Le(de.resolve())) ||
-          (pe && Le(new pe()) != w) ||
-          (he && '[object WeakMap]' != Le(new he()))) &&
-          (Le = function(e) {
+        ((ue && De(new ue(new ArrayBuffer(1))) != O) ||
+          (fe && De(new fe()) != g) ||
+          (de && '[object Promise]' != De(de.resolve())) ||
+          (pe && De(new pe()) != w) ||
+          (he && '[object WeakMap]' != De(new he()))) &&
+          (De = function(e) {
             var t = Fe(e),
               n = t == _ ? e.constructor : void 0,
               r = n ? Ue(n) : '';
@@ -1141,12 +1141,12 @@
         function $e(e) {
           return null != e && 'object' == typeof e;
         }
-        var Ke = D
+        var Ke = L
           ? (function(e) {
               return function(t) {
                 return e(t);
               };
-            })(D)
+            })(L)
           : function(e) {
               return $e(e) && Ye(e.length) && !!F[Fe(e)];
             };
@@ -1991,21 +1991,21 @@
           var n = e.getBoundingClientRect();
           return { top: n.top + t.top, left: n.left + t.left };
         }
-        function D(e) {
+        function L(e) {
           return e.touches && e.touches.length
             ? { x: e.touches[0].pageX, y: e.touches[0].pageY }
             : e.changedTouches && e.changedTouches.length
             ? { x: e.changedTouches[0].pageX, y: e.changedTouches[0].pageY }
             : { x: e.pageX, y: e.pageY };
         }
-        function L(e, t) {
+        function D(e, t) {
           var n =
             arguments.length > 2 && void 0 !== arguments[2]
               ? arguments[2]
               : { left: 0, top: 0 };
           if (e) {
             var r = { left: n.left + e.offsetLeft, top: n.top + e.offsetTop };
-            return e.parentNode === t ? r : L(e.parentNode, t, r);
+            return e.parentNode === t ? r : D(e.parentNode, t, r);
           }
         }
         function H(e) {
@@ -2263,7 +2263,7 @@
                       r = n.distance,
                       o = n.shouldCancelStart;
                     if (2 !== e.button && !o(e)) {
-                      (t.touched = !0), (t.position = D(e));
+                      (t.touched = !0), (t.position = L(e));
                       var a = N(e.target, function(e) {
                         return null != e.sortableInfo;
                       });
@@ -2309,7 +2309,7 @@
                       t.touched &&
                       !t._awaitingUpdateBeforeSortStart
                     ) {
-                      var a = D(e),
+                      var a = L(e),
                         i = { x: t.position.x - a.x, y: t.position.y - a.y },
                         l = Math.abs(i.x) + Math.abs(i.y);
                       (t.delta = i),
@@ -2374,8 +2374,8 @@
                                     x: a.indexOf('x') >= 0,
                                     y: a.indexOf('y') >= 0
                                   }),
-                                  (t.offsetEdge = L(p, t.container)),
-                                  (t.initialOffset = D(
+                                  (t.offsetEdge = D(p, t.container)),
+                                  (t.initialOffset = L(
                                     b
                                       ? f({}, e, {
                                           pageX: t.boundingClientRect.left,
@@ -2899,7 +2899,7 @@
                         l = void 0 === i ? a : i,
                         s = this.manager.isKeySorting,
                         u = e.ignoreTransition,
-                        f = D(e),
+                        f = L(e),
                         d = {
                           x: f.x - this.initialOffset.x,
                           y: f.y - this.initialOffset.y
@@ -2990,14 +2990,14 @@
                           y = { x: 0, y: 0 },
                           x = i[f].edgeOffset;
                         x ||
-                          ((x = L(p, this.container)),
+                          ((x = D(p, this.container)),
                           (i[f].edgeOffset = x),
                           c && (i[f].boundingClientRect = R(p, o)));
                         var w = f < i.length - 1 && i[f + 1],
                           k = f > 0 && i[f - 1];
                         w &&
                           !w.edgeOffset &&
-                          ((w.edgeOffset = L(w.node, this.container)),
+                          ((w.edgeOffset = D(w.node, this.container)),
                           c && (w.boundingClientRect = R(w.node, o))),
                           h !== this.index
                             ? (t && P(p, t),
@@ -4429,7 +4429,7 @@
             return P.set.call(this, e[0], t, n);
           });
         var R = Object.freeze({ willFinalize: function() {}, createProxy: A });
-        function D(e, t, n, r) {
+        function L(e, t, n, r) {
           Array.isArray(e.base)
             ? (function(e, t, n, r) {
                 var o,
@@ -4484,7 +4484,7 @@
                 });
               })(e, t, n, r);
         }
-        var L = function(e, t) {
+        var D = function(e, t) {
           for (var n = 0, r = t; n < r.length; n += 1) {
             var o = r[n],
               a = o.path,
@@ -4636,9 +4636,9 @@
               }
             }
             return i(e)
-              ? L(e, t)
+              ? D(e, t)
               : this.produce(e, function(e) {
-                  return L(e, t.slice(n + 1));
+                  return D(e, t.slice(n + 1));
                 });
           }),
           (U.prototype.processResult = function(e, t) {
@@ -4690,7 +4690,7 @@
                 }
               this.onCopy && this.onCopy(o),
                 this.autoFreeze && n.canAutoFreeze && Object.freeze(o.copy),
-                t && n.patches && D(o, t, n.patches, n.inversePatches);
+                t && n.patches && L(o, t, n.patches, n.inversePatches);
             }
             return o.copy;
           }),
@@ -5136,29 +5136,29 @@
           }
           return I;
         }
-        function D(e, t, n) {
+        function L(e, t, n) {
           for (var r in B)
             if (B.hasOwnProperty(r) && t === e.f[B[r]] && n === e.f[B[r]])
               return !0;
           return !1;
         }
-        function L(e) {
+        function D(e) {
           var t,
             n = e.g.a.offsetWidth,
             r = e.h.a.offsetWidth;
           (t = n === e.f.serif && r === e.f['sans-serif']) ||
-            (t = R() && D(e, n, r)),
+            (t = R() && L(e, n, r)),
             t
               ? l() - e.A >= e.w
                 ? R() &&
-                  D(e, n, r) &&
+                  L(e, n, r) &&
                   (null === e.u || e.u.hasOwnProperty(e.a.c))
                   ? H(e, e.v)
                   : H(e, e.B)
                 : (function(e) {
                     setTimeout(
                       i(function() {
-                        L(this);
+                        D(this);
                       }, e),
                       50
                     );
@@ -5184,7 +5184,7 @@
           (this.f.serif = this.j.a.offsetWidth),
             (this.f['sans-serif'] = this.m.a.offsetWidth),
             (this.A = l()),
-            L(this);
+            D(this);
         };
         var W = null;
         function Z(e) {
@@ -7716,11 +7716,11 @@
           var B,
             I = n & S,
             R = n & E,
-            D = n & z;
+            L = n & z;
           if ((A && (B = N ? A(t, P, N, M) : A(t)), void 0 !== B)) return B;
           if (!x(t)) return t;
-          var L = v(t);
-          if (L) {
+          var D = v(t);
+          if (D) {
             if (((B = b(t)), !I)) return c(t, B);
           } else {
             var H = h(t),
@@ -7751,8 +7751,8 @@
               }),
               B
             );
-          var Z = D ? (R ? p : d) : R ? keysIn : k,
-            q = L ? void 0 : Z(t);
+          var Z = L ? (R ? p : d) : R ? keysIn : k,
+            q = D ? void 0 : Z(t);
           return (
             o(q || t, function(r, o) {
               q && (r = t[(o = r)]), a(B, o, e(r, n, A, o, t, M));
@@ -9611,7 +9611,7 @@
                     r: M(t[1]),
                     g: M(t[2]),
                     b: M(t[3]),
-                    a: D(t[4]),
+                    a: L(t[4]),
                     format: n ? 'name' : 'hex8'
                   };
                 if ((t = W.hex6.exec(e)))
@@ -9626,7 +9626,7 @@
                     r: M(t[1] + '' + t[1]),
                     g: M(t[2] + '' + t[2]),
                     b: M(t[3] + '' + t[3]),
-                    a: D(t[4] + '' + t[4]),
+                    a: L(t[4] + '' + t[4]),
                     format: n ? 'name' : 'hex8'
                   };
                 if ((t = W.hex3.exec(e)))
@@ -10426,33 +10426,33 @@
         function R(e) {
           return o.round(255 * parseFloat(e)).toString(16);
         }
-        function D(e) {
+        function L(e) {
           return M(e) / 255;
         }
-        var L,
+        var D,
           H,
           U,
           W =
             ((H =
               '[\\s|\\(]+(' +
-              (L = '(?:[-\\+]?\\d*\\.\\d+%?)|(?:[-\\+]?\\d+%?)') +
+              (D = '(?:[-\\+]?\\d*\\.\\d+%?)|(?:[-\\+]?\\d+%?)') +
               ')[,|\\s]+(' +
-              L +
+              D +
               ')[,|\\s]+(' +
-              L +
+              D +
               ')\\s*\\)?'),
             (U =
               '[\\s|\\(]+(' +
-              L +
+              D +
               ')[,|\\s]+(' +
-              L +
+              D +
               ')[,|\\s]+(' +
-              L +
+              D +
               ')[,|\\s]+(' +
-              L +
+              D +
               ')\\s*\\)?'),
             {
-              CSS_UNIT: new RegExp(L),
+              CSS_UNIT: new RegExp(D),
               rgb: new RegExp('rgb' + H),
               rgba: new RegExp('rgba' + U),
               hsl: new RegExp('hsl' + H),
@@ -11027,7 +11027,7 @@
               'M24.184 24c.727 0 1.316.448 1.316 1s-.59 1-1.316 1H1.816C1.089 26 .5 25.552.5 25s.59-1 1.316-1h22.368zM13 4c.552 0 1 .61 1 1.364v11.325l3.306.001a.5.5 0 01.41.788l-.056.066-4.308 4.307a.5.5 0 01-.638.058l-.069-.058-4.308-4.307a.5.5 0 01.268-.847l.086-.007L12 16.689V5.364C12 4.61 12.448 4 13 4z'
           })
         ),
-        D = o.a.createElement(
+        L = o.a.createElement(
           'g',
           { fill: 'none', fillRule: 'evenodd' },
           o.a.createElement(
@@ -11048,8 +11048,8 @@
             o.a.createElement('path', { d: 'M-160-36.09h340v100h-340z' })
           )
         ),
-        L = function(e) {
-          return o.a.createElement('svg', I({ viewBox: '0 0 26 30' }, e), R, D);
+        D = function(e) {
+          return o.a.createElement('svg', I({ viewBox: '0 0 26 30' }, e), R, L);
         };
       function H() {
         return (H =
@@ -12152,7 +12152,7 @@
         te = [
           { label: o.a.createElement(Y, { width: '0.85em' }), value: 'top' },
           { label: o.a.createElement(Z, { width: '0.85em' }), value: 'middle' },
-          { label: o.a.createElement(L, { width: '0.85em' }), value: 'bottom' }
+          { label: o.a.createElement(D, { width: '0.85em' }), value: 'bottom' }
         ],
         ne = [
           { value: 'default', label: 'Default' },
@@ -12863,7 +12863,7 @@
           onChange: function() {}
         });
       var Re = n(90);
-      function De(e, t) {
+      function Le(e, t) {
         return (
           (function(e) {
             if (Array.isArray(e)) return e;
@@ -12898,16 +12898,16 @@
           })()
         );
       }
-      var Le = function(e) {
+      var De = function(e) {
           var t = e.title,
             n = e.initialColor,
             a = e.defaultColor,
             i = e.onChange,
             l = { hex: '#222222' },
-            s = De(Object(r.useState)(l), 2),
+            s = Le(Object(r.useState)(l), 2),
             c = s[0],
             u = s[1],
-            f = De(Object(r.useState)(!1), 2),
+            f = Le(Object(r.useState)(!1), 2),
             d = f[0],
             p = f[1];
           Object(r.useEffect)(function() {
@@ -12993,9 +12993,9 @@
             )
           );
         },
-        He = Object(y.CustomPicker)(Le);
-      (Le.defaultProps = { title: '', onChange: function() {} }),
-        (Le.propTypes = {
+        He = Object(y.CustomPicker)(De);
+      (De.defaultProps = { title: '', onChange: function() {} }),
+        (De.propTypes = {
           title: i.a.string,
           initialColor: i.a.string,
           onChange: i.a.func.isRequired
@@ -13102,6 +13102,7 @@
             o.a.createElement(
               'div',
               {
+                role: 'button',
                 className: 'accordion__item__heading heading',
                 onClick: function() {
                   return a(n);
@@ -13131,12 +13132,18 @@
           )
         );
       };
-      Ye.propTypes = {
+      (Ye.propTypes = {
         isOpen: i.a.bool,
         label: i.a.string,
         children: i.a.oneOfType([i.a.array, i.a.object]),
         onClick: i.a.func
-      };
+      }),
+        (Ye.defaultProps = {
+          isOpen: !1,
+          label: '',
+          onClick: function() {},
+          children: []
+        });
       var Ge = function(e) {
           var t = e.children,
             n = e.allowMultipleOpen,
@@ -14650,12 +14657,12 @@
               })
             )),
             r.forEach(function(t) {
-              Dt(e, t, n[t]);
+              Lt(e, t, n[t]);
             });
         }
         return e;
       }
-      function Dt(e, t, n) {
+      function Lt(e, t, n) {
         return (
           t in e
             ? Object.defineProperty(e, t, {
@@ -14668,7 +14675,7 @@
           e
         );
       }
-      function Lt(e, t) {
+      function Dt(e, t) {
         for (var n = 0; n < t.length; n++) {
           var r = t[n];
           (r.enumerable = r.enumerable || !1),
@@ -15026,7 +15033,7 @@
                   return Rt(
                     {},
                     n,
-                    Dt({ isModified: !0 }, e, t !== me ? t : '')
+                    Lt({ isModified: !0 }, e, t !== me ? t : '')
                   );
                 });
               }
@@ -15035,11 +15042,11 @@
               key: 'renderTitleSection',
               value: function() {
                 var e = this,
-                  t = this.props.isDashboardBuilderActive;
+                  t = this.props.options.chart;
                 return o.a.createElement(
                   o.a.Fragment,
                   null,
-                  !t &&
+                  'default' !== t &&
                     o.a.createElement(
                       'div',
                       { className: 'accordion__item__row' },
@@ -15065,11 +15072,11 @@
               key: 'renderSubtitleSection',
               value: function() {
                 var e = this,
-                  t = this.props.isDashboardBuilderActive;
+                  t = this.props.options.chart;
                 return o.a.createElement(
                   o.a.Fragment,
                   null,
-                  !t &&
+                  'default' !== t &&
                     o.a.createElement(
                       'div',
                       { className: 'accordion__item__row' },
@@ -15978,26 +15985,24 @@
                       o.a.createElement(
                         'div',
                         { label: 'Vertical axis' },
-                        !n &&
+                        o.a.createElement(
+                          Qe,
+                          {
+                            checked: !!this.state.axis_vertical_title_show,
+                            onChange: function() {
+                              return e.handleStateChange(
+                                'axis_vertical_title_show',
+                                !e.state.axis_vertical_title_show
+                              );
+                            }
+                          },
                           o.a.createElement(
-                            Qe,
-                            {
-                              checked: !!this.state.axis_vertical_title_show,
-                              onChange: function() {
-                                return e.handleStateChange(
-                                  'axis_vertical_title_show',
-                                  !e.state.axis_vertical_title_show
-                                );
-                              }
-                            },
-                            o.a.createElement(
-                              'span',
-                              { className: 'section-title' },
-                              'Axis title'
-                            )
-                          ),
-                        !n &&
-                          this.state.axis_vertical_title_show &&
+                            'span',
+                            { className: 'section-title' },
+                            'Axis title'
+                          )
+                        ),
+                        this.state.axis_vertical_title_show &&
                           this.renderVerticalAxisTitleSection(),
                         o.a.createElement(
                           Qe,
@@ -16023,26 +16028,24 @@
                       o.a.createElement(
                         'div',
                         { label: 'Horizontal axis' },
-                        !n &&
+                        o.a.createElement(
+                          Qe,
+                          {
+                            checked: !!this.state.axis_horizontal_title_show,
+                            onChange: function() {
+                              return e.handleStateChange(
+                                'axis_horizontal_title_show',
+                                !e.state.axis_horizontal_title_show
+                              );
+                            }
+                          },
                           o.a.createElement(
-                            Qe,
-                            {
-                              checked: !!this.state.axis_horizontal_title_show,
-                              onChange: function() {
-                                return e.handleStateChange(
-                                  'axis_horizontal_title_show',
-                                  !e.state.axis_horizontal_title_show
-                                );
-                              }
-                            },
-                            o.a.createElement(
-                              'span',
-                              { className: 'section-title' },
-                              'Axis title'
-                            )
-                          ),
-                        !n &&
-                          this.state.axis_horizontal_title_show &&
+                            'span',
+                            { className: 'section-title' },
+                            'Axis title'
+                          )
+                        ),
+                        this.state.axis_horizontal_title_show &&
                           this.renderHorizontalAxisTitleSection(),
                         o.a.createElement(
                           Qe,
@@ -16836,8 +16839,8 @@
                 );
               }
             }
-          ]) && Lt(n.prototype, r),
-          a && Lt(n, a),
+          ]) && Dt(n.prototype, r),
+          a && Dt(n, a),
           t
         );
       })(r.PureComponent);
