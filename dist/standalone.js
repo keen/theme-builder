@@ -72555,7 +72555,6 @@ object-assign
             i.a.createElement(
               'div',
               {
-                role: 'button',
                 className: 'accordion__item__heading heading',
                 onClick: function() {
                   return o(n);

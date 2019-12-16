@@ -13102,7 +13102,6 @@
             o.a.createElement(
               'div',
               {
-                role: 'button',
                 className: 'accordion__item__heading heading',
                 onClick: function() {
                   return a(n);
