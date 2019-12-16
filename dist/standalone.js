@@ -72555,6 +72555,7 @@ object-assign
             i.a.createElement(
               'div',
               {
+                role: 'button',
                 className: 'accordion__item__heading heading',
                 onClick: function() {
                   return o(n);
@@ -72584,12 +72585,18 @@ object-assign
           )
         );
       };
-      Gr.propTypes = {
+      (Gr.propTypes = {
         isOpen: s.a.bool,
         label: s.a.string,
         children: s.a.oneOfType([s.a.array, s.a.object]),
         onClick: s.a.func
-      };
+      }),
+        (Gr.defaultProps = {
+          isOpen: !1,
+          label: '',
+          onClick: function() {},
+          children: []
+        });
       var Hr = function(e) {
           var t = e.children,
             n = e.allowMultipleOpen,
@@ -74750,11 +74757,11 @@ object-assign
               key: 'renderTitleSection',
               value: function() {
                 var e = this,
-                  t = this.props.isDashboardBuilderActive;
+                  t = this.props.options.chart;
                 return i.a.createElement(
                   i.a.Fragment,
                   null,
-                  !t &&
+                  'default' !== t &&
                     i.a.createElement(
                       'div',
                       { className: 'accordion__item__row' },
@@ -74780,11 +74787,11 @@ object-assign
               key: 'renderSubtitleSection',
               value: function() {
                 var e = this,
-                  t = this.props.isDashboardBuilderActive;
+                  t = this.props.options.chart;
                 return i.a.createElement(
                   i.a.Fragment,
                   null,
-                  !t &&
+                  'default' !== t &&
                     i.a.createElement(
                       'div',
                       { className: 'accordion__item__row' },
@@ -75693,26 +75700,24 @@ object-assign
                       i.a.createElement(
                         'div',
                         { label: 'Vertical axis' },
-                        !n &&
+                        i.a.createElement(
+                          Yr,
+                          {
+                            checked: !!this.state.axis_vertical_title_show,
+                            onChange: function() {
+                              return e.handleStateChange(
+                                'axis_vertical_title_show',
+                                !e.state.axis_vertical_title_show
+                              );
+                            }
+                          },
                           i.a.createElement(
-                            Yr,
-                            {
-                              checked: !!this.state.axis_vertical_title_show,
-                              onChange: function() {
-                                return e.handleStateChange(
-                                  'axis_vertical_title_show',
-                                  !e.state.axis_vertical_title_show
-                                );
-                              }
-                            },
-                            i.a.createElement(
-                              'span',
-                              { className: 'section-title' },
-                              'Axis title'
-                            )
-                          ),
-                        !n &&
-                          this.state.axis_vertical_title_show &&
+                            'span',
+                            { className: 'section-title' },
+                            'Axis title'
+                          )
+                        ),
+                        this.state.axis_vertical_title_show &&
                           this.renderVerticalAxisTitleSection(),
                         i.a.createElement(
                           Yr,
@@ -75738,26 +75743,24 @@ object-assign
                       i.a.createElement(
                         'div',
                         { label: 'Horizontal axis' },
-                        !n &&
+                        i.a.createElement(
+                          Yr,
+                          {
+                            checked: !!this.state.axis_horizontal_title_show,
+                            onChange: function() {
+                              return e.handleStateChange(
+                                'axis_horizontal_title_show',
+                                !e.state.axis_horizontal_title_show
+                              );
+                            }
+                          },
                           i.a.createElement(
-                            Yr,
-                            {
-                              checked: !!this.state.axis_horizontal_title_show,
-                              onChange: function() {
-                                return e.handleStateChange(
-                                  'axis_horizontal_title_show',
-                                  !e.state.axis_horizontal_title_show
-                                );
-                              }
-                            },
-                            i.a.createElement(
-                              'span',
-                              { className: 'section-title' },
-                              'Axis title'
-                            )
-                          ),
-                        !n &&
-                          this.state.axis_horizontal_title_show &&
+                            'span',
+                            { className: 'section-title' },
+                            'Axis title'
+                          )
+                        ),
+                        this.state.axis_horizontal_title_show &&
                           this.renderHorizontalAxisTitleSection(),
                         i.a.createElement(
                           Yr,
@@ -76645,6 +76648,7 @@ object-assign
                 return i.a.createElement(Ji, {
                   onChange: this.onChange,
                   options: {
+                    chart: 'default',
                     title_show: !0,
                     title_text: 'Test',
                     title_textAlign: 'center',
