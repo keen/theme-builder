@@ -1,7 +1,7 @@
 {
   "name": "keen-theme-builder",
   "description": "CSS theme builder for Keen charts",
-  "version": "1.0.24",
+  "version": "1.0.26",
   "license": "MIT",
   "main": "dist/module.js",
   "scripts": {
