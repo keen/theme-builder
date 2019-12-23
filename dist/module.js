@@ -13653,165 +13653,151 @@
         return {
           chartBackground: e.appearance_background
             ? 'background-color: '.concat(e.appearance_background, ';')
-            : 'background-color: inherit;',
+            : '',
           chartBorder: e.appearance_border
             ? 'border-color: '.concat(e.appearance_border, ';')
-            : 'border-color: inherit;',
+            : '',
           chartFont: e.appearance_font_family
             ? 'font-family: "'.concat(e.appearance_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           chartFontSize:
             'auto' !== e.appearance_font_size
               ? 'font-size: '.concat(e.appearance_font_size, 'px;')
-              : 'font-size: inherit;',
-          chartFontBold: e.appearance_font_bold
-            ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+              : '',
+          chartFontBold: e.appearance_font_bold ? 'font-weight: bold;' : '',
           chartFontItalic: e.appearance_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           chartColor: e.appearance_color
             ? 'color: '.concat(e.appearance_color, ';')
-            : 'color: inherit;',
+            : '',
           titleTextAlign: 'text-align: '.concat(e.title_textAlign, ';'),
-          titleColor: e.title_color
-            ? 'color: '.concat(e.title_color, ';')
-            : 'color: inherit;',
+          titleColor: e.title_color ? 'color: '.concat(e.title_color, ';') : '',
           titleFontFamily: e.title_font_family
             ? 'font-family: "'.concat(e.title_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           titleFontSize:
             'auto' !== e.title_font_size
               ? 'font-size: '.concat(e.title_font_size, 'px;')
-              : 'font-size: inherit;',
-          titleFontBold: e.title_font_bold
-            ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
-          titleFontItalic: e.title_font_italic
-            ? 'font-style: italic;'
-            : 'font-style: inherit;',
+              : '',
+          titleFontBold: e.title_font_bold ? 'font-weight: bold;' : '',
+          titleFontItalic: e.title_font_italic ? 'font-style: italic;' : '',
           subtitleTextAlign: 'text-align: '.concat(e.subtitle_textAlign, ';'),
           subtitleColor: e.subtitle_color
             ? 'color: '.concat(e.subtitle_color, ';')
-            : 'color: inherit;',
+            : '',
           subtitleFontFamily: e.subtitle_font_family
             ? 'font-family: "'.concat(e.subtitle_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           subtitleFontSize:
             'auto' !== e.subtitle_font_size
               ? 'font-size: '.concat(e.subtitle_font_size, 'px;')
-              : 'font-size: inherit;',
-          subtitleFontBold: e.subtitle_font_bold
-            ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+              : '',
+          subtitleFontBold: e.subtitle_font_bold ? 'font-weight: bold;' : '',
           subtitleFontItalic: e.subtitle_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           axisYTitleFont: e.axis_vertical_title_font_family
             ? 'font-family: "'.concat(e.axis_vertical_title_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           axisYTitleFontSize:
             'auto' !== e.axis_vertical_title_font_size
               ? 'font-size: '.concat(e.axis_vertical_title_font_size, 'px;')
-              : 'font-size: inherit;',
+              : '',
           axisYTitleFontBold: e.axis_vertical_title_font_bold
             ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+            : '',
           axisYTitleFontItalic: e.axis_vertical_title_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           axisYTitleColor: e.axis_vertical_title_color
             ? 'fill: '.concat(e.axis_vertical_title_color, ';')
-            : 'fill: inherit;',
+            : '',
           axisYLabelFont: e.axis_vertical_label_font_family
             ? 'font-family: "'.concat(e.axis_vertical_label_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           axisYLabelFontSize:
             'auto' !== e.axis_vertical_label_font_size
               ? 'font-size: '.concat(e.axis_vertical_label_font_size, 'px;')
-              : 'font-size: inherit;',
+              : '',
           axisYLabelFontBold: e.axis_vertical_label_font_bold
             ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+            : '',
           axisYLabelFontItalic: e.axis_vertical_label_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           axisYLabelColor: e.axis_vertical_label_color
             ? 'fill: '.concat(e.axis_vertical_label_color, ';')
             : 'fill: inherit;',
           axisXTitleFont: e.axis_horizontal_title_font_family
             ? 'font-family: "'.concat(e.axis_horizontal_title_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           axisXTitleFontSize:
             'auto' !== e.axis_horizontal_title_font_size
               ? 'font-size: '.concat(e.axis_horizontal_title_font_size, 'px;')
-              : 'font-size: inherit;',
+              : '',
           axisXTitleFontBold: e.axis_horizontal_title_font_bold
             ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+            : '',
           axisXTitleFontItalic: e.axis_horizontal_title_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           axisXTitleColor: e.axis_horizontal_title_color
             ? 'fill: '.concat(e.axis_horizontal_title_color, ';')
-            : 'fill: inherit;',
+            : '',
           axisXLabelFont: e.axis_horizontal_label_font_family
             ? 'font-family: "'.concat(e.axis_horizontal_label_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           axisXLabelFontSize:
             'auto' !== e.axis_horizontal_label_font_size
               ? 'font-size: '.concat(e.axis_horizontal_label_font_size, 'px;')
-              : 'font-size: inherit;',
+              : '',
           axisXLabelFontBold: e.axis_horizontal_label_font_bold
             ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+            : '',
           axisXLabelFontItalic: e.axis_horizontal_label_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           axisXLabelColor: e.axis_horizontal_label_color
             ? 'fill: '.concat(e.axis_horizontal_label_color, ';')
-            : 'fill: inherit;',
+            : '',
           legendFont: e.legend_font_family
             ? 'font-family: "'.concat(e.legend_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           legendFontSize:
             'auto' !== e.legend_font_size
               ? 'font-size: '.concat(e.legend_font_size, 'px;')
-              : 'font-size: inherit;',
-          legendFontBold: e.legend_font_bold
-            ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
-          legendFontItalic: e.legend_font_italic
-            ? 'font-style: italic;'
-            : 'font-style: inherit;',
+              : '',
+          legendFontBold: e.legend_font_bold ? 'font-weight: bold;' : '',
+          legendFontItalic: e.legend_font_italic ? 'font-style: italic;' : '',
           legendColor: e.legend_color
             ? 'color: '.concat(e.legend_color, ';')
-            : 'color: inherit;',
+            : '',
           gridLineShow: e.grid_show
             ? 'stroke-opacity: 1;'
             : 'stroke-opacity: 0;',
           gridLineColor: e.grid_lines_color
             ? 'stroke: '.concat(e.grid_lines_color)
-            : 'stroke: inherit;',
+            : '',
           subgridLineColor: e.subgrid_lines_color
             ? 'stroke: '.concat(e.subgrid_lines_count)
-            : 'stroke: inherit;',
+            : '',
           seriesLabelFont: e.series_label_font_family
             ? 'font-family: "'.concat(e.series_label_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           seriesLabelFontSize:
             'auto' !== e.series_label_font_size
               ? 'font-size: '.concat(e.series_label_font_size, 'px;')
-              : 'font-size: inherit;',
+              : '',
           seriesLabelFontBold: e.series_label_font_bold
             ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+            : '',
           seriesLabelFontItalic: e.series_label_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           seriesLabelColor: e.series_label_color
             ? 'fill: '.concat(e.series_label_color, ' !important;')
-            : 'fill: inherit;',
+            : '',
           seriesLabelTextAlign: 'text-anchor: '.concat(
             _t(e.series_label_textAlign),
             ' !important;'
@@ -13819,20 +13805,16 @@
           seriesLineThickness: 'stroke-width: '.concat(e.series_line, 'px;'),
           tooltipFont: e.tooltip_font_family
             ? 'font-family: "'.concat(e.tooltip_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           tooltipFontSize:
             'auto' !== e.tooltip_font_size
               ? 'font-size: '.concat(e.tooltip_font_size, 'px;')
-              : 'font-size: inherit;',
-          tooltipFontBold: e.tooltip_font_bold
-            ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
-          tooltipFontItalic: e.tooltip_font_italic
-            ? 'font-style: italic;'
-            : 'font-style: inherit;',
+              : '',
+          tooltipFontBold: e.tooltip_font_bold ? 'font-weight: bold;' : '',
+          tooltipFontItalic: e.tooltip_font_italic ? 'font-style: italic;' : '',
           tooltipColor: e.tooltip_color
             ? 'color: '.concat(e.tooltip_color, ';')
-            : 'color: inherit;',
+            : '',
           tooltipBackground: e.tooltip_background
             ? 'background-color: '.concat(e.tooltip_background, ';')
             : '',
@@ -13842,73 +13824,71 @@
               : '',
           tableHeaderFont: e.table_header_font_family
             ? 'font-family: "'.concat(e.table_header_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           tableHeaderFontSize:
             'auto' !== e.table_header_font_size
               ? 'font-size: '.concat(e.table_header_font_size, 'px;')
-              : 'font-size: inherit;',
+              : '',
           tableHeaderFontBold: e.table_header_font_bold
             ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+            : '',
           tableHeaderFontItalic: e.table_header_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           tableHeaderTextAlign: 'text-align: '.concat(
             e.table_header_textAlign,
             ';'
           ),
           tableHeaderColor: e.table_header_color
             ? 'color: '.concat(e.table_header_color, ';')
-            : 'color: inherit;',
+            : '',
           tableBodyFont: e.table_body_font_family
             ? 'font-family: "'.concat(e.table_body_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           tableBodyFontSize:
             'auto' !== e.table_body_font_size
               ? 'font-size: '.concat(e.table_body_font_size, 'px;')
-              : 'font-size: inherit;',
-          tableBodyFontBold: e.table_body_font_bold
-            ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+              : '',
+          tableBodyFontBold: e.table_body_font_bold ? 'font-weight: bold;' : '',
           tableBodyFontItalic: e.table_body_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;',
+            : '',
           tableBodyTextAlign: 'text-align: '.concat(
             e.table_body_textAlign,
             ';'
           ),
           tableBodyColor: e.table_body_color
             ? 'color: '.concat(e.table_body_color, ';')
-            : 'color: inherit;',
+            : '',
           tableBodyRowAltBackground: e.table_body_row_alternate_color
             ? 'background-color: '.concat(e.table_body_row_alternate_color, ';')
-            : 'background-color: inherit;',
+            : '',
           tableBodyRowHoverBackground: e.table_body_row_hover_background
             ? 'background-color: '.concat(
                 e.table_body_row_hover_background,
                 ';'
               )
-            : 'background-color: inherit;',
+            : '',
           funnelLabelTextAlign: 'text-anchor: '.concat(
             _t(e.funnel_label_textAlign),
             ' !important;'
           ),
           funnelLabelColor: e.funnel_label_color
             ? 'fill: '.concat(e.funnel_label_color, ';')
-            : 'fill: inherit;',
+            : '',
           funnelLabelFontFamily: e.funnel_label_font_family
             ? 'font-family: "'.concat(e.funnel_label_font_family, '";')
-            : 'font-family: inherit;',
+            : '',
           funnelLabelFontSize:
             'auto' !== e.funnel_label_font_size
               ? 'font-size: '.concat(e.funnel_label_font_size, 'px;')
-              : 'font-size: inherit;',
+              : '',
           funnelLabelFontBold: e.funnel_label_font_bold
             ? 'font-weight: bold;'
-            : 'font-weight: inherit;',
+            : '',
           funnelLabelFontItalic: e.funnel_label_font_italic
             ? 'font-style: italic;'
-            : 'font-style: inherit;'
+            : ''
         };
       }
       function xt(e) {
@@ -14117,7 +14097,8 @@
       }
       function St(e, t) {
         var n = yt(e),
-          r = t ? '#'.concat(t) : '.keen-theme-builder';
+          r = t ? '#'.concat(t) : '.keen-theme-builder',
+          o = new RegExp(/(^[ \t]*\n)/, 'gm');
         return Object(dt.stripIndent)(
           ht(),
           r,
@@ -14232,7 +14213,7 @@
           n.funnelLabelFontSize,
           n.funnelLabelFontBold,
           n.funnelLabelFontItalic
-        );
+        ).replace(o, '');
       }
       function Et(e, t) {
         var n,
