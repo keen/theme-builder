@@ -71868,7 +71868,7 @@ object-assign
           tooltip_border: fr,
           tooltip_simpleTooltip: !1,
           table_pagination_show: !1,
-          table_pagination_limit: '',
+          table_pagination_limit: 1,
           table_header_show: !1,
           table_header_textAlign: nr[0].value,
           table_header_color: Jn.title,
@@ -71896,7 +71896,7 @@ object-assign
           funnel_percents_decimals: 0,
           funnel_hover: !1,
           funnel_margin: !1,
-          funnel_minimal_size: '',
+          funnel_minimal_size: 50,
           funnel_effect3d: ur[0].value,
           funnel_label_textAlign: nr[1].value,
           funnel_label_color: Jn.title,
@@ -72806,9 +72806,10 @@ object-assign
             a = e.onChange,
             l = e.className,
             s = e.value,
-            u = e.error,
-            c = (e.children, e.label),
-            f = Kr(e, [
+            u = void 0 === s ? '' : s,
+            c = e.error,
+            f = (e.children, e.label),
+            d = Kr(e, [
               'name',
               'type',
               'placeholder',
@@ -72819,21 +72820,29 @@ object-assign
               'children',
               'label'
             ]),
-            d = Zr(Object(r.useState)(''), 2),
-            h = d[0],
-            p = d[1];
-          Object(r.useEffect)(function() {
-            p(s);
-          }, []);
-          var g = l ? 'form-input__input '.concat(l) : 'form-input__input';
+            h = Zr(Object(r.useState)(u), 2),
+            p = h[0],
+            g = h[1];
+          Object(r.useEffect)(
+            function() {
+              var e = setTimeout(function() {
+                a(p);
+              }, 500);
+              return function() {
+                return clearTimeout(e);
+              };
+            },
+            [p]
+          );
+          var m = l ? 'form-input__input '.concat(l) : 'form-input__input';
           return i.a.createElement(
             'div',
             { className: 'form-input' },
-            c &&
+            f &&
               i.a.createElement(
                 'label',
                 { htmlFor: t, className: 'form-input__label' },
-                c
+                f
               ),
             i.a.createElement(
               'input',
@@ -72843,20 +72852,16 @@ object-assign
                   type: n,
                   placeholder: o,
                   onChange: function(e) {
-                    e.persist(),
-                      p(e.target.value),
-                      setTimeout(function() {
-                        a(e);
-                      }, 250);
+                    e.persist(), g(e.target.value);
                   },
-                  value: h,
-                  className: g,
-                  style: u && { border: 'solid 1px red' }
+                  value: p,
+                  className: m,
+                  style: c && { border: 'solid 1px red' }
                 },
-                f
+                d
               )
             ),
-            u && i.a.createElement('p', null, u)
+            c && i.a.createElement('p', null, c)
           );
         },
         Jr = Qr;
@@ -73247,7 +73252,6 @@ object-assign
           '\n      ',
           '\n      ',
           '\n    }\n    ',
-          ' .keen-dataviz .keen-dataviz-metric,\n    ',
           ' .keen-dataviz .keen-dataviz-metric-value {\n      ',
           '\n      ',
           '\n      ',
@@ -73811,133 +73815,16 @@ object-assign
         }
       }
       function Li(e, t) {
-        var n = Pi(e),
-          r = t ? '#'.concat(t) : '.keen-theme-builder',
-          i = new RegExp(/(^[ \t]*\n)/, 'gm');
-        return xi(
-          Si(),
-          r,
-          n.chartBackground,
-          n.chartBorder,
-          r,
-          r,
-          n.chartBackground,
-          r,
-          r,
-          n.chartFont,
-          r,
-          r,
-          r,
-          n.titleColor,
-          n.titleTextAlign,
-          n.titleFontFamily,
-          n.titleFontSize,
-          n.titleFontBold,
-          n.titleFontItalic,
-          r,
-          r,
-          r,
-          n.subtitleColor,
-          n.subtitleTextAlign,
-          n.subtitleFontFamily,
-          n.subtitleFontSize,
-          n.subtitleFontBold,
-          n.subtitleFontItalic,
-          r,
-          n.axisYLabelColor,
-          n.axisYLabelFont,
-          n.axisYLabelFontSize,
-          n.axisYLabelFontBold,
-          n.axisYLabelFontItalic,
-          r,
-          n.axisXLabelColor,
-          n.axisXLabelFont,
-          n.axisXLabelFontSize,
-          n.axisXLabelFontBold,
-          n.axisXLabelFontItalic,
-          r,
-          n.legendFont,
-          n.legendFontSize,
-          n.legendFontBold,
-          n.legendFontItalic,
-          n.legendColor,
-          r,
-          r,
-          n.gridLineColor,
-          r,
-          n.gridLineShow,
-          r,
-          n.axisYTitleFont,
-          n.axisYTitleFontSize,
-          n.axisYTitleFontBold,
-          n.axisYTitleFontItalic,
-          n.axisYTitleColor,
-          r,
-          n.axisXTitleFont,
-          n.axisXTitleFontSize,
-          n.axisXTitleFontBold,
-          n.axisXTitleFontItalic,
-          n.axisXTitleColor,
-          r,
-          n.seriesLabelFont,
-          n.seriesLabelFontSize,
-          n.seriesLabelFontBold,
-          n.seriesLabelFontItalic,
-          n.seriesLabelTextAlign,
-          n.seriesLabelColor,
-          r,
-          n.seriesLineThickness,
-          r,
-          n.tooltipFont,
-          n.tooltipFontSize,
-          n.tooltipFontBold,
-          n.tooltipFontItalic,
-          n.tooltipColor,
-          n.tooltipBackground,
-          n.tooltipBorder,
-          r,
-          r,
-          n.chartFont,
-          n.chartFontSize,
-          n.chartFontBold,
-          n.chartFontItalic,
-          n.chartColor,
-          r,
-          n.tableHeaderFont,
-          n.tableHeaderFontSize,
-          n.tableHeaderFontBold,
-          n.tableHeaderFontItalic,
-          n.tableHeaderTextAlign,
-          n.tableHeaderColor,
-          r,
-          r,
-          n.tableBodyFont,
-          n.tableBodyFontSize,
-          n.tableBodyFontBold,
-          n.tableBodyFontItalic,
-          n.tableBodyTextAlign,
-          n.tableBodyColor,
-          r,
-          n.tableBodyRowAltBackground,
-          r,
-          n.tableBodyRowHoverBackground,
-          r,
-          n.funnelLabelColor,
-          n.funnelLabelTextAlign,
-          n.funnelLabelFontFamily,
-          n.funnelLabelFontSize,
-          n.funnelLabelFontBold,
-          n.funnelLabelFontItalic
-        ).replace(i, '');
-      }
-      function zi(e, t) {
         var n,
-          r = 'default' !== e.chart ? e.chart : void 0,
-          i = e.colors || [],
-          o = !(!e.title_show || !e.title_text) && e.title_text,
-          a = e.subtitle_show && e.subtitle_text ? e.subtitle_text : void 0,
+          r = e.colors || [],
+          i = !(!e.title_show || !e.title_text) && e.title_text,
+          o = e.subtitle_show && e.subtitle_text ? e.subtitle_text : void 0,
+          a =
+            'top' === e.legend_layout || 'bottom' === e.legend_layout
+              ? e.legend_position_horizontal
+              : e.legend_position_vertical,
           l = e.legend_show
-            ? { show: e.legend_show, position: e.legend_layout }
+            ? { show: e.legend_show, position: e.legend_layout, alignment: a }
             : { show: e.legend_show },
           s = Oi(e),
           u = e.series_points_show
@@ -73945,22 +73832,24 @@ object-assign
             : { show: e.series_points_show },
           c = { labels: e.series_label_show },
           f =
-            'metric' === e.chart && e.general_prefix
-              ? e.general_prefix
-              : void 0,
+            ('default' !== e.chart && 'metric' !== e.chart) || !e.general_prefix
+              ? void 0
+              : e.general_prefix,
           d =
-            'metric' === e.chart && e.general_suffix
-              ? e.general_suffix
-              : void 0,
-          h = !!e.appearance_sparkline || void 0,
+            ('default' !== e.chart && 'metric' !== e.chart) || !e.general_suffix
+              ? void 0
+              : e.general_suffix,
+          h = e.appearance_sparkline ? e.appearance_sparkline : void 0,
           p = e.series_stacked ? e.series_stacked : void 0,
           g = !!e.chart_slider_show,
           m =
-            'table' === e.chart && e.table_pagination_show
-              ? { pagination: { limit: e.table_pagination_limit } }
-              : void 0,
+            (e.tooltip_simpleTooltip,
+            ('default' !== e.chart && 'table' !== e.chart) ||
+            !e.table_pagination_show
+              ? {}
+              : { pagination: { limit: parseInt(e.table_pagination_limit) } }),
           v =
-            'choropleth' === e.chart
+            'default' === e.chart || 'choropleth' === e.chart
               ? {
                   map: e.choropleth_map,
                   borders: {
@@ -73974,36 +73863,37 @@ object-assign
                   },
                   showSlider: e.chart_slider_show
                 }
-              : void 0,
-          b = hr.includes(e.chart)
-            ? {
-                lines: e.funnel_lines,
-                resultValues: e.funnel_results,
-                percents: {
-                  show: e.funnel_percents_show,
-                  countingMethod: e.funnel_percents_count || sr[0].value,
-                  decimals: e.funnel_percents_show
-                    ? e.funnel_percents_decimals
-                    : void 0
-                },
-                hover: e.funnel_hover,
-                marginBetweenSteps: e.funnel_margin,
-                minimalSize: e.funnel_minimal_size,
-                effect3d: e.funnel_effect3d
-              }
-            : void 0;
-        'heatmap' === r &&
+              : {},
+          b =
+            'default' === e.chart || hr.includes(e.chart)
+              ? {
+                  lines: e.funnel_lines,
+                  resultValues: e.funnel_results,
+                  percents: {
+                    show: e.funnel_percents_show,
+                    countingMethod: e.funnel_percents_count || sr[0].value,
+                    decimals: e.funnel_percents_show
+                      ? parseInt(e.funnel_percents_decimals)
+                      : void 0
+                  },
+                  hover: e.funnel_hover,
+                  marginBetweenSteps: e.funnel_margin,
+                  minimalSize: e.funnel_minimal_size,
+                  effect3d: e.funnel_effect3d
+                }
+              : {};
+        ('default' !== e.chart && 'heatmap' !== e.chart) ||
           (n = { showSlider: g, simpleTooltip: e.tooltip_simpleTooltip });
         var y = {
             container: '#some_container',
-            type: r,
-            title: o,
-            subtitle: a,
+            type: e.chart,
+            title: i,
+            subtitle: o,
             legend: l,
             axis: s,
             point: u,
             data: c,
-            colors: i,
+            colors: r,
             prefix: f,
             suffix: d,
             heatmap: n,
@@ -74021,7 +73911,7 @@ object-assign
               ')'
             );
       }
-      function Ri(e, t) {
+      function zi(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -74048,10 +73938,132 @@ object-assign
       ri.a.registerLanguage('css', oi.a),
         ri.a.registerLanguage('js', li.a),
         (document.createElement('li').className = 'placeholder');
-      var Ni = function(e) {
+      var Ri = function(e) {
           var t = e.type,
             n = e.data,
-            r = (Ri(e, ['type', 'data']), 'js' === t ? zi(n) : Li(n));
+            r =
+              (zi(e, ['type', 'data']),
+              'js' === t
+                ? Li(n)
+                : (function(e, t) {
+                    var n = Pi(e),
+                      r = t ? '#'.concat(t) : '.keen-theme-builder',
+                      i = new RegExp(/(^[ \t]*\n)/, 'gm');
+                    return xi(
+                      Si(),
+                      r,
+                      n.chartBackground,
+                      n.chartBorder,
+                      r,
+                      r,
+                      n.chartBackground,
+                      r,
+                      r,
+                      n.chartFont,
+                      r,
+                      r,
+                      r,
+                      n.titleColor,
+                      n.titleTextAlign,
+                      n.titleFontFamily,
+                      n.titleFontSize,
+                      n.titleFontBold,
+                      n.titleFontItalic,
+                      r,
+                      r,
+                      r,
+                      n.subtitleColor,
+                      n.subtitleTextAlign,
+                      n.subtitleFontFamily,
+                      n.subtitleFontSize,
+                      n.subtitleFontBold,
+                      n.subtitleFontItalic,
+                      r,
+                      n.axisYLabelColor,
+                      n.axisYLabelFont,
+                      n.axisYLabelFontSize,
+                      n.axisYLabelFontBold,
+                      n.axisYLabelFontItalic,
+                      r,
+                      n.axisXLabelColor,
+                      n.axisXLabelFont,
+                      n.axisXLabelFontSize,
+                      n.axisXLabelFontBold,
+                      n.axisXLabelFontItalic,
+                      r,
+                      n.legendFont,
+                      n.legendFontSize,
+                      n.legendFontBold,
+                      n.legendFontItalic,
+                      n.legendColor,
+                      r,
+                      r,
+                      n.gridLineColor,
+                      r,
+                      n.gridLineShow,
+                      r,
+                      n.axisYTitleFont,
+                      n.axisYTitleFontSize,
+                      n.axisYTitleFontBold,
+                      n.axisYTitleFontItalic,
+                      n.axisYTitleColor,
+                      r,
+                      n.axisXTitleFont,
+                      n.axisXTitleFontSize,
+                      n.axisXTitleFontBold,
+                      n.axisXTitleFontItalic,
+                      n.axisXTitleColor,
+                      r,
+                      n.seriesLabelFont,
+                      n.seriesLabelFontSize,
+                      n.seriesLabelFontBold,
+                      n.seriesLabelFontItalic,
+                      n.seriesLabelTextAlign,
+                      n.seriesLabelColor,
+                      r,
+                      n.seriesLineThickness,
+                      r,
+                      n.tooltipFont,
+                      n.tooltipFontSize,
+                      n.tooltipFontBold,
+                      n.tooltipFontItalic,
+                      n.tooltipColor,
+                      n.tooltipBackground,
+                      n.tooltipBorder,
+                      r,
+                      n.chartFont,
+                      n.chartFontSize,
+                      n.chartFontBold,
+                      n.chartFontItalic,
+                      n.chartColor,
+                      r,
+                      n.tableHeaderFont,
+                      n.tableHeaderFontSize,
+                      n.tableHeaderFontBold,
+                      n.tableHeaderFontItalic,
+                      n.tableHeaderTextAlign,
+                      n.tableHeaderColor,
+                      r,
+                      r,
+                      n.tableBodyFont,
+                      n.tableBodyFontSize,
+                      n.tableBodyFontBold,
+                      n.tableBodyFontItalic,
+                      n.tableBodyTextAlign,
+                      n.tableBodyColor,
+                      r,
+                      n.tableBodyRowAltBackground,
+                      r,
+                      n.tableBodyRowHoverBackground,
+                      r,
+                      n.funnelLabelColor,
+                      n.funnelLabelTextAlign,
+                      n.funnelLabelFontFamily,
+                      n.funnelLabelFontSize,
+                      n.funnelLabelFontBold,
+                      n.funnelLabelFontItalic
+                    ).replace(i, '');
+                  })(n));
           return i.a.createElement(
             i.a.Fragment,
             null,
@@ -74083,16 +74095,16 @@ object-assign
             })
           );
         },
-        ji = Ni;
-      (Ni.defaultProps = { type: 'js', data: {} }),
-        (Ni.propTypes = {
+        Ni = Ri;
+      (Ri.defaultProps = { type: 'js', data: {} }),
+        (Ri.propTypes = {
           type: s.a.oneOf(['js', 'css']).isRequired,
           data: s.a.object.isRequired
         });
-      var Ii = n(18),
-        Di = n.n(Ii);
-      function Bi() {
-        return (Bi =
+      var ji = n(18),
+        Ii = n.n(ji);
+      function Di() {
+        return (Di =
           Object.assign ||
           function(e) {
             for (var t = 1; t < arguments.length; t++) {
@@ -74103,7 +74115,7 @@ object-assign
             return e;
           }).apply(this, arguments);
       }
-      function Vi(e, t) {
+      function Bi(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -74127,7 +74139,7 @@ object-assign
         }
         return i;
       }
-      var Gi = function(e) {
+      var Vi = function(e) {
           var t,
             n = e.type,
             r = e.colors,
@@ -74150,7 +74162,7 @@ object-assign
             x = e.stacked,
             w = e.pagination,
             S =
-              (Vi(e, [
+              (Bi(e, [
                 'type',
                 'colors',
                 'legend',
@@ -74190,7 +74202,7 @@ object-assign
             ? i.a.createElement(
                 'div',
                 { className: 'builder__default-charts' },
-                i.a.createElement(Di.a, {
+                i.a.createElement(Ii.a, {
                   type: 'bar',
                   title: c,
                   subtitle: f,
@@ -74203,7 +74215,7 @@ object-assign
                   stacked: x,
                   results: Un.bar
                 }),
-                i.a.createElement(Di.a, {
+                i.a.createElement(Ii.a, {
                   type: 'area',
                   title: c,
                   subtitle: f,
@@ -74216,7 +74228,7 @@ object-assign
                   stacked: x,
                   results: Un.area
                 }),
-                i.a.createElement(Di.a, {
+                i.a.createElement(Ii.a, {
                   type: 'funnel-3d',
                   title: c,
                   subtitle: f,
@@ -74224,11 +74236,12 @@ object-assign
                   legend: l,
                   data: d,
                   point: h,
+                  funnel: v,
                   results: Un['funnel-3d']
                 }),
                 i.a.createElement(
-                  Di.a,
-                  Bi(
+                  Ii.a,
+                  Di(
                     {
                       type: 'donut',
                       title: c,
@@ -74245,8 +74258,8 @@ object-assign
                 )
               )
             : i.a.createElement(
-                Di.a,
-                Bi(
+                Ii.a,
+                Di(
                   {
                     type: n,
                     title: c,
@@ -74273,14 +74286,14 @@ object-assign
                 )
               );
         },
-        Hi = Gi;
-      Gi.propTypes = {
+        Gi = Vi;
+      Vi.propTypes = {
         type: s.a.string.isRequired,
         colors: s.a.array.isRequired
       };
       n(285), n(287), n(289);
-      function Ui(e) {
-        return (Ui =
+      function Hi(e) {
+        return (Hi =
           'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function(e) {
                 return typeof e;
@@ -74294,7 +74307,7 @@ object-assign
                   : typeof e;
               })(e);
       }
-      function Xi(e) {
+      function Ui(e) {
         return (
           (function(e) {
             if (Array.isArray(e)) {
@@ -74317,7 +74330,7 @@ object-assign
           })()
         );
       }
-      function Wi(e, t) {
+      function Xi(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -74341,7 +74354,7 @@ object-assign
         }
         return i;
       }
-      function Yi(e) {
+      function Wi(e) {
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {},
             r = Object.keys(n);
@@ -74352,12 +74365,12 @@ object-assign
               })
             )),
             r.forEach(function(t) {
-              qi(e, t, n[t]);
+              Yi(e, t, n[t]);
             });
         }
         return e;
       }
-      function qi(e, t, n) {
+      function Yi(e, t, n) {
         return (
           t in e
             ? Object.defineProperty(e, t, {
@@ -74370,7 +74383,7 @@ object-assign
           e
         );
       }
-      function $i(e, t) {
+      function qi(e, t) {
         for (var n = 0; n < t.length; n++) {
           var r = t[n];
           (r.enumerable = r.enumerable || !1),
@@ -74379,8 +74392,8 @@ object-assign
             Object.defineProperty(e, r.key, r);
         }
       }
-      function Zi(e, t) {
-        return !t || ('object' !== Ui(t) && 'function' != typeof t)
+      function $i(e, t) {
+        return !t || ('object' !== Hi(t) && 'function' != typeof t)
           ? (function(e) {
               if (void 0 === e)
                 throw new ReferenceError(
@@ -74390,30 +74403,30 @@ object-assign
             })(e)
           : t;
       }
-      function Ki(e) {
-        return (Ki = Object.setPrototypeOf
+      function Zi(e) {
+        return (Zi = Object.setPrototypeOf
           ? Object.getPrototypeOf
           : function(e) {
               return e.__proto__ || Object.getPrototypeOf(e);
             })(e);
       }
-      function Qi(e, t) {
-        return (Qi =
+      function Ki(e, t) {
+        return (Ki =
           Object.setPrototypeOf ||
           function(e, t) {
             return (e.__proto__ = t), e;
           })(e, t);
       }
-      var Ji = (function(e) {
+      var Qi = (function(e) {
         function t(e) {
           var n;
           !(function(e, t) {
             if (!(e instanceof t))
               throw new TypeError('Cannot call a class as a function');
           })(this, t),
-            ((n = Zi(
+            ((n = $i(
               this,
-              Ki(t).call(this, e)
+              Zi(t).call(this, e)
             )).handleChartTypeChange = function(e) {
               e.value && n.setState({ chart: e.value, isModified: !0 });
             }),
@@ -74508,7 +74521,7 @@ object-assign
                   })
               );
             });
-          var r = n.props.options.chart,
+          var r = e.options.chart,
             o = (function() {
               switch (
                 arguments.length > 0 && void 0 !== arguments[0]
@@ -74596,7 +74609,7 @@ object-assign
                   return Ci({}, pr);
               }
             })(void 0 === r ? '' : r);
-          return (n.state = Yi({}, o, e.options, { isModified: !1 })), n;
+          return (n.state = Wi({}, o, e.options, { isModified: !1 })), n;
         }
         var n, r, o;
         return (
@@ -74608,7 +74621,7 @@ object-assign
             (e.prototype = Object.create(t && t.prototype, {
               constructor: { value: e, writable: !0, configurable: !0 }
             })),
-              t && Qi(e, t);
+              t && Ki(e, t);
           })(t, e),
           (n = t),
           (r = [
@@ -74641,19 +74654,17 @@ object-assign
                 var n = this;
                 h()(e, this.props) ||
                   this.setState(function(e) {
-                    return Yi({}, e, n.props.options);
+                    return Wi({}, e, n.props.options);
                   });
                 var r = this.state,
                   i = (r.fonts, r.isModified),
-                  o = Wi(r, ['fonts', 'isModified']),
-                  a = (t.fonts, t.isModified, Wi(t, ['fonts', 'isModified'])),
+                  o = Xi(r, ['fonts', 'isModified']),
+                  a = (t.fonts, t.isModified, Xi(t, ['fonts', 'isModified'])),
                   l = this.props,
                   s = l.isDashboardBuilderActive,
-                  u = l.containerId,
-                  c = l.onChange,
-                  f = Li(o, u).replace(/(\r\n|\n|\r)/gm, ''),
-                  d = s ? { theme: o, style: f, options: zi(o, !0) } : o;
-                i && !h()(o, a) && c && this.props.onChange(d);
+                  u = (l.containerId, l.onChange),
+                  c = s ? { theme: o, options: Li(o, !0) } : o;
+                i && !h()(o, a) && u && this.props.onChange(c);
               }
             },
             {
@@ -74672,7 +74683,7 @@ object-assign
               value: function() {
                 this.setState(function(e) {
                   return {
-                    colors: [].concat(Xi(e.colors), ['#222222']),
+                    colors: [].concat(Ui(e.colors), ['#222222']),
                     isModified: !0
                   };
                 });
@@ -74682,7 +74693,7 @@ object-assign
               key: 'removeItem',
               value: function(e) {
                 this.setState(function(t) {
-                  var n = Xi(t.colors);
+                  var n = Ui(t.colors);
                   return n.splice(e, 1), { colors: n, isModified: !0 };
                 });
               }
@@ -74691,7 +74702,7 @@ object-assign
               key: 'onColorChange',
               value: function(e, t) {
                 this.setState(function(n) {
-                  var r = Xi(n.colors);
+                  var r = Ui(n.colors);
                   return (r[t] = e), { colors: r, isModified: !0 };
                 });
               }
@@ -74725,10 +74736,10 @@ object-assign
               key: 'handleTextStateUpdate',
               value: function(e, t) {
                 this.setState(function(n) {
-                  return Yi(
+                  return Wi(
                     {},
                     n,
-                    qi({ isModified: !0 }, e, t !== fr ? t : '')
+                    Yi({ isModified: !0 }, e, t !== fr ? t : '')
                   );
                 });
               }
@@ -74751,10 +74762,7 @@ object-assign
                         name: 'title',
                         value: this.state.title_text,
                         onChange: function(t) {
-                          return e.handleTextStateUpdate(
-                            'title_text',
-                            t.target.value
-                          );
+                          e.handleTextStateUpdate('title_text', t);
                         }
                       })
                     ),
@@ -74781,10 +74789,7 @@ object-assign
                         name: 'subtitle',
                         value: this.state.subtitle_text,
                         onChange: function(t) {
-                          return e.handleTextStateUpdate(
-                            'subtitle_text',
-                            t.target.value
-                          );
+                          return e.handleTextStateUpdate('subtitle_text', t);
                         }
                       })
                     ),
@@ -74816,7 +74821,7 @@ object-assign
                       onChange: function(t) {
                         return e.handleTextStateUpdate(
                           'axis_vertical_title_text',
-                          t.target.value
+                          t
                         );
                       }
                     })
@@ -74890,14 +74895,14 @@ object-assign
                     'div',
                     { className: 'accordion__item__row' },
                     i.a.createElement(Jr, {
-                      key: 'horizotanl-axis-title',
+                      key: 'horizontal-axis-title',
                       type: 'text',
                       name: 'horizontal-axis-title',
                       value: this.state.axis_horizontal_title_text,
                       onChange: function(t) {
                         return e.handleTextStateUpdate(
                           'axis_horizontal_title_text',
-                          t.target.value
+                          t
                         );
                       }
                     })
@@ -75158,10 +75163,7 @@ object-assign
                     name: 'metric-prefix',
                     value: this.state.general_prefix,
                     onChange: function(t) {
-                      return e.handleTextStateUpdate(
-                        'general_prefix',
-                        t.target.value
-                      );
+                      return e.handleTextStateUpdate('general_prefix', t);
                     }
                   }),
                   i.a.createElement(Jr, {
@@ -75171,10 +75173,7 @@ object-assign
                     name: 'metric-suffix',
                     value: this.state.general_suffix,
                     onChange: function(t) {
-                      return e.handleTextStateUpdate(
-                        'general_suffix',
-                        t.target.value
-                      );
+                      return e.handleTextStateUpdate('general_suffix', t);
                     }
                   })
                 );
@@ -75399,7 +75398,7 @@ object-assign
                       onChange: function(t) {
                         return e.handleTextStateUpdate(
                           'funnel_percents_decimals',
-                          t.target.value
+                          t
                         );
                       },
                       maxLength: '2'
@@ -75444,7 +75443,8 @@ object-assign
                 var e = this,
                   t = this.props,
                   n = t.isDashboardBuilderActive,
-                  r = (function() {
+                  r = t.options.chart,
+                  o = (function() {
                     switch (
                       arguments.length > 0 && void 0 !== arguments[0]
                         ? arguments[0]
@@ -75519,8 +75519,8 @@ object-assign
                       default:
                         return dr;
                     }
-                  })(t.options.chart),
-                  o = Qn.find(function(t) {
+                  })(r),
+                  a = Qn.find(function(t) {
                     return t.value === e.state.chartPalette;
                   });
                 return i.a.createElement(
@@ -75532,11 +75532,9 @@ object-assign
                     'Chart style'
                   ),
                   !n && this.renderChartTypeItem(),
-                  'metric' === this.state.chart && this.renderMetricOptions(),
-                  'choropleth' === this.state.chart &&
-                    this.renderChoroplethMapDropdown(),
-                  ('heatmap' === this.state.chart ||
-                    'choropleth' === this.state.chart) &&
+                  'metric' === r && this.renderMetricOptions(),
+                  'choropleth' === r && this.renderChoroplethMapDropdown(),
+                  ('heatmap' === r || 'choropleth' === r) &&
                     i.a.createElement(
                       Yr,
                       {
@@ -75558,7 +75556,7 @@ object-assign
                   i.a.createElement(
                     Ur,
                     null,
-                    r.appearance &&
+                    o.appearance &&
                       i.a.createElement(
                         'div',
                         { label: 'Appearance' },
@@ -75621,7 +75619,7 @@ object-assign
                             'Plot colors'
                           ),
                           i.a.createElement(sn, {
-                            defaultValue: o || Qn[0],
+                            defaultValue: a || Qn[0],
                             options: Qn,
                             onChange: this.handleChartPaletteChange,
                             className: 'predefined-palette',
@@ -75633,7 +75631,7 @@ object-assign
                           onChange: this.handleColorsChange
                         })
                       ),
-                    r.title &&
+                    o.title &&
                       i.a.createElement(
                         'div',
                         { label: 'Title & Subtitle' },
@@ -75676,28 +75674,30 @@ object-assign
                         ),
                         this.state.subtitle_show && this.renderSubtitleSection()
                       ),
-                    r.axis &&
+                    o.axis &&
                       i.a.createElement(
                         'div',
                         { label: 'Vertical axis' },
-                        i.a.createElement(
-                          Yr,
-                          {
-                            checked: !!this.state.axis_vertical_title_show,
-                            onChange: function() {
-                              return e.handleStateChange(
-                                'axis_vertical_title_show',
-                                !e.state.axis_vertical_title_show
-                              );
-                            }
-                          },
+                        'default' !== r &&
                           i.a.createElement(
-                            'span',
-                            { className: 'section-title' },
-                            'Axis title'
-                          )
-                        ),
-                        this.state.axis_vertical_title_show &&
+                            Yr,
+                            {
+                              checked: !!this.state.axis_vertical_title_show,
+                              onChange: function() {
+                                return e.handleStateChange(
+                                  'axis_vertical_title_show',
+                                  !e.state.axis_vertical_title_show
+                                );
+                              }
+                            },
+                            i.a.createElement(
+                              'span',
+                              { className: 'section-title' },
+                              'Axis title'
+                            )
+                          ),
+                        'default' !== r &&
+                          this.state.axis_vertical_title_show &&
                           this.renderVerticalAxisTitleSection(),
                         i.a.createElement(
                           Yr,
@@ -75719,28 +75719,30 @@ object-assign
                         this.state.axis_vertical_label_show &&
                           this.renderVerticalAxisLabelSection()
                       ),
-                    r.axis &&
+                    o.axis &&
                       i.a.createElement(
                         'div',
                         { label: 'Horizontal axis' },
-                        i.a.createElement(
-                          Yr,
-                          {
-                            checked: !!this.state.axis_horizontal_title_show,
-                            onChange: function() {
-                              return e.handleStateChange(
-                                'axis_horizontal_title_show',
-                                !e.state.axis_horizontal_title_show
-                              );
-                            }
-                          },
+                        'default' !== r &&
                           i.a.createElement(
-                            'span',
-                            { className: 'section-title' },
-                            'Axis title'
-                          )
-                        ),
-                        this.state.axis_horizontal_title_show &&
+                            Yr,
+                            {
+                              checked: !!this.state.axis_horizontal_title_show,
+                              onChange: function() {
+                                return e.handleStateChange(
+                                  'axis_horizontal_title_show',
+                                  !e.state.axis_horizontal_title_show
+                                );
+                              }
+                            },
+                            i.a.createElement(
+                              'span',
+                              { className: 'section-title' },
+                              'Axis title'
+                            )
+                          ),
+                        'default' !== r &&
+                          this.state.axis_horizontal_title_show &&
                           this.renderHorizontalAxisTitleSection(),
                         i.a.createElement(
                           Yr,
@@ -75762,7 +75764,7 @@ object-assign
                         this.state.axis_horizontal_label_show &&
                           this.renderHorizontalAxisLabelSection()
                       ),
-                    r.legend &&
+                    o.legend &&
                       i.a.createElement(
                         'div',
                         { label: 'Legend' },
@@ -75785,7 +75787,7 @@ object-assign
                         ),
                         this.state.legend_show && this.renderLegendSection()
                       ),
-                    r.gridline &&
+                    o.gridline &&
                       i.a.createElement(
                         'div',
                         { label: 'Gridline' },
@@ -75827,7 +75829,7 @@ object-assign
                         ),
                         this.state.subgrid_show && this.renderSubgridSection()
                       ),
-                    r.series &&
+                    o.series &&
                       i.a.createElement(
                         'div',
                         { label: 'Series' },
@@ -75888,7 +75890,7 @@ object-assign
                           }
                         })
                       ),
-                    r.tooltip &&
+                    o.tooltip &&
                       i.a.createElement(
                         'div',
                         { label: 'Tooltip' },
@@ -75944,7 +75946,7 @@ object-assign
                             )
                           )
                       ),
-                    r.table &&
+                    o.table &&
                       i.a.createElement(
                         'div',
                         { label: 'Table' },
@@ -75979,7 +75981,7 @@ object-assign
                               onChange: function(t) {
                                 return e.handleTextStateUpdate(
                                   'table_pagination_limit',
-                                  t.target.value
+                                  t
                                 );
                               },
                               maxLength: '2'
@@ -76065,7 +76067,7 @@ object-assign
                             )
                           )
                       ),
-                    r.funnel &&
+                    o.funnel &&
                       i.a.createElement(
                         'div',
                         { label: 'Funnel' },
@@ -76179,7 +76181,7 @@ object-assign
                             onChange: function(t) {
                               return e.handleTextStateUpdate(
                                 'funnel_minimal_size',
-                                t.target.value
+                                t
                               );
                             }
                           })
@@ -76227,6 +76229,7 @@ object-assign
                   c = parseInt(this.state.table_pagination_limit),
                   f = this.state.table_pagination_show && c ? c : void 0,
                   d =
+                    'default' === this.state.chart ||
                     'choropleth' === this.state.chart
                       ? {
                           map: this.state.choropleth_map,
@@ -76238,25 +76241,27 @@ object-assign
                           showSlider: this.state.chart_slider_show
                         }
                       : void 0,
-                  h = hr.includes(this.state.chart)
-                    ? {
-                        lines: this.state.funnel_lines,
-                        resultValues: this.state.funnel_results,
-                        percents: {
-                          show: this.state.funnel_percents_show,
-                          countingMethod: this.state.funnel_percents_count,
-                          decimals: this.state.funnel_percents_decimals
-                        },
-                        hover: this.state.funnel_hover,
-                        marginBetweenSteps: this.state.funnel_margin,
-                        minimalSize: this.state.funnel_minimal_size,
-                        effect3d: this.state.funnel_effect3d
-                      }
-                    : void 0;
+                  h =
+                    'default' === this.state.chart ||
+                    hr.includes(this.state.chart)
+                      ? {
+                          lines: this.state.funnel_lines,
+                          resultValues: this.state.funnel_results,
+                          percents: {
+                            show: this.state.funnel_percents_show,
+                            countingMethod: this.state.funnel_percents_count,
+                            decimals: this.state.funnel_percents_decimals
+                          },
+                          hover: this.state.funnel_hover,
+                          marginBetweenSteps: this.state.funnel_margin,
+                          minimalSize: this.state.funnel_minimal_size,
+                          effect3d: this.state.funnel_effect3d
+                        }
+                      : void 0;
                 return i.a.createElement(
                   i.a.Fragment,
                   null,
-                  i.a.createElement(Hi, {
+                  i.a.createElement(Gi, {
                     type: this.state.chart,
                     colors: this.state.colors,
                     legend: o,
@@ -76277,7 +76282,7 @@ object-assign
                   i.a.createElement(
                     cn.a,
                     {
-                      id: '3712229450',
+                      id: '525159873',
                       dynamic: [
                         e.chartBackground,
                         e.chartBorder,
@@ -76438,7 +76443,7 @@ object-assign
                         .concat(e.tooltipColor, ' ')
                         .concat(e.tooltipBackground, ' ')
                         .concat(e.tooltipBorder, ';}'),
-                      '.keen-theme-builder .keen-dataviz .keen-dataviz-metric,.keen-theme-builder .keen-dataviz .keen-dataviz-metric-value{'
+                      '.keen-theme-builder .keen-dataviz .keen-dataviz-metric-value{'
                         .concat(e.chartFont, ' ')
                         .concat(e.chartFontSize, ' ')
                         .concat(e.chartFontBold, ' ')
@@ -76504,12 +76509,12 @@ object-assign
                       i.a.createElement(
                         I,
                         null,
-                        i.a.createElement(ji, { data: this.state, type: 'css' })
+                        i.a.createElement(Ni, { data: this.state, type: 'css' })
                       ),
                       i.a.createElement(
                         I,
                         null,
-                        i.a.createElement(ji, { data: this.state, type: 'js' })
+                        i.a.createElement(Ni, { data: this.state, type: 'js' })
                       )
                     )
                 );
@@ -76530,13 +76535,13 @@ object-assign
                 );
               }
             }
-          ]) && $i(n.prototype, r),
-          o && $i(n, o),
+          ]) && qi(n.prototype, r),
+          o && qi(n, o),
           t
         );
       })(r.PureComponent);
-      function eo(e) {
-        return (eo =
+      function Ji(e) {
+        return (Ji =
           'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function(e) {
                 return typeof e;
@@ -76550,7 +76555,7 @@ object-assign
                   : typeof e;
               })(e);
       }
-      function to(e, t) {
+      function eo(e, t) {
         for (var n = 0; n < t.length; n++) {
           var r = t[n];
           (r.enumerable = r.enumerable || !1),
@@ -76559,8 +76564,8 @@ object-assign
             Object.defineProperty(e, r.key, r);
         }
       }
-      function no(e, t) {
-        return !t || ('object' !== eo(t) && 'function' != typeof t)
+      function to(e, t) {
+        return !t || ('object' !== Ji(t) && 'function' != typeof t)
           ? (function(e) {
               if (void 0 === e)
                 throw new ReferenceError(
@@ -76570,31 +76575,31 @@ object-assign
             })(e)
           : t;
       }
-      function ro(e) {
-        return (ro = Object.setPrototypeOf
+      function no(e) {
+        return (no = Object.setPrototypeOf
           ? Object.getPrototypeOf
           : function(e) {
               return e.__proto__ || Object.getPrototypeOf(e);
             })(e);
       }
-      function io(e, t) {
-        return (io =
+      function ro(e, t) {
+        return (ro =
           Object.setPrototypeOf ||
           function(e, t) {
             return (e.__proto__ = t), e;
           })(e, t);
       }
-      (Ji.propTypes = {
+      (Qi.propTypes = {
         options: s.a.object.isRequired,
         isDashboardBuilderActive: s.a.bool,
         onChange: s.a.func.isRequired
       }),
-        (Ji.defaultProps = {
+        (Qi.defaultProps = {
           options: pr,
           isDashboardBuilderActive: !1,
           onChange: function() {}
         });
-      var oo = (function(e) {
+      var io = (function(e) {
         function t(e) {
           var n;
           return (
@@ -76602,7 +76607,7 @@ object-assign
               if (!(e instanceof t))
                 throw new TypeError('Cannot call a class as a function');
             })(this, t),
-            ((n = no(this, ro(t).call(this, e))).onChange = function(e) {
+            ((n = to(this, no(t).call(this, e))).onChange = function(e) {
               console.log(e);
             }),
             n
@@ -76618,14 +76623,14 @@ object-assign
             (e.prototype = Object.create(t && t.prototype, {
               constructor: { value: e, writable: !0, configurable: !0 }
             })),
-              t && io(e, t);
+              t && ro(e, t);
           })(t, e),
           (n = t),
           (r = [
             {
               key: 'render',
               value: function() {
-                return i.a.createElement(Ji, {
+                return i.a.createElement(Qi, {
                   onChange: this.onChange,
                   options: {
                     chart: 'default',
@@ -76637,13 +76642,13 @@ object-assign
                 });
               }
             }
-          ]) && to(n.prototype, r),
-          o && to(n, o),
+          ]) && eo(n.prototype, r),
+          o && eo(n, o),
           t
         );
       })(i.a.Component);
       a.a.render(
-        i.a.createElement(oo, null),
+        i.a.createElement(io, null),
         document.getElementById('keen-theme-builder')
       );
     }

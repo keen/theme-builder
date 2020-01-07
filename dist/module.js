@@ -12415,7 +12415,7 @@
           tooltip_border: me,
           tooltip_simpleTooltip: !1,
           table_pagination_show: !1,
-          table_pagination_limit: '',
+          table_pagination_limit: 1,
           table_header_show: !1,
           table_header_textAlign: se[0].value,
           table_header_color: ae.title,
@@ -12443,7 +12443,7 @@
           funnel_percents_decimals: 0,
           funnel_hover: !1,
           funnel_margin: !1,
-          funnel_minimal_size: '',
+          funnel_minimal_size: 50,
           funnel_effect3d: be[0].value,
           funnel_label_textAlign: se[1].value,
           funnel_label_color: ae.title,
@@ -13353,9 +13353,10 @@
             i = e.onChange,
             l = e.className,
             s = e.value,
-            c = e.error,
-            u = (e.children, e.label),
-            f = rt(e, [
+            c = void 0 === s ? '' : s,
+            u = e.error,
+            f = (e.children, e.label),
+            d = rt(e, [
               'name',
               'type',
               'placeholder',
@@ -13366,21 +13367,29 @@
               'children',
               'label'
             ]),
-            d = nt(Object(r.useState)(''), 2),
-            p = d[0],
-            h = d[1];
-          Object(r.useEffect)(function() {
-            h(s);
-          }, []);
-          var b = l ? 'form-input__input '.concat(l) : 'form-input__input';
+            p = nt(Object(r.useState)(c), 2),
+            h = p[0],
+            b = p[1];
+          Object(r.useEffect)(
+            function() {
+              var e = setTimeout(function() {
+                i(h);
+              }, 500);
+              return function() {
+                return clearTimeout(e);
+              };
+            },
+            [h]
+          );
+          var g = l ? 'form-input__input '.concat(l) : 'form-input__input';
           return o.a.createElement(
             'div',
             { className: 'form-input' },
-            u &&
+            f &&
               o.a.createElement(
                 'label',
                 { htmlFor: t, className: 'form-input__label' },
-                u
+                f
               ),
             o.a.createElement(
               'input',
@@ -13390,20 +13399,16 @@
                   type: n,
                   placeholder: a,
                   onChange: function(e) {
-                    e.persist(),
-                      h(e.target.value),
-                      setTimeout(function() {
-                        i(e);
-                      }, 250);
+                    e.persist(), b(e.target.value);
                   },
-                  value: p,
-                  className: b,
-                  style: c && { border: 'solid 1px red' }
+                  value: h,
+                  className: g,
+                  style: u && { border: 'solid 1px red' }
                 },
-                f
+                d
               )
             ),
-            c && o.a.createElement('p', null, c)
+            u && o.a.createElement('p', null, u)
           );
         },
         at = ot;
@@ -13532,7 +13537,6 @@
           '\n      ',
           '\n      ',
           '\n    }\n    ',
-          ' .keen-dataviz .keen-dataviz-metric,\n    ',
           ' .keen-dataviz .keen-dataviz-metric-value {\n      ',
           '\n      ',
           '\n      ',
@@ -14181,7 +14185,6 @@
           n.tooltipBackground,
           n.tooltipBorder,
           r,
-          r,
           n.chartFont,
           n.chartFontSize,
           n.chartFontBold,
@@ -14217,12 +14220,15 @@
       }
       function Et(e, t) {
         var n,
-          r = 'default' !== e.chart ? e.chart : void 0,
-          o = e.colors || [],
-          a = !(!e.title_show || !e.title_text) && e.title_text,
-          i = e.subtitle_show && e.subtitle_text ? e.subtitle_text : void 0,
+          r = e.colors || [],
+          o = !(!e.title_show || !e.title_text) && e.title_text,
+          a = e.subtitle_show && e.subtitle_text ? e.subtitle_text : void 0,
+          i =
+            'top' === e.legend_layout || 'bottom' === e.legend_layout
+              ? e.legend_position_horizontal
+              : e.legend_position_vertical,
           l = e.legend_show
-            ? { show: e.legend_show, position: e.legend_layout }
+            ? { show: e.legend_show, position: e.legend_layout, alignment: i }
             : { show: e.legend_show },
           s = xt(e),
           c = e.series_points_show
@@ -14230,22 +14236,24 @@
             : { show: e.series_points_show },
           u = { labels: e.series_label_show },
           f =
-            'metric' === e.chart && e.general_prefix
-              ? e.general_prefix
-              : void 0,
+            ('default' !== e.chart && 'metric' !== e.chart) || !e.general_prefix
+              ? void 0
+              : e.general_prefix,
           d =
-            'metric' === e.chart && e.general_suffix
-              ? e.general_suffix
-              : void 0,
-          p = !!e.appearance_sparkline || void 0,
+            ('default' !== e.chart && 'metric' !== e.chart) || !e.general_suffix
+              ? void 0
+              : e.general_suffix,
+          p = e.appearance_sparkline ? e.appearance_sparkline : void 0,
           h = e.series_stacked ? e.series_stacked : void 0,
           b = !!e.chart_slider_show,
           g =
-            'table' === e.chart && e.table_pagination_show
-              ? { pagination: { limit: e.table_pagination_limit } }
-              : void 0,
+            (e.tooltip_simpleTooltip,
+            ('default' !== e.chart && 'table' !== e.chart) ||
+            !e.table_pagination_show
+              ? {}
+              : { pagination: { limit: parseInt(e.table_pagination_limit) } }),
           m =
-            'choropleth' === e.chart
+            'default' === e.chart || 'choropleth' === e.chart
               ? {
                   map: e.choropleth_map,
                   borders: {
@@ -14259,36 +14267,37 @@
                   },
                   showSlider: e.chart_slider_show
                 }
-              : void 0,
-          v = _e.includes(e.chart)
-            ? {
-                lines: e.funnel_lines,
-                resultValues: e.funnel_results,
-                percents: {
-                  show: e.funnel_percents_show,
-                  countingMethod: e.funnel_percents_count || he[0].value,
-                  decimals: e.funnel_percents_show
-                    ? e.funnel_percents_decimals
-                    : void 0
-                },
-                hover: e.funnel_hover,
-                marginBetweenSteps: e.funnel_margin,
-                minimalSize: e.funnel_minimal_size,
-                effect3d: e.funnel_effect3d
-              }
-            : void 0;
-        'heatmap' === r &&
+              : {},
+          v =
+            'default' === e.chart || _e.includes(e.chart)
+              ? {
+                  lines: e.funnel_lines,
+                  resultValues: e.funnel_results,
+                  percents: {
+                    show: e.funnel_percents_show,
+                    countingMethod: e.funnel_percents_count || he[0].value,
+                    decimals: e.funnel_percents_show
+                      ? parseInt(e.funnel_percents_decimals)
+                      : void 0
+                  },
+                  hover: e.funnel_hover,
+                  marginBetweenSteps: e.funnel_margin,
+                  minimalSize: e.funnel_minimal_size,
+                  effect3d: e.funnel_effect3d
+                }
+              : {};
+        ('default' !== e.chart && 'heatmap' !== e.chart) ||
           (n = { showSlider: b, simpleTooltip: e.tooltip_simpleTooltip });
         var _ = {
             container: '#some_container',
-            type: r,
-            title: a,
-            subtitle: i,
+            type: e.chart,
+            title: o,
+            subtitle: a,
             legend: l,
             axis: s,
             point: c,
             data: u,
-            colors: o,
+            colors: r,
             prefix: f,
             suffix: d,
             heatmap: n,
@@ -14509,6 +14518,7 @@
                   legend: l,
                   data: d,
                   point: p,
+                  funnel: m,
                   results: $['funnel-3d']
                 }),
                 o.a.createElement(
@@ -14793,7 +14803,7 @@
                   })
               );
             });
-          var r = n.props.options.chart,
+          var r = e.options.chart,
             a = (function() {
               switch (
                 arguments.length > 0 && void 0 !== arguments[0]
@@ -14934,11 +14944,9 @@
                   i = (t.fonts, t.isModified, It(t, ['fonts', 'isModified'])),
                   l = this.props,
                   s = l.isDashboardBuilderActive,
-                  c = l.containerId,
-                  u = l.onChange,
-                  d = St(a, c).replace(/(\r\n|\n|\r)/gm, ''),
-                  p = s ? { theme: a, style: d, options: Et(a, !0) } : a;
-                o && !f()(a, i) && u && this.props.onChange(p);
+                  c = (l.containerId, l.onChange),
+                  u = s ? { theme: a, options: Et(a, !0) } : a;
+                o && !f()(a, i) && c && this.props.onChange(u);
               }
             },
             {
@@ -15036,10 +15044,7 @@
                         name: 'title',
                         value: this.state.title_text,
                         onChange: function(t) {
-                          return e.handleTextStateUpdate(
-                            'title_text',
-                            t.target.value
-                          );
+                          e.handleTextStateUpdate('title_text', t);
                         }
                       })
                     ),
@@ -15066,10 +15071,7 @@
                         name: 'subtitle',
                         value: this.state.subtitle_text,
                         onChange: function(t) {
-                          return e.handleTextStateUpdate(
-                            'subtitle_text',
-                            t.target.value
-                          );
+                          return e.handleTextStateUpdate('subtitle_text', t);
                         }
                       })
                     ),
@@ -15101,7 +15103,7 @@
                       onChange: function(t) {
                         return e.handleTextStateUpdate(
                           'axis_vertical_title_text',
-                          t.target.value
+                          t
                         );
                       }
                     })
@@ -15175,14 +15177,14 @@
                     'div',
                     { className: 'accordion__item__row' },
                     o.a.createElement(at, {
-                      key: 'horizotanl-axis-title',
+                      key: 'horizontal-axis-title',
                       type: 'text',
                       name: 'horizontal-axis-title',
                       value: this.state.axis_horizontal_title_text,
                       onChange: function(t) {
                         return e.handleTextStateUpdate(
                           'axis_horizontal_title_text',
-                          t.target.value
+                          t
                         );
                       }
                     })
@@ -15443,10 +15445,7 @@
                     name: 'metric-prefix',
                     value: this.state.general_prefix,
                     onChange: function(t) {
-                      return e.handleTextStateUpdate(
-                        'general_prefix',
-                        t.target.value
-                      );
+                      return e.handleTextStateUpdate('general_prefix', t);
                     }
                   }),
                   o.a.createElement(at, {
@@ -15456,10 +15455,7 @@
                     name: 'metric-suffix',
                     value: this.state.general_suffix,
                     onChange: function(t) {
-                      return e.handleTextStateUpdate(
-                        'general_suffix',
-                        t.target.value
-                      );
+                      return e.handleTextStateUpdate('general_suffix', t);
                     }
                   })
                 );
@@ -15684,7 +15680,7 @@
                       onChange: function(t) {
                         return e.handleTextStateUpdate(
                           'funnel_percents_decimals',
-                          t.target.value
+                          t
                         );
                       },
                       maxLength: '2'
@@ -15729,7 +15725,8 @@
                 var e = this,
                   t = this.props,
                   n = t.isDashboardBuilderActive,
-                  r = (function() {
+                  r = t.options.chart,
+                  a = (function() {
                     switch (
                       arguments.length > 0 && void 0 !== arguments[0]
                         ? arguments[0]
@@ -15804,8 +15801,8 @@
                       default:
                         return ve;
                     }
-                  })(t.options.chart),
-                  a = oe.find(function(t) {
+                  })(r),
+                  i = oe.find(function(t) {
                     return t.value === e.state.chartPalette;
                   });
                 return o.a.createElement(
@@ -15817,11 +15814,9 @@
                     'Chart style'
                   ),
                   !n && this.renderChartTypeItem(),
-                  'metric' === this.state.chart && this.renderMetricOptions(),
-                  'choropleth' === this.state.chart &&
-                    this.renderChoroplethMapDropdown(),
-                  ('heatmap' === this.state.chart ||
-                    'choropleth' === this.state.chart) &&
+                  'metric' === r && this.renderMetricOptions(),
+                  'choropleth' === r && this.renderChoroplethMapDropdown(),
+                  ('heatmap' === r || 'choropleth' === r) &&
                     o.a.createElement(
                       Qe,
                       {
@@ -15843,7 +15838,7 @@
                   o.a.createElement(
                     $e,
                     null,
-                    r.appearance &&
+                    a.appearance &&
                       o.a.createElement(
                         'div',
                         { label: 'Appearance' },
@@ -15906,7 +15901,7 @@
                             'Plot colors'
                           ),
                           o.a.createElement(h.a, {
-                            defaultValue: a || oe[0],
+                            defaultValue: i || oe[0],
                             options: oe,
                             onChange: this.handleChartPaletteChange,
                             className: 'predefined-palette',
@@ -15918,7 +15913,7 @@
                           onChange: this.handleColorsChange
                         })
                       ),
-                    r.title &&
+                    a.title &&
                       o.a.createElement(
                         'div',
                         { label: 'Title & Subtitle' },
@@ -15961,28 +15956,30 @@
                         ),
                         this.state.subtitle_show && this.renderSubtitleSection()
                       ),
-                    r.axis &&
+                    a.axis &&
                       o.a.createElement(
                         'div',
                         { label: 'Vertical axis' },
-                        o.a.createElement(
-                          Qe,
-                          {
-                            checked: !!this.state.axis_vertical_title_show,
-                            onChange: function() {
-                              return e.handleStateChange(
-                                'axis_vertical_title_show',
-                                !e.state.axis_vertical_title_show
-                              );
-                            }
-                          },
+                        'default' !== r &&
                           o.a.createElement(
-                            'span',
-                            { className: 'section-title' },
-                            'Axis title'
-                          )
-                        ),
-                        this.state.axis_vertical_title_show &&
+                            Qe,
+                            {
+                              checked: !!this.state.axis_vertical_title_show,
+                              onChange: function() {
+                                return e.handleStateChange(
+                                  'axis_vertical_title_show',
+                                  !e.state.axis_vertical_title_show
+                                );
+                              }
+                            },
+                            o.a.createElement(
+                              'span',
+                              { className: 'section-title' },
+                              'Axis title'
+                            )
+                          ),
+                        'default' !== r &&
+                          this.state.axis_vertical_title_show &&
                           this.renderVerticalAxisTitleSection(),
                         o.a.createElement(
                           Qe,
@@ -16004,28 +16001,30 @@
                         this.state.axis_vertical_label_show &&
                           this.renderVerticalAxisLabelSection()
                       ),
-                    r.axis &&
+                    a.axis &&
                       o.a.createElement(
                         'div',
                         { label: 'Horizontal axis' },
-                        o.a.createElement(
-                          Qe,
-                          {
-                            checked: !!this.state.axis_horizontal_title_show,
-                            onChange: function() {
-                              return e.handleStateChange(
-                                'axis_horizontal_title_show',
-                                !e.state.axis_horizontal_title_show
-                              );
-                            }
-                          },
+                        'default' !== r &&
                           o.a.createElement(
-                            'span',
-                            { className: 'section-title' },
-                            'Axis title'
-                          )
-                        ),
-                        this.state.axis_horizontal_title_show &&
+                            Qe,
+                            {
+                              checked: !!this.state.axis_horizontal_title_show,
+                              onChange: function() {
+                                return e.handleStateChange(
+                                  'axis_horizontal_title_show',
+                                  !e.state.axis_horizontal_title_show
+                                );
+                              }
+                            },
+                            o.a.createElement(
+                              'span',
+                              { className: 'section-title' },
+                              'Axis title'
+                            )
+                          ),
+                        'default' !== r &&
+                          this.state.axis_horizontal_title_show &&
                           this.renderHorizontalAxisTitleSection(),
                         o.a.createElement(
                           Qe,
@@ -16047,7 +16046,7 @@
                         this.state.axis_horizontal_label_show &&
                           this.renderHorizontalAxisLabelSection()
                       ),
-                    r.legend &&
+                    a.legend &&
                       o.a.createElement(
                         'div',
                         { label: 'Legend' },
@@ -16070,7 +16069,7 @@
                         ),
                         this.state.legend_show && this.renderLegendSection()
                       ),
-                    r.gridline &&
+                    a.gridline &&
                       o.a.createElement(
                         'div',
                         { label: 'Gridline' },
@@ -16112,7 +16111,7 @@
                         ),
                         this.state.subgrid_show && this.renderSubgridSection()
                       ),
-                    r.series &&
+                    a.series &&
                       o.a.createElement(
                         'div',
                         { label: 'Series' },
@@ -16173,7 +16172,7 @@
                           }
                         })
                       ),
-                    r.tooltip &&
+                    a.tooltip &&
                       o.a.createElement(
                         'div',
                         { label: 'Tooltip' },
@@ -16229,7 +16228,7 @@
                             )
                           )
                       ),
-                    r.table &&
+                    a.table &&
                       o.a.createElement(
                         'div',
                         { label: 'Table' },
@@ -16264,7 +16263,7 @@
                               onChange: function(t) {
                                 return e.handleTextStateUpdate(
                                   'table_pagination_limit',
-                                  t.target.value
+                                  t
                                 );
                               },
                               maxLength: '2'
@@ -16350,7 +16349,7 @@
                             )
                           )
                       ),
-                    r.funnel &&
+                    a.funnel &&
                       o.a.createElement(
                         'div',
                         { label: 'Funnel' },
@@ -16464,7 +16463,7 @@
                             onChange: function(t) {
                               return e.handleTextStateUpdate(
                                 'funnel_minimal_size',
-                                t.target.value
+                                t
                               );
                             }
                           })
@@ -16512,6 +16511,7 @@
                   u = parseInt(this.state.table_pagination_limit),
                   f = this.state.table_pagination_show && u ? u : void 0,
                   d =
+                    'default' === this.state.chart ||
                     'choropleth' === this.state.chart
                       ? {
                           map: this.state.choropleth_map,
@@ -16523,21 +16523,23 @@
                           showSlider: this.state.chart_slider_show
                         }
                       : void 0,
-                  p = _e.includes(this.state.chart)
-                    ? {
-                        lines: this.state.funnel_lines,
-                        resultValues: this.state.funnel_results,
-                        percents: {
-                          show: this.state.funnel_percents_show,
-                          countingMethod: this.state.funnel_percents_count,
-                          decimals: this.state.funnel_percents_decimals
-                        },
-                        hover: this.state.funnel_hover,
-                        marginBetweenSteps: this.state.funnel_margin,
-                        minimalSize: this.state.funnel_minimal_size,
-                        effect3d: this.state.funnel_effect3d
-                      }
-                    : void 0;
+                  p =
+                    'default' === this.state.chart ||
+                    _e.includes(this.state.chart)
+                      ? {
+                          lines: this.state.funnel_lines,
+                          resultValues: this.state.funnel_results,
+                          percents: {
+                            show: this.state.funnel_percents_show,
+                            countingMethod: this.state.funnel_percents_count,
+                            decimals: this.state.funnel_percents_decimals
+                          },
+                          hover: this.state.funnel_hover,
+                          marginBetweenSteps: this.state.funnel_margin,
+                          minimalSize: this.state.funnel_minimal_size,
+                          effect3d: this.state.funnel_effect3d
+                        }
+                      : void 0;
                 return o.a.createElement(
                   o.a.Fragment,
                   null,
@@ -16562,7 +16564,7 @@
                   o.a.createElement(
                     g.a,
                     {
-                      id: '3712229450',
+                      id: '525159873',
                       dynamic: [
                         e.chartBackground,
                         e.chartBorder,
@@ -16723,7 +16725,7 @@
                         .concat(e.tooltipColor, ' ')
                         .concat(e.tooltipBackground, ' ')
                         .concat(e.tooltipBorder, ';}'),
-                      '.keen-theme-builder .keen-dataviz .keen-dataviz-metric,.keen-theme-builder .keen-dataviz .keen-dataviz-metric-value{'
+                      '.keen-theme-builder .keen-dataviz .keen-dataviz-metric-value{'
                         .concat(e.chartFont, ' ')
                         .concat(e.chartFontSize, ' ')
                         .concat(e.chartFontBold, ' ')
