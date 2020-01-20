@@ -211,11 +211,11 @@
           var r = e[t];
           (z.call(e, t) && Y(r, n) && (void 0 !== n || t in e)) || (e[t] = n);
         }
-        function L(e, t) {
+        function D(e, t) {
           for (var n = e.length; n--; ) if (Y(e[n][0], t)) return n;
           return -1;
         }
-        function D(e) {
+        function L(e) {
           return (
             !(!$(e) || ((t = e), S && S in t)) &&
             ((function(e) {
@@ -305,7 +305,7 @@
           var n = (function(e, t) {
             return null == e ? void 0 : e[t];
           })(e, t);
-          return D(n) ? n : void 0;
+          return L(n) ? n : void 0;
         }
         function Z(e, t) {
           return (
@@ -342,22 +342,22 @@
           }),
           (B.prototype.delete = function(e) {
             var t = this.__data__,
-              n = L(t, e);
+              n = D(t, e);
             return (
               !(n < 0) && (n == t.length - 1 ? t.pop() : F.call(t, n, 1), !0)
             );
           }),
           (B.prototype.get = function(e) {
             var t = this.__data__,
-              n = L(t, e);
+              n = D(t, e);
             return n < 0 ? void 0 : t[n][1];
           }),
           (B.prototype.has = function(e) {
-            return L(this.__data__, e) > -1;
+            return D(this.__data__, e) > -1;
           }),
           (B.prototype.set = function(e, t) {
             var n = this.__data__,
-              r = L(n, e);
+              r = D(n, e);
             return r < 0 ? n.push([e, t]) : (n[r][1] = t), this;
           }),
           (I.prototype.clear = function() {
@@ -557,8 +557,8 @@
               return I && I.binding && I.binding('util');
             } catch (e) {}
           })(),
-          L = R && R.isTypedArray;
-        function D(e, t) {
+          D = R && R.isTypedArray;
+        function L(e, t) {
           for (var n = -1, r = null == e ? 0 : e.length; ++n < r; )
             if (t(e[n], n, e)) return !0;
           return !1;
@@ -728,8 +728,8 @@
               : (function(e, t, n, r, o, l) {
                   var u = qe(e),
                     h = qe(t),
-                    b = u ? c : De(e),
-                    v = h ? c : De(t),
+                    b = u ? c : Le(e),
+                    v = h ? c : Le(t),
                     y = (b = b == s ? _ : b) == _,
                     E = (v = v == s ? _ : v) == _,
                     C = b == v;
@@ -889,7 +889,7 @@
             }
             if (h) {
               if (
-                !D(t, function(e, t) {
+                !L(t, function(e, t) {
                   if (((a = t), !h.has(a) && (b === e || o(b, e, n, r, l))))
                     return h.push(t);
                   var a;
@@ -915,7 +915,7 @@
                     e[o + n] = t[n];
                   return e;
                 })(r, n(e));
-          })(e, Je, Le);
+          })(e, Je, De);
         }
         function Ie(e, t) {
           var n = e.__data__;
@@ -1041,7 +1041,7 @@
             }
             return n.set(e, t), (this.size = n.size), this;
           });
-        var Le = le
+        var De = le
             ? function(e) {
                 return null == e
                   ? []
@@ -1063,7 +1063,7 @@
             : function() {
                 return [];
               },
-          De = Fe;
+          Le = Fe;
         function He(e, t) {
           return (
             !!(t = null == t ? l : t) &&
@@ -1087,12 +1087,12 @@
         function We(e, t) {
           return e === t || (e != e && t != t);
         }
-        ((ue && De(new ue(new ArrayBuffer(1))) != O) ||
-          (fe && De(new fe()) != g) ||
-          (de && '[object Promise]' != De(de.resolve())) ||
-          (pe && De(new pe()) != w) ||
-          (he && '[object WeakMap]' != De(new he()))) &&
-          (De = function(e) {
+        ((ue && Le(new ue(new ArrayBuffer(1))) != O) ||
+          (fe && Le(new fe()) != g) ||
+          (de && '[object Promise]' != Le(de.resolve())) ||
+          (pe && Le(new pe()) != w) ||
+          (he && '[object WeakMap]' != Le(new he()))) &&
+          (Le = function(e) {
             var t = Fe(e),
               n = t == _ ? e.constructor : void 0,
               r = n ? Ue(n) : '';
@@ -1141,12 +1141,12 @@
         function $e(e) {
           return null != e && 'object' == typeof e;
         }
-        var Ke = L
+        var Ke = D
           ? (function(e) {
               return function(t) {
                 return e(t);
               };
-            })(L)
+            })(D)
           : function(e) {
               return $e(e) && Ye(e.length) && !!F[Fe(e)];
             };
@@ -1991,21 +1991,21 @@
           var n = e.getBoundingClientRect();
           return { top: n.top + t.top, left: n.left + t.left };
         }
-        function L(e) {
+        function D(e) {
           return e.touches && e.touches.length
             ? { x: e.touches[0].pageX, y: e.touches[0].pageY }
             : e.changedTouches && e.changedTouches.length
             ? { x: e.changedTouches[0].pageX, y: e.changedTouches[0].pageY }
             : { x: e.pageX, y: e.pageY };
         }
-        function D(e, t) {
+        function L(e, t) {
           var n =
             arguments.length > 2 && void 0 !== arguments[2]
               ? arguments[2]
               : { left: 0, top: 0 };
           if (e) {
             var r = { left: n.left + e.offsetLeft, top: n.top + e.offsetTop };
-            return e.parentNode === t ? r : D(e.parentNode, t, r);
+            return e.parentNode === t ? r : L(e.parentNode, t, r);
           }
         }
         function H(e) {
@@ -2263,7 +2263,7 @@
                       r = n.distance,
                       o = n.shouldCancelStart;
                     if (2 !== e.button && !o(e)) {
-                      (t.touched = !0), (t.position = L(e));
+                      (t.touched = !0), (t.position = D(e));
                       var a = N(e.target, function(e) {
                         return null != e.sortableInfo;
                       });
@@ -2309,7 +2309,7 @@
                       t.touched &&
                       !t._awaitingUpdateBeforeSortStart
                     ) {
-                      var a = L(e),
+                      var a = D(e),
                         i = { x: t.position.x - a.x, y: t.position.y - a.y },
                         l = Math.abs(i.x) + Math.abs(i.y);
                       (t.delta = i),
@@ -2374,8 +2374,8 @@
                                     x: a.indexOf('x') >= 0,
                                     y: a.indexOf('y') >= 0
                                   }),
-                                  (t.offsetEdge = D(p, t.container)),
-                                  (t.initialOffset = L(
+                                  (t.offsetEdge = L(p, t.container)),
+                                  (t.initialOffset = D(
                                     b
                                       ? f({}, e, {
                                           pageX: t.boundingClientRect.left,
@@ -2899,7 +2899,7 @@
                         l = void 0 === i ? a : i,
                         s = this.manager.isKeySorting,
                         u = e.ignoreTransition,
-                        f = L(e),
+                        f = D(e),
                         d = {
                           x: f.x - this.initialOffset.x,
                           y: f.y - this.initialOffset.y
@@ -2990,14 +2990,14 @@
                           y = { x: 0, y: 0 },
                           x = i[f].edgeOffset;
                         x ||
-                          ((x = D(p, this.container)),
+                          ((x = L(p, this.container)),
                           (i[f].edgeOffset = x),
                           c && (i[f].boundingClientRect = R(p, o)));
                         var w = f < i.length - 1 && i[f + 1],
                           k = f > 0 && i[f - 1];
                         w &&
                           !w.edgeOffset &&
-                          ((w.edgeOffset = D(w.node, this.container)),
+                          ((w.edgeOffset = L(w.node, this.container)),
                           c && (w.boundingClientRect = R(w.node, o))),
                           h !== this.index
                             ? (t && P(p, t),
@@ -4429,7 +4429,7 @@
             return P.set.call(this, e[0], t, n);
           });
         var R = Object.freeze({ willFinalize: function() {}, createProxy: A });
-        function L(e, t, n, r) {
+        function D(e, t, n, r) {
           Array.isArray(e.base)
             ? (function(e, t, n, r) {
                 var o,
@@ -4484,7 +4484,7 @@
                 });
               })(e, t, n, r);
         }
-        var D = function(e, t) {
+        var L = function(e, t) {
           for (var n = 0, r = t; n < r.length; n += 1) {
             var o = r[n],
               a = o.path,
@@ -4636,9 +4636,9 @@
               }
             }
             return i(e)
-              ? D(e, t)
+              ? L(e, t)
               : this.produce(e, function(e) {
-                  return D(e, t.slice(n + 1));
+                  return L(e, t.slice(n + 1));
                 });
           }),
           (U.prototype.processResult = function(e, t) {
@@ -4690,7 +4690,7 @@
                 }
               this.onCopy && this.onCopy(o),
                 this.autoFreeze && n.canAutoFreeze && Object.freeze(o.copy),
-                t && n.patches && L(o, t, n.patches, n.inversePatches);
+                t && n.patches && D(o, t, n.patches, n.inversePatches);
             }
             return o.copy;
           }),
@@ -5136,29 +5136,29 @@
           }
           return I;
         }
-        function L(e, t, n) {
+        function D(e, t, n) {
           for (var r in B)
             if (B.hasOwnProperty(r) && t === e.f[B[r]] && n === e.f[B[r]])
               return !0;
           return !1;
         }
-        function D(e) {
+        function L(e) {
           var t,
             n = e.g.a.offsetWidth,
             r = e.h.a.offsetWidth;
           (t = n === e.f.serif && r === e.f['sans-serif']) ||
-            (t = R() && L(e, n, r)),
+            (t = R() && D(e, n, r)),
             t
               ? l() - e.A >= e.w
                 ? R() &&
-                  L(e, n, r) &&
+                  D(e, n, r) &&
                   (null === e.u || e.u.hasOwnProperty(e.a.c))
                   ? H(e, e.v)
                   : H(e, e.B)
                 : (function(e) {
                     setTimeout(
                       i(function() {
-                        D(this);
+                        L(this);
                       }, e),
                       50
                     );
@@ -5184,7 +5184,7 @@
           (this.f.serif = this.j.a.offsetWidth),
             (this.f['sans-serif'] = this.m.a.offsetWidth),
             (this.A = l()),
-            D(this);
+            L(this);
         };
         var W = null;
         function Z(e) {
@@ -7716,11 +7716,11 @@
           var B,
             I = n & S,
             R = n & E,
-            L = n & z;
+            D = n & z;
           if ((A && (B = N ? A(t, P, N, M) : A(t)), void 0 !== B)) return B;
           if (!x(t)) return t;
-          var D = v(t);
-          if (D) {
+          var L = v(t);
+          if (L) {
             if (((B = b(t)), !I)) return c(t, B);
           } else {
             var H = h(t),
@@ -7751,8 +7751,8 @@
               }),
               B
             );
-          var Z = L ? (R ? p : d) : R ? keysIn : k,
-            q = D ? void 0 : Z(t);
+          var Z = D ? (R ? p : d) : R ? keysIn : k,
+            q = L ? void 0 : Z(t);
           return (
             o(q || t, function(r, o) {
               q && (r = t[(o = r)]), a(B, o, e(r, n, A, o, t, M));
@@ -9611,7 +9611,7 @@
                     r: M(t[1]),
                     g: M(t[2]),
                     b: M(t[3]),
-                    a: L(t[4]),
+                    a: D(t[4]),
                     format: n ? 'name' : 'hex8'
                   };
                 if ((t = W.hex6.exec(e)))
@@ -9626,7 +9626,7 @@
                     r: M(t[1] + '' + t[1]),
                     g: M(t[2] + '' + t[2]),
                     b: M(t[3] + '' + t[3]),
-                    a: L(t[4] + '' + t[4]),
+                    a: D(t[4] + '' + t[4]),
                     format: n ? 'name' : 'hex8'
                   };
                 if ((t = W.hex3.exec(e)))
@@ -10426,33 +10426,33 @@
         function R(e) {
           return o.round(255 * parseFloat(e)).toString(16);
         }
-        function L(e) {
+        function D(e) {
           return M(e) / 255;
         }
-        var D,
+        var L,
           H,
           U,
           W =
             ((H =
               '[\\s|\\(]+(' +
-              (D = '(?:[-\\+]?\\d*\\.\\d+%?)|(?:[-\\+]?\\d+%?)') +
+              (L = '(?:[-\\+]?\\d*\\.\\d+%?)|(?:[-\\+]?\\d+%?)') +
               ')[,|\\s]+(' +
-              D +
+              L +
               ')[,|\\s]+(' +
-              D +
+              L +
               ')\\s*\\)?'),
             (U =
               '[\\s|\\(]+(' +
-              D +
+              L +
               ')[,|\\s]+(' +
-              D +
+              L +
               ')[,|\\s]+(' +
-              D +
+              L +
               ')[,|\\s]+(' +
-              D +
+              L +
               ')\\s*\\)?'),
             {
-              CSS_UNIT: new RegExp(D),
+              CSS_UNIT: new RegExp(L),
               rgb: new RegExp('rgb' + H),
               rgba: new RegExp('rgba' + U),
               hsl: new RegExp('hsl' + H),
@@ -11027,7 +11027,7 @@
               'M24.184 24c.727 0 1.316.448 1.316 1s-.59 1-1.316 1H1.816C1.089 26 .5 25.552.5 25s.59-1 1.316-1h22.368zM13 4c.552 0 1 .61 1 1.364v11.325l3.306.001a.5.5 0 01.41.788l-.056.066-4.308 4.307a.5.5 0 01-.638.058l-.069-.058-4.308-4.307a.5.5 0 01.268-.847l.086-.007L12 16.689V5.364C12 4.61 12.448 4 13 4z'
           })
         ),
-        L = o.a.createElement(
+        D = o.a.createElement(
           'g',
           { fill: 'none', fillRule: 'evenodd' },
           o.a.createElement(
@@ -11048,8 +11048,8 @@
             o.a.createElement('path', { d: 'M-160-36.09h340v100h-340z' })
           )
         ),
-        D = function(e) {
-          return o.a.createElement('svg', I({ viewBox: '0 0 26 30' }, e), R, L);
+        L = function(e) {
+          return o.a.createElement('svg', I({ viewBox: '0 0 26 30' }, e), R, D);
         };
       function H() {
         return (H =
@@ -12152,7 +12152,7 @@
         te = [
           { label: o.a.createElement(Y, { width: '0.85em' }), value: 'top' },
           { label: o.a.createElement(Z, { width: '0.85em' }), value: 'middle' },
-          { label: o.a.createElement(D, { width: '0.85em' }), value: 'bottom' }
+          { label: o.a.createElement(L, { width: '0.85em' }), value: 'bottom' }
         ],
         ne = [
           { value: 'default', label: 'Default' },
@@ -12863,7 +12863,7 @@
           onChange: function() {}
         });
       var Re = n(90);
-      function Le(e, t) {
+      function De(e, t) {
         return (
           (function(e) {
             if (Array.isArray(e)) return e;
@@ -12898,16 +12898,16 @@
           })()
         );
       }
-      var De = function(e) {
+      var Le = function(e) {
           var t = e.title,
             n = e.initialColor,
             a = e.defaultColor,
             i = e.onChange,
             l = { hex: '#222222' },
-            s = Le(Object(r.useState)(l), 2),
+            s = De(Object(r.useState)(l), 2),
             c = s[0],
             u = s[1],
-            f = Le(Object(r.useState)(!1), 2),
+            f = De(Object(r.useState)(!1), 2),
             d = f[0],
             p = f[1];
           Object(r.useEffect)(function() {
@@ -12993,9 +12993,9 @@
             )
           );
         },
-        He = Object(y.CustomPicker)(De);
-      (De.defaultProps = { title: '', onChange: function() {} }),
-        (De.propTypes = {
+        He = Object(y.CustomPicker)(Le);
+      (Le.defaultProps = { title: '', onChange: function() {} }),
+        (Le.propTypes = {
           title: i.a.string,
           initialColor: i.a.string,
           onChange: i.a.func.isRequired
@@ -13525,7 +13525,6 @@
           '\n      ',
           '\n      ',
           '\n      ',
-          '\n      ',
           '\n    }\n    ',
           ' .keen-dataviz .c3-chart-lines .c3-shape.c3-line {\n      ',
           '\n    }\n    ',
@@ -13563,7 +13562,6 @@
           ' .keen-dataviz-table .table-data-row:hover td {\n      ',
           '\n      color: inherit;\n    }\n    ',
           ' .keen-dataviz-rendering .text-label {\n      display: block;\n      ',
-          '\n      ',
           '\n      ',
           '\n      ',
           '\n      ',
@@ -13643,17 +13641,7 @@
           e
         );
       }
-      var _t = function(e) {
-        switch (e) {
-          case 'left':
-            return 'end';
-          case 'right':
-            return 'start';
-          default:
-            return 'middle';
-        }
-      };
-      function yt(e) {
+      function _t(e) {
         return {
           chartBackground: e.appearance_background
             ? 'background-color: '.concat(e.appearance_background, ';')
@@ -13802,10 +13790,6 @@
           seriesLabelColor: e.series_label_color
             ? 'fill: '.concat(e.series_label_color, ' !important;')
             : '',
-          seriesLabelTextAlign: 'text-anchor: '.concat(
-            _t(e.series_label_textAlign),
-            ' !important;'
-          ),
           seriesLineThickness: 'stroke-width: '.concat(e.series_line, 'px;'),
           tooltipFont: e.tooltip_font_family
             ? 'font-family: "'.concat(e.tooltip_font_family, '";')
@@ -13873,10 +13857,6 @@
                 ';'
               )
             : '',
-          funnelLabelTextAlign: 'text-anchor: '.concat(
-            _t(e.funnel_label_textAlign),
-            ' !important;'
-          ),
           funnelLabelColor: e.funnel_label_color
             ? 'fill: '.concat(e.funnel_label_color, ';')
             : '',
@@ -13895,7 +13875,7 @@
             : ''
         };
       }
-      function xt(e) {
+      function yt(e) {
         var t = {},
           n = le.map(function(e) {
             return e.value;
@@ -13929,7 +13909,7 @@
           t
         );
       }
-      function wt() {
+      function xt() {
         for (
           var e =
               arguments.length > 0 && void 0 !== arguments[0]
@@ -13954,7 +13934,7 @@
           );
         }
       }
-      function kt(e) {
+      function wt(e) {
         for (
           var t = arguments.length, n = new Array(t > 1 ? t - 1 : 0), r = 1;
           r < t;
@@ -13966,14 +13946,14 @@
             var o = mt({}, e);
             return (
               n.forEach(function(e) {
-                o = mt({}, kt(o, e));
+                o = mt({}, wt(o, e));
               }),
               o
             );
           }
           switch (n[0]) {
             case 'axis':
-              return wt(
+              return xt(
                 e,
                 'axis_vertical_title_show',
                 'axis_vertical_title_text',
@@ -14005,7 +13985,7 @@
                 'axis_horizontal_label_font_italic'
               );
             case 'legend':
-              return wt(
+              return xt(
                 e,
                 'legend_show',
                 'legend_color',
@@ -14018,7 +13998,7 @@
                 'legend_position_vertical'
               );
             case 'grid':
-              return wt(
+              return xt(
                 e,
                 'grid_show',
                 'grid_lines_color',
@@ -14028,7 +14008,7 @@
                 'subgrid_lines_count'
               );
             case 'series':
-              return wt(
+              return xt(
                 e,
                 'series_label_show',
                 'series_label_textAlign',
@@ -14043,7 +14023,7 @@
                 'series_points_size'
               );
             case 'tooltip':
-              return wt(
+              return xt(
                 e,
                 'tooltip_color',
                 'tooltip_font_family',
@@ -14054,7 +14034,7 @@
                 'tooltip_border'
               );
             case 'table':
-              return wt(
+              return xt(
                 e,
                 'table_pagination_show',
                 'table_pagination_limit',
@@ -14076,7 +14056,7 @@
                 'table_body_row_hover_background'
               );
             case 'funnel':
-              return wt(
+              return xt(
                 e,
                 'funnel_lines',
                 'funnel_results',
@@ -14099,8 +14079,8 @@
           }
         }
       }
-      function St(e, t) {
-        var n = yt(e),
+      function kt(e, t) {
+        var n = _t(e),
           r = t ? '#'.concat(t) : '.keen-theme-builder',
           o = new RegExp(/(^[ \t]*\n)/, 'gm');
         return Object(dt.stripIndent)(
@@ -14172,7 +14152,6 @@
           n.seriesLabelFontSize,
           n.seriesLabelFontBold,
           n.seriesLabelFontItalic,
-          n.seriesLabelTextAlign,
           n.seriesLabelColor,
           r,
           n.seriesLineThickness,
@@ -14211,14 +14190,13 @@
           n.tableBodyRowHoverBackground,
           r,
           n.funnelLabelColor,
-          n.funnelLabelTextAlign,
           n.funnelLabelFontFamily,
           n.funnelLabelFontSize,
           n.funnelLabelFontBold,
           n.funnelLabelFontItalic
         ).replace(o, '');
       }
-      function Et(e, t) {
+      function St(e, t) {
         var n,
           r = e.colors || [],
           o = !(!e.title_show || !e.title_text) && e.title_text,
@@ -14230,7 +14208,7 @@
           l = e.legend_show
             ? { show: e.legend_show, position: e.legend_layout, alignment: i }
             : { show: e.legend_show },
-          s = xt(e),
+          s = yt(e),
           c = e.series_points_show
             ? { show: e.series_points_show, r: e.series_points_size }
             : { show: e.series_points_show },
@@ -14315,7 +14293,7 @@
               ')'
             );
       }
-      function zt(e, t) {
+      function Et(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -14342,10 +14320,10 @@
       lt.a.registerLanguage('css', ct.a),
         lt.a.registerLanguage('js', ft.a),
         (document.createElement('li').className = 'placeholder');
-      var Ot = function(e) {
+      var zt = function(e) {
           var t = e.type,
             n = e.data,
-            r = (zt(e, ['type', 'data']), 'js' === t ? Et(n) : St(n));
+            r = (Et(e, ['type', 'data']), 'js' === t ? St(n) : kt(n));
           return o.a.createElement(
             o.a.Fragment,
             null,
@@ -14377,16 +14355,16 @@
             })
           );
         },
-        Ct = Ot;
-      (Ot.defaultProps = { type: 'js', data: {} }),
-        (Ot.propTypes = {
+        Ot = zt;
+      (zt.defaultProps = { type: 'js', data: {} }),
+        (zt.propTypes = {
           type: i.a.oneOf(['js', 'css']).isRequired,
           data: i.a.object.isRequired
         });
-      var jt = n(14),
-        Ft = n.n(jt);
-      function Tt() {
-        return (Tt =
+      var Ct = n(14),
+        jt = n.n(Ct);
+      function Ft() {
+        return (Ft =
           Object.assign ||
           function(e) {
             for (var t = 1; t < arguments.length; t++) {
@@ -14397,7 +14375,7 @@
             return e;
           }).apply(this, arguments);
       }
-      function At(e, t) {
+      function Tt(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -14421,7 +14399,7 @@
         }
         return o;
       }
-      var Pt = function(e) {
+      var At = function(e) {
           var t,
             n = e.type,
             r = e.colors,
@@ -14444,7 +14422,7 @@
             x = e.stacked,
             w = e.pagination,
             k =
-              (At(e, [
+              (Tt(e, [
                 'type',
                 'colors',
                 'legend',
@@ -14484,7 +14462,7 @@
             ? o.a.createElement(
                 'div',
                 { className: 'builder__default-charts' },
-                o.a.createElement(Ft.a, {
+                o.a.createElement(jt.a, {
                   type: 'bar',
                   title: u,
                   subtitle: f,
@@ -14497,7 +14475,7 @@
                   stacked: x,
                   results: $.bar
                 }),
-                o.a.createElement(Ft.a, {
+                o.a.createElement(jt.a, {
                   type: 'area',
                   title: u,
                   subtitle: f,
@@ -14510,7 +14488,7 @@
                   stacked: x,
                   results: $.area
                 }),
-                o.a.createElement(Ft.a, {
+                o.a.createElement(jt.a, {
                   type: 'funnel-3d',
                   title: u,
                   subtitle: f,
@@ -14522,8 +14500,8 @@
                   results: $['funnel-3d']
                 }),
                 o.a.createElement(
-                  Ft.a,
-                  Tt(
+                  jt.a,
+                  Ft(
                     {
                       type: 'donut',
                       title: u,
@@ -14540,8 +14518,8 @@
                 )
               )
             : o.a.createElement(
-                Ft.a,
-                Tt(
+                jt.a,
+                Ft(
                   {
                     type: n,
                     title: u,
@@ -14568,14 +14546,14 @@
                 )
               );
         },
-        Nt = Pt;
-      Pt.propTypes = {
+        Pt = At;
+      At.propTypes = {
         type: i.a.string.isRequired,
         colors: i.a.array.isRequired
       };
       n(232), n(234), n(236);
-      function Mt(e) {
-        return (Mt =
+      function Nt(e) {
+        return (Nt =
           'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function(e) {
                 return typeof e;
@@ -14589,7 +14567,7 @@
                   : typeof e;
               })(e);
       }
-      function Bt(e) {
+      function Mt(e) {
         return (
           (function(e) {
             if (Array.isArray(e)) {
@@ -14612,7 +14590,7 @@
           })()
         );
       }
-      function It(e, t) {
+      function Bt(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -14636,7 +14614,7 @@
         }
         return o;
       }
-      function Rt(e) {
+      function It(e) {
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {},
             r = Object.keys(n);
@@ -14647,12 +14625,12 @@
               })
             )),
             r.forEach(function(t) {
-              Lt(e, t, n[t]);
+              Rt(e, t, n[t]);
             });
         }
         return e;
       }
-      function Lt(e, t, n) {
+      function Rt(e, t, n) {
         return (
           t in e
             ? Object.defineProperty(e, t, {
@@ -14674,8 +14652,8 @@
             Object.defineProperty(e, r.key, r);
         }
       }
-      function Ht(e, t) {
-        return !t || ('object' !== Mt(t) && 'function' != typeof t)
+      function Lt(e, t) {
+        return !t || ('object' !== Nt(t) && 'function' != typeof t)
           ? (function(e) {
               if (void 0 === e)
                 throw new ReferenceError(
@@ -14685,30 +14663,30 @@
             })(e)
           : t;
       }
-      function Ut(e) {
-        return (Ut = Object.setPrototypeOf
+      function Ht(e) {
+        return (Ht = Object.setPrototypeOf
           ? Object.getPrototypeOf
           : function(e) {
               return e.__proto__ || Object.getPrototypeOf(e);
             })(e);
       }
-      function Wt(e, t) {
-        return (Wt =
+      function Ut(e, t) {
+        return (Ut =
           Object.setPrototypeOf ||
           function(e, t) {
             return (e.__proto__ = t), e;
           })(e, t);
       }
-      var Zt = (function(e) {
+      var Wt = (function(e) {
         function t(e) {
           var n;
           !(function(e, t) {
             if (!(e instanceof t))
               throw new TypeError('Cannot call a class as a function');
           })(this, t),
-            ((n = Ht(
+            ((n = Lt(
               this,
-              Ut(t).call(this, e)
+              Ht(t).call(this, e)
             )).handleChartTypeChange = function(e) {
               e.value && n.setState({ chart: e.value, isModified: !0 });
             }),
@@ -14818,11 +14796,11 @@
                 case 'area-spline':
                 case 'step':
                 case 'area-step':
-                  return mt({}, kt(ye, 'table', 'funnel'));
+                  return mt({}, wt(ye, 'table', 'funnel'));
                 case 'table':
                   return mt(
                     {},
-                    kt(
+                    wt(
                       ye,
                       'axis',
                       'legend',
@@ -14835,7 +14813,7 @@
                 case 'metric':
                   return mt(
                     {},
-                    kt(
+                    wt(
                       ye,
                       'axis',
                       'legend',
@@ -14849,19 +14827,19 @@
                 case 'pie':
                 case 'donut':
                 case 'gauge':
-                  return mt({}, kt(ye, 'axis', 'grid', 'table', 'funnel'), {
+                  return mt({}, wt(ye, 'axis', 'grid', 'table', 'funnel'), {
                     series_label_show: !0
                   });
                 case 'gauge':
                   return mt(
                     {},
-                    kt(ye, 'axis', 'grid', 'legend', 'table', 'funnel')
+                    wt(ye, 'axis', 'grid', 'legend', 'table', 'funnel')
                   );
                 case 'heatmap':
                 case 'choropleth':
                   return mt(
                     {},
-                    kt(
+                    wt(
                       ye,
                       'axis',
                       'series',
@@ -14877,7 +14855,7 @@
                 case 'horizontal-funnel-3d':
                   return mt(
                     {},
-                    kt(
+                    wt(
                       ye,
                       'series',
                       'legend',
@@ -14891,7 +14869,7 @@
                   return mt({}, ye);
               }
             })(void 0 === r ? '' : r);
-          return (n.state = Rt({}, a, e.options, { isModified: !1 })), n;
+          return (n.state = It({}, a, e.options, { isModified: !1 })), n;
         }
         var n, r, a;
         return (
@@ -14903,7 +14881,7 @@
             (e.prototype = Object.create(t && t.prototype, {
               constructor: { value: e, writable: !0, configurable: !0 }
             })),
-              t && Wt(e, t);
+              t && Ut(e, t);
           })(t, e),
           (n = t),
           (r = [
@@ -14936,16 +14914,16 @@
                 var n = this;
                 f()(e, this.props) ||
                   this.setState(function(e) {
-                    return Rt({}, e, n.props.options);
+                    return It({}, e, n.props.options);
                   });
                 var r = this.state,
                   o = (r.fonts, r.isModified),
-                  a = It(r, ['fonts', 'isModified']),
-                  i = (t.fonts, t.isModified, It(t, ['fonts', 'isModified'])),
+                  a = Bt(r, ['fonts', 'isModified']),
+                  i = (t.fonts, t.isModified, Bt(t, ['fonts', 'isModified'])),
                   l = this.props,
                   s = l.isDashboardBuilderActive,
                   c = (l.containerId, l.onChange),
-                  u = s ? { theme: a, options: Et(a, !0) } : a;
+                  u = s ? { theme: a, options: St(a, !0) } : a;
                 o && !f()(a, i) && c && this.props.onChange(u);
               }
             },
@@ -14965,7 +14943,7 @@
               value: function() {
                 this.setState(function(e) {
                   return {
-                    colors: [].concat(Bt(e.colors), ['#222222']),
+                    colors: [].concat(Mt(e.colors), ['#222222']),
                     isModified: !0
                   };
                 });
@@ -14975,7 +14953,7 @@
               key: 'removeItem',
               value: function(e) {
                 this.setState(function(t) {
-                  var n = Bt(t.colors);
+                  var n = Mt(t.colors);
                   return n.splice(e, 1), { colors: n, isModified: !0 };
                 });
               }
@@ -14984,7 +14962,7 @@
               key: 'onColorChange',
               value: function(e, t) {
                 this.setState(function(n) {
-                  var r = Bt(n.colors);
+                  var r = Mt(n.colors);
                   return (r[t] = e), { colors: r, isModified: !0 };
                 });
               }
@@ -15018,10 +14996,10 @@
               key: 'handleTextStateUpdate',
               value: function(e, t) {
                 this.setState(function(n) {
-                  return Rt(
+                  return It(
                     {},
                     n,
-                    Lt({ isModified: !0 }, e, t !== me ? t : '')
+                    Rt({ isModified: !0 }, e, t !== me ? t : '')
                   );
                 });
               }
@@ -15364,7 +15342,7 @@
                   o.a.Fragment,
                   null,
                   this.renderFontSize('Labels font', 'series_label'),
-                  this.renderFontStyle('Labels format', 'series_label', !0)
+                  this.renderFontStyle('Labels format', 'series_label', !1)
                 );
               }
             },
@@ -16357,7 +16335,7 @@
                         this.renderFontStyle(
                           'Label format',
                           'funnel_label',
-                          !0
+                          !1
                         ),
                         o.a.createElement(
                           Qe,
@@ -16479,7 +16457,7 @@
             {
               key: 'renderTabChart',
               value: function() {
-                var e = yt(this.state),
+                var e = _t(this.state),
                   t =
                     !(!this.state.title_show || !this.state.title_text) &&
                     this.state.title_text,
@@ -16543,13 +16521,13 @@
                 return o.a.createElement(
                   o.a.Fragment,
                   null,
-                  o.a.createElement(Nt, {
+                  o.a.createElement(Pt, {
                     type: this.state.chart,
                     colors: this.state.colors,
                     legend: a,
                     title: t,
                     subtitle: n,
-                    axis: xt(this.state),
+                    axis: yt(this.state),
                     data: i,
                     point: l,
                     prefix: s,
@@ -16564,7 +16542,7 @@
                   o.a.createElement(
                     g.a,
                     {
-                      id: '525159873',
+                      id: '2022330400',
                       dynamic: [
                         e.chartBackground,
                         e.chartBorder,
@@ -16612,7 +16590,6 @@
                         e.seriesLabelFontSize,
                         e.seriesLabelFontBold,
                         e.seriesLabelFontItalic,
-                        e.seriesLabelTextAlign,
                         e.seriesLabelColor,
                         e.seriesLineThickness,
                         e.tooltipFont,
@@ -16642,7 +16619,6 @@
                         e.tableBodyRowAltBackground,
                         e.tableBodyRowHoverBackground,
                         e.funnelLabelColor,
-                        e.funnelLabelTextAlign,
                         e.funnelLabelFontFamily,
                         e.funnelLabelFontSize,
                         e.funnelLabelFontBold,
@@ -16711,7 +16687,6 @@
                         .concat(e.seriesLabelFontSize, ' ')
                         .concat(e.seriesLabelFontBold, ' ')
                         .concat(e.seriesLabelFontItalic, ' ')
-                        .concat(e.seriesLabelTextAlign, ' ')
                         .concat(e.seriesLabelColor, ';}'),
                       '.keen-theme-builder .keen-dataviz .c3-chart-lines .c3-shape.c3-line{'.concat(
                         e.seriesLineThickness,
@@ -16755,7 +16730,6 @@
                       ),
                       '.keen-theme-builder .keen-dataviz-rendering .text-label{display:block;'
                         .concat(e.funnelLabelColor, ' ')
-                        .concat(e.funnelLabelTextAlign, ' ')
                         .concat(e.funnelLabelFontFamily, ' ')
                         .concat(e.funnelLabelFontSize, ' ')
                         .concat(e.funnelLabelFontBold, ' ')
@@ -16795,12 +16769,12 @@
                       o.a.createElement(
                         d.TabPanel,
                         null,
-                        o.a.createElement(Ct, { data: this.state, type: 'css' })
+                        o.a.createElement(Ot, { data: this.state, type: 'css' })
                       ),
                       o.a.createElement(
                         d.TabPanel,
                         null,
-                        o.a.createElement(Ct, { data: this.state, type: 'js' })
+                        o.a.createElement(Ot, { data: this.state, type: 'js' })
                       )
                     )
                 );
@@ -16826,22 +16800,22 @@
           t
         );
       })(r.PureComponent);
-      (Zt.propTypes = {
+      (Wt.propTypes = {
         options: i.a.object.isRequired,
         isDashboardBuilderActive: i.a.bool,
         onChange: i.a.func.isRequired
       }),
-        (Zt.defaultProps = {
+        (Wt.defaultProps = {
           options: ye,
           isDashboardBuilderActive: !1,
           onChange: function() {}
         }),
         n.d(t, 'getStyles', function() {
-          return qt;
+          return Zt;
         });
-      t.default = Zt;
-      var qt = function(e, t) {
-        return St(e, t);
+      t.default = Wt;
+      var Zt = function(e, t) {
+        return kt(e, t);
       };
     }
   ]);
