@@ -73240,7 +73240,6 @@ object-assign
           '\n      ',
           '\n      ',
           '\n      ',
-          '\n      ',
           '\n    }\n    ',
           ' .keen-dataviz .c3-chart-lines .c3-shape.c3-line {\n      ',
           '\n    }\n    ',
@@ -73278,7 +73277,6 @@ object-assign
           ' .keen-dataviz-table .table-data-row:hover td {\n      ',
           '\n      color: inherit;\n    }\n    ',
           ' .keen-dataviz-rendering .text-label {\n      display: block;\n      ',
-          '\n      ',
           '\n      ',
           '\n      ',
           '\n      ',
@@ -73358,17 +73356,7 @@ object-assign
           e
         );
       }
-      var Ai = function(e) {
-        switch (e) {
-          case 'left':
-            return 'end';
-          case 'right':
-            return 'start';
-          default:
-            return 'middle';
-        }
-      };
-      function Pi(e) {
+      function Ai(e) {
         return {
           chartBackground: e.appearance_background
             ? 'background-color: '.concat(e.appearance_background, ';')
@@ -73517,10 +73505,6 @@ object-assign
           seriesLabelColor: e.series_label_color
             ? 'fill: '.concat(e.series_label_color, ' !important;')
             : '',
-          seriesLabelTextAlign: 'text-anchor: '.concat(
-            Ai(e.series_label_textAlign),
-            ' !important;'
-          ),
           seriesLineThickness: 'stroke-width: '.concat(e.series_line, 'px;'),
           tooltipFont: e.tooltip_font_family
             ? 'font-family: "'.concat(e.tooltip_font_family, '";')
@@ -73588,10 +73572,6 @@ object-assign
                 ';'
               )
             : '',
-          funnelLabelTextAlign: 'text-anchor: '.concat(
-            Ai(e.funnel_label_textAlign),
-            ' !important;'
-          ),
           funnelLabelColor: e.funnel_label_color
             ? 'fill: '.concat(e.funnel_label_color, ';')
             : '',
@@ -73610,7 +73590,7 @@ object-assign
             : ''
         };
       }
-      function Oi(e) {
+      function Pi(e) {
         var t = {},
           n = tr.map(function(e) {
             return e.value;
@@ -73644,7 +73624,7 @@ object-assign
           t
         );
       }
-      function Mi() {
+      function Oi() {
         for (
           var e =
               arguments.length > 0 && void 0 !== arguments[0]
@@ -73669,7 +73649,7 @@ object-assign
           );
         }
       }
-      function Fi(e) {
+      function Mi(e) {
         for (
           var t = arguments.length, n = new Array(t > 1 ? t - 1 : 0), r = 1;
           r < t;
@@ -73681,14 +73661,14 @@ object-assign
             var i = Ci({}, e);
             return (
               n.forEach(function(e) {
-                i = Ci({}, Fi(i, e));
+                i = Ci({}, Mi(i, e));
               }),
               i
             );
           }
           switch (n[0]) {
             case 'axis':
-              return Mi(
+              return Oi(
                 e,
                 'axis_vertical_title_show',
                 'axis_vertical_title_text',
@@ -73720,7 +73700,7 @@ object-assign
                 'axis_horizontal_label_font_italic'
               );
             case 'legend':
-              return Mi(
+              return Oi(
                 e,
                 'legend_show',
                 'legend_color',
@@ -73733,7 +73713,7 @@ object-assign
                 'legend_position_vertical'
               );
             case 'grid':
-              return Mi(
+              return Oi(
                 e,
                 'grid_show',
                 'grid_lines_color',
@@ -73743,7 +73723,7 @@ object-assign
                 'subgrid_lines_count'
               );
             case 'series':
-              return Mi(
+              return Oi(
                 e,
                 'series_label_show',
                 'series_label_textAlign',
@@ -73758,7 +73738,7 @@ object-assign
                 'series_points_size'
               );
             case 'tooltip':
-              return Mi(
+              return Oi(
                 e,
                 'tooltip_color',
                 'tooltip_font_family',
@@ -73769,7 +73749,7 @@ object-assign
                 'tooltip_border'
               );
             case 'table':
-              return Mi(
+              return Oi(
                 e,
                 'table_pagination_show',
                 'table_pagination_limit',
@@ -73791,7 +73771,7 @@ object-assign
                 'table_body_row_hover_background'
               );
             case 'funnel':
-              return Mi(
+              return Oi(
                 e,
                 'funnel_lines',
                 'funnel_results',
@@ -73814,7 +73794,7 @@ object-assign
           }
         }
       }
-      function Li(e, t) {
+      function Fi(e, t) {
         var n,
           r = e.colors || [],
           i = !(!e.title_show || !e.title_text) && e.title_text,
@@ -73826,7 +73806,7 @@ object-assign
           l = e.legend_show
             ? { show: e.legend_show, position: e.legend_layout, alignment: a }
             : { show: e.legend_show },
-          s = Oi(e),
+          s = Pi(e),
           u = e.series_points_show
             ? { show: e.series_points_show, r: e.series_points_size }
             : { show: e.series_points_show },
@@ -73911,7 +73891,7 @@ object-assign
               ')'
             );
       }
-      function zi(e, t) {
+      function Li(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -73938,15 +73918,15 @@ object-assign
       ri.a.registerLanguage('css', oi.a),
         ri.a.registerLanguage('js', li.a),
         (document.createElement('li').className = 'placeholder');
-      var Ri = function(e) {
+      var zi = function(e) {
           var t = e.type,
             n = e.data,
             r =
-              (zi(e, ['type', 'data']),
+              (Li(e, ['type', 'data']),
               'js' === t
-                ? Li(n)
+                ? Fi(n)
                 : (function(e, t) {
-                    var n = Pi(e),
+                    var n = Ai(e),
                       r = t ? '#'.concat(t) : '.keen-theme-builder',
                       i = new RegExp(/(^[ \t]*\n)/, 'gm');
                     return xi(
@@ -74018,7 +73998,6 @@ object-assign
                       n.seriesLabelFontSize,
                       n.seriesLabelFontBold,
                       n.seriesLabelFontItalic,
-                      n.seriesLabelTextAlign,
                       n.seriesLabelColor,
                       r,
                       n.seriesLineThickness,
@@ -74057,7 +74036,6 @@ object-assign
                       n.tableBodyRowHoverBackground,
                       r,
                       n.funnelLabelColor,
-                      n.funnelLabelTextAlign,
                       n.funnelLabelFontFamily,
                       n.funnelLabelFontSize,
                       n.funnelLabelFontBold,
@@ -74095,16 +74073,16 @@ object-assign
             })
           );
         },
-        Ni = Ri;
-      (Ri.defaultProps = { type: 'js', data: {} }),
-        (Ri.propTypes = {
+        Ri = zi;
+      (zi.defaultProps = { type: 'js', data: {} }),
+        (zi.propTypes = {
           type: s.a.oneOf(['js', 'css']).isRequired,
           data: s.a.object.isRequired
         });
-      var ji = n(18),
-        Ii = n.n(ji);
-      function Di() {
-        return (Di =
+      var Ni = n(18),
+        ji = n.n(Ni);
+      function Ii() {
+        return (Ii =
           Object.assign ||
           function(e) {
             for (var t = 1; t < arguments.length; t++) {
@@ -74115,7 +74093,7 @@ object-assign
             return e;
           }).apply(this, arguments);
       }
-      function Bi(e, t) {
+      function Di(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -74139,7 +74117,7 @@ object-assign
         }
         return i;
       }
-      var Vi = function(e) {
+      var Bi = function(e) {
           var t,
             n = e.type,
             r = e.colors,
@@ -74162,7 +74140,7 @@ object-assign
             x = e.stacked,
             w = e.pagination,
             S =
-              (Bi(e, [
+              (Di(e, [
                 'type',
                 'colors',
                 'legend',
@@ -74202,7 +74180,7 @@ object-assign
             ? i.a.createElement(
                 'div',
                 { className: 'builder__default-charts' },
-                i.a.createElement(Ii.a, {
+                i.a.createElement(ji.a, {
                   type: 'bar',
                   title: c,
                   subtitle: f,
@@ -74215,7 +74193,7 @@ object-assign
                   stacked: x,
                   results: Un.bar
                 }),
-                i.a.createElement(Ii.a, {
+                i.a.createElement(ji.a, {
                   type: 'area',
                   title: c,
                   subtitle: f,
@@ -74228,7 +74206,7 @@ object-assign
                   stacked: x,
                   results: Un.area
                 }),
-                i.a.createElement(Ii.a, {
+                i.a.createElement(ji.a, {
                   type: 'funnel-3d',
                   title: c,
                   subtitle: f,
@@ -74240,8 +74218,8 @@ object-assign
                   results: Un['funnel-3d']
                 }),
                 i.a.createElement(
-                  Ii.a,
-                  Di(
+                  ji.a,
+                  Ii(
                     {
                       type: 'donut',
                       title: c,
@@ -74258,8 +74236,8 @@ object-assign
                 )
               )
             : i.a.createElement(
-                Ii.a,
-                Di(
+                ji.a,
+                Ii(
                   {
                     type: n,
                     title: c,
@@ -74286,14 +74264,14 @@ object-assign
                 )
               );
         },
-        Gi = Vi;
-      Vi.propTypes = {
+        Vi = Bi;
+      Bi.propTypes = {
         type: s.a.string.isRequired,
         colors: s.a.array.isRequired
       };
       n(285), n(287), n(289);
-      function Hi(e) {
-        return (Hi =
+      function Gi(e) {
+        return (Gi =
           'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function(e) {
                 return typeof e;
@@ -74307,7 +74285,7 @@ object-assign
                   : typeof e;
               })(e);
       }
-      function Ui(e) {
+      function Hi(e) {
         return (
           (function(e) {
             if (Array.isArray(e)) {
@@ -74330,7 +74308,7 @@ object-assign
           })()
         );
       }
-      function Xi(e, t) {
+      function Ui(e, t) {
         if (null == e) return {};
         var n,
           r,
@@ -74354,7 +74332,7 @@ object-assign
         }
         return i;
       }
-      function Wi(e) {
+      function Xi(e) {
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {},
             r = Object.keys(n);
@@ -74365,12 +74343,12 @@ object-assign
               })
             )),
             r.forEach(function(t) {
-              Yi(e, t, n[t]);
+              Wi(e, t, n[t]);
             });
         }
         return e;
       }
-      function Yi(e, t, n) {
+      function Wi(e, t, n) {
         return (
           t in e
             ? Object.defineProperty(e, t, {
@@ -74383,7 +74361,7 @@ object-assign
           e
         );
       }
-      function qi(e, t) {
+      function Yi(e, t) {
         for (var n = 0; n < t.length; n++) {
           var r = t[n];
           (r.enumerable = r.enumerable || !1),
@@ -74392,8 +74370,8 @@ object-assign
             Object.defineProperty(e, r.key, r);
         }
       }
-      function $i(e, t) {
-        return !t || ('object' !== Hi(t) && 'function' != typeof t)
+      function qi(e, t) {
+        return !t || ('object' !== Gi(t) && 'function' != typeof t)
           ? (function(e) {
               if (void 0 === e)
                 throw new ReferenceError(
@@ -74403,30 +74381,30 @@ object-assign
             })(e)
           : t;
       }
-      function Zi(e) {
-        return (Zi = Object.setPrototypeOf
+      function $i(e) {
+        return ($i = Object.setPrototypeOf
           ? Object.getPrototypeOf
           : function(e) {
               return e.__proto__ || Object.getPrototypeOf(e);
             })(e);
       }
-      function Ki(e, t) {
-        return (Ki =
+      function Zi(e, t) {
+        return (Zi =
           Object.setPrototypeOf ||
           function(e, t) {
             return (e.__proto__ = t), e;
           })(e, t);
       }
-      var Qi = (function(e) {
+      var Ki = (function(e) {
         function t(e) {
           var n;
           !(function(e, t) {
             if (!(e instanceof t))
               throw new TypeError('Cannot call a class as a function');
           })(this, t),
-            ((n = $i(
+            ((n = qi(
               this,
-              Zi(t).call(this, e)
+              $i(t).call(this, e)
             )).handleChartTypeChange = function(e) {
               e.value && n.setState({ chart: e.value, isModified: !0 });
             }),
@@ -74536,11 +74514,11 @@ object-assign
                 case 'area-spline':
                 case 'step':
                 case 'area-step':
-                  return Ci({}, Fi(pr, 'table', 'funnel'));
+                  return Ci({}, Mi(pr, 'table', 'funnel'));
                 case 'table':
                   return Ci(
                     {},
-                    Fi(
+                    Mi(
                       pr,
                       'axis',
                       'legend',
@@ -74553,7 +74531,7 @@ object-assign
                 case 'metric':
                   return Ci(
                     {},
-                    Fi(
+                    Mi(
                       pr,
                       'axis',
                       'legend',
@@ -74567,19 +74545,19 @@ object-assign
                 case 'pie':
                 case 'donut':
                 case 'gauge':
-                  return Ci({}, Fi(pr, 'axis', 'grid', 'table', 'funnel'), {
+                  return Ci({}, Mi(pr, 'axis', 'grid', 'table', 'funnel'), {
                     series_label_show: !0
                   });
                 case 'gauge':
                   return Ci(
                     {},
-                    Fi(pr, 'axis', 'grid', 'legend', 'table', 'funnel')
+                    Mi(pr, 'axis', 'grid', 'legend', 'table', 'funnel')
                   );
                 case 'heatmap':
                 case 'choropleth':
                   return Ci(
                     {},
-                    Fi(
+                    Mi(
                       pr,
                       'axis',
                       'series',
@@ -74595,7 +74573,7 @@ object-assign
                 case 'horizontal-funnel-3d':
                   return Ci(
                     {},
-                    Fi(
+                    Mi(
                       pr,
                       'series',
                       'legend',
@@ -74609,7 +74587,7 @@ object-assign
                   return Ci({}, pr);
               }
             })(void 0 === r ? '' : r);
-          return (n.state = Wi({}, o, e.options, { isModified: !1 })), n;
+          return (n.state = Xi({}, o, e.options, { isModified: !1 })), n;
         }
         var n, r, o;
         return (
@@ -74621,7 +74599,7 @@ object-assign
             (e.prototype = Object.create(t && t.prototype, {
               constructor: { value: e, writable: !0, configurable: !0 }
             })),
-              t && Ki(e, t);
+              t && Zi(e, t);
           })(t, e),
           (n = t),
           (r = [
@@ -74654,16 +74632,16 @@ object-assign
                 var n = this;
                 h()(e, this.props) ||
                   this.setState(function(e) {
-                    return Wi({}, e, n.props.options);
+                    return Xi({}, e, n.props.options);
                   });
                 var r = this.state,
                   i = (r.fonts, r.isModified),
-                  o = Xi(r, ['fonts', 'isModified']),
-                  a = (t.fonts, t.isModified, Xi(t, ['fonts', 'isModified'])),
+                  o = Ui(r, ['fonts', 'isModified']),
+                  a = (t.fonts, t.isModified, Ui(t, ['fonts', 'isModified'])),
                   l = this.props,
                   s = l.isDashboardBuilderActive,
                   u = (l.containerId, l.onChange),
-                  c = s ? { theme: o, options: Li(o, !0) } : o;
+                  c = s ? { theme: o, options: Fi(o, !0) } : o;
                 i && !h()(o, a) && u && this.props.onChange(c);
               }
             },
@@ -74683,7 +74661,7 @@ object-assign
               value: function() {
                 this.setState(function(e) {
                   return {
-                    colors: [].concat(Ui(e.colors), ['#222222']),
+                    colors: [].concat(Hi(e.colors), ['#222222']),
                     isModified: !0
                   };
                 });
@@ -74693,7 +74671,7 @@ object-assign
               key: 'removeItem',
               value: function(e) {
                 this.setState(function(t) {
-                  var n = Ui(t.colors);
+                  var n = Hi(t.colors);
                   return n.splice(e, 1), { colors: n, isModified: !0 };
                 });
               }
@@ -74702,7 +74680,7 @@ object-assign
               key: 'onColorChange',
               value: function(e, t) {
                 this.setState(function(n) {
-                  var r = Ui(n.colors);
+                  var r = Hi(n.colors);
                   return (r[t] = e), { colors: r, isModified: !0 };
                 });
               }
@@ -74736,10 +74714,10 @@ object-assign
               key: 'handleTextStateUpdate',
               value: function(e, t) {
                 this.setState(function(n) {
-                  return Wi(
+                  return Xi(
                     {},
                     n,
-                    Yi({ isModified: !0 }, e, t !== fr ? t : '')
+                    Wi({ isModified: !0 }, e, t !== fr ? t : '')
                   );
                 });
               }
@@ -75082,7 +75060,7 @@ object-assign
                   i.a.Fragment,
                   null,
                   this.renderFontSize('Labels font', 'series_label'),
-                  this.renderFontStyle('Labels format', 'series_label', !0)
+                  this.renderFontStyle('Labels format', 'series_label', !1)
                 );
               }
             },
@@ -76075,7 +76053,7 @@ object-assign
                         this.renderFontStyle(
                           'Label format',
                           'funnel_label',
-                          !0
+                          !1
                         ),
                         i.a.createElement(
                           Yr,
@@ -76197,7 +76175,7 @@ object-assign
             {
               key: 'renderTabChart',
               value: function() {
-                var e = Pi(this.state),
+                var e = Ai(this.state),
                   t =
                     !(!this.state.title_show || !this.state.title_text) &&
                     this.state.title_text,
@@ -76261,13 +76239,13 @@ object-assign
                 return i.a.createElement(
                   i.a.Fragment,
                   null,
-                  i.a.createElement(Gi, {
+                  i.a.createElement(Vi, {
                     type: this.state.chart,
                     colors: this.state.colors,
                     legend: o,
                     title: t,
                     subtitle: n,
-                    axis: Oi(this.state),
+                    axis: Pi(this.state),
                     data: a,
                     point: l,
                     prefix: s,
@@ -76282,7 +76260,7 @@ object-assign
                   i.a.createElement(
                     cn.a,
                     {
-                      id: '525159873',
+                      id: '2022330400',
                       dynamic: [
                         e.chartBackground,
                         e.chartBorder,
@@ -76330,7 +76308,6 @@ object-assign
                         e.seriesLabelFontSize,
                         e.seriesLabelFontBold,
                         e.seriesLabelFontItalic,
-                        e.seriesLabelTextAlign,
                         e.seriesLabelColor,
                         e.seriesLineThickness,
                         e.tooltipFont,
@@ -76360,7 +76337,6 @@ object-assign
                         e.tableBodyRowAltBackground,
                         e.tableBodyRowHoverBackground,
                         e.funnelLabelColor,
-                        e.funnelLabelTextAlign,
                         e.funnelLabelFontFamily,
                         e.funnelLabelFontSize,
                         e.funnelLabelFontBold,
@@ -76429,7 +76405,6 @@ object-assign
                         .concat(e.seriesLabelFontSize, ' ')
                         .concat(e.seriesLabelFontBold, ' ')
                         .concat(e.seriesLabelFontItalic, ' ')
-                        .concat(e.seriesLabelTextAlign, ' ')
                         .concat(e.seriesLabelColor, ';}'),
                       '.keen-theme-builder .keen-dataviz .c3-chart-lines .c3-shape.c3-line{'.concat(
                         e.seriesLineThickness,
@@ -76473,7 +76448,6 @@ object-assign
                       ),
                       '.keen-theme-builder .keen-dataviz-rendering .text-label{display:block;'
                         .concat(e.funnelLabelColor, ' ')
-                        .concat(e.funnelLabelTextAlign, ' ')
                         .concat(e.funnelLabelFontFamily, ' ')
                         .concat(e.funnelLabelFontSize, ' ')
                         .concat(e.funnelLabelFontBold, ' ')
@@ -76509,12 +76483,12 @@ object-assign
                       i.a.createElement(
                         I,
                         null,
-                        i.a.createElement(Ni, { data: this.state, type: 'css' })
+                        i.a.createElement(Ri, { data: this.state, type: 'css' })
                       ),
                       i.a.createElement(
                         I,
                         null,
-                        i.a.createElement(Ni, { data: this.state, type: 'js' })
+                        i.a.createElement(Ri, { data: this.state, type: 'js' })
                       )
                     )
                 );
@@ -76535,13 +76509,13 @@ object-assign
                 );
               }
             }
-          ]) && qi(n.prototype, r),
-          o && qi(n, o),
+          ]) && Yi(n.prototype, r),
+          o && Yi(n, o),
           t
         );
       })(r.PureComponent);
-      function Ji(e) {
-        return (Ji =
+      function Qi(e) {
+        return (Qi =
           'function' == typeof Symbol && 'symbol' == typeof Symbol.iterator
             ? function(e) {
                 return typeof e;
@@ -76555,7 +76529,7 @@ object-assign
                   : typeof e;
               })(e);
       }
-      function eo(e, t) {
+      function Ji(e, t) {
         for (var n = 0; n < t.length; n++) {
           var r = t[n];
           (r.enumerable = r.enumerable || !1),
@@ -76564,8 +76538,8 @@ object-assign
             Object.defineProperty(e, r.key, r);
         }
       }
-      function to(e, t) {
-        return !t || ('object' !== Ji(t) && 'function' != typeof t)
+      function eo(e, t) {
+        return !t || ('object' !== Qi(t) && 'function' != typeof t)
           ? (function(e) {
               if (void 0 === e)
                 throw new ReferenceError(
@@ -76575,31 +76549,31 @@ object-assign
             })(e)
           : t;
       }
-      function no(e) {
-        return (no = Object.setPrototypeOf
+      function to(e) {
+        return (to = Object.setPrototypeOf
           ? Object.getPrototypeOf
           : function(e) {
               return e.__proto__ || Object.getPrototypeOf(e);
             })(e);
       }
-      function ro(e, t) {
-        return (ro =
+      function no(e, t) {
+        return (no =
           Object.setPrototypeOf ||
           function(e, t) {
             return (e.__proto__ = t), e;
           })(e, t);
       }
-      (Qi.propTypes = {
+      (Ki.propTypes = {
         options: s.a.object.isRequired,
         isDashboardBuilderActive: s.a.bool,
         onChange: s.a.func.isRequired
       }),
-        (Qi.defaultProps = {
+        (Ki.defaultProps = {
           options: pr,
           isDashboardBuilderActive: !1,
           onChange: function() {}
         });
-      var io = (function(e) {
+      var ro = (function(e) {
         function t(e) {
           var n;
           return (
@@ -76607,7 +76581,7 @@ object-assign
               if (!(e instanceof t))
                 throw new TypeError('Cannot call a class as a function');
             })(this, t),
-            ((n = to(this, no(t).call(this, e))).onChange = function(e) {
+            ((n = eo(this, to(t).call(this, e))).onChange = function(e) {
               console.log(e);
             }),
             n
@@ -76623,14 +76597,14 @@ object-assign
             (e.prototype = Object.create(t && t.prototype, {
               constructor: { value: e, writable: !0, configurable: !0 }
             })),
-              t && ro(e, t);
+              t && no(e, t);
           })(t, e),
           (n = t),
           (r = [
             {
               key: 'render',
               value: function() {
-                return i.a.createElement(Qi, {
+                return i.a.createElement(Ki, {
                   onChange: this.onChange,
                   options: {
                     chart: 'default',
@@ -76642,13 +76616,13 @@ object-assign
                 });
               }
             }
-          ]) && eo(n.prototype, r),
-          o && eo(n, o),
+          ]) && Ji(n.prototype, r),
+          o && Ji(n, o),
           t
         );
       })(i.a.Component);
       a.a.render(
-        i.a.createElement(io, null),
+        i.a.createElement(ro, null),
         document.getElementById('keen-theme-builder')
       );
     }
